@@ -6,4 +6,8 @@ export default defineNuxtConfig({
   },
   debug: true,  
   css: ['assets/styles/app.scss'],
+  modules: ["@nuxtjs/supabase"],
+  supabase: {
+    redirect: false,
+  }
 })
