@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+@layer theme {
+  @import "./config/colors.css" layer(colors);
+}
+
+@layer components {
+  @import "./layout.css" layer(layout);
+}

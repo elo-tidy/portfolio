@@ -1,11 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from "@tailwindcss/vite";
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: {
     enabled: true
   },
   debug: true,  
-  css: ['assets/styles/app.scss'],
+  css: ['~/assets/styles/app.css'],
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
   modules: [
     "@nuxtjs/supabase",
     "@nuxtjs/color-mode"
@@ -19,9 +26,11 @@ export default defineNuxtConfig({
     hid: 'nuxt-color-mode-script',
     globalName: '__NUXT_COLOR_MODE__',
     componentName: 'ColorScheme',
-    classPrefix: '',
-    classSuffix: '-mode',
+    classPrefix: 'mode-',
+    classSuffix: '',
     storage: 'localStorage', // or 'sessionStorage' or 'cookie'
-    storageKey: 'nuxt-color-mode'
+    storageKey: 'nuxt-color-mode',
+    // dataValue: 'theme'
   }
+  
 })
