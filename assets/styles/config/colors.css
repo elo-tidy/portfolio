@@ -1,40 +1,47 @@
 :root {
-    --primary-init: 89.74% 0.257 133.88;
-    --primary-init-l: 89.74%;
-    --primary-init-c: 0.257;
-    --primary-init-h: 133.88;
+  --primary-init: 89.74% 0.257 133.88;
+  --primary-init-l: 89.74%;
+  --primary-init-c: 0.257;
+  --primary-init-h: 133.88;
 
-    --light-init: 100% 0 0;
-    --light-init-l: 100%;
+  --light-init: 100% 0 0;
+  --light-init-l: 100%;
 
-    --dark-init: 0% 0 0;
-    --dark-init-l: 0%;
+  --dark-init: 0% 0 0;
+  --dark-init-l: 0%;
 
-    --dark_grey: oklch(29.31% 0 0);
-    --light_grey: oklch(86.99% 0 0);
+  --dark-grey: oklch(29.31% 0 0);
+  --light-grey: oklch(86.99% 0 0);
 }
 
-.mode-dark {  
-    --primary: oklch(var(--primary-init));
-    --primary-80: oklch(var(--primary-init) / 0.8);
-    --light: oklch(var(--light-init));
-    --light-80: oklch(var(--light-init) / 0.8);
-    --light-40: oklch(var(--light-init) / 0.4);
-    --dark: oklch(var(--dark-init));
-    --dark-80: oklch(var(--dark-init) / 0.8);
-    --dark-35: oklch(var(--dark-init) / 0.35);        
-    --txt: var(--light);
+.mode-dark {
+  --primary: oklch(var(--primary-init));
+  --primary-80: oklch(var(--primary-init) / 0.8);
+  --light: oklch(var(--light-init));
+  --light-80: oklch(var(--light-init) / 0.8);
+  --light-40: oklch(var(--light-init) / 0.4);
+  --dark: oklch(var(--dark-init));
+  --dark-80: oklch(var(--dark-init) / 0.8);
+  --dark-30: oklch(var(--dark-init) / 0.3);
+  --dark-35: oklch(var(--dark-init) / 0.35);
+  --txt: var(--light);
 }
 
 .mode-light {
-    --primary: oklch(calc(var(--primary-init-l)*0.7649) calc(var(--primary-init-c)/1.32) var(--primary-init-h));
-    --primary-80: oklch(calc(var(--primary-init-l)*0.7649) calc(var(--primary-init-c)/1.32) var(--primary-init-h) / 0.8);
-    --light: oklch(var(--dark-init));
-    --light-80: oklch(var(--dark-init) / 0.8);
-    --light-40: oklch(var(--dark-init) / 0.4);
-    --dark: oklch(var(--light-init));
-    --dark-80: oklch(var(--light-init) / 0.8);
-    --dark-35: oklch(var(--light-init) / 0.35);
-    --txt: var(--dark_grey);
+  --primary: oklch(
+    calc(var(--primary-init-l) * 0.7649) calc(var(--primary-init-c) / 1.32)
+      var(--primary-init-h)
+  );
+  --primary-80: oklch(
+    calc(var(--primary-init-l) * 0.7649) calc(var(--primary-init-c) / 1.32)
+      var(--primary-init-h) / 0.8
+  );
+  --light: oklch(var(--dark-init));
+  --light-80: oklch(var(--dark-init) / 0.8);
+  --light-40: oklch(var(--dark-init) / 0.4);
+  --dark: oklch(var(--light-init));
+  --dark-80: oklch(var(--light-init) / 0.8);
+  --dark-35: oklch(var(--light-init) / 0.35);
+  --dark-30: oklch(var(--light-init) / 0.3);
+  --txt: var(--dark-grey);
 }
-
