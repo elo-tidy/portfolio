@@ -1,18 +1,18 @@
 *:is(h1, h2, h3, h4, h5, h6) {
-	font-family: var(--title);
+    font-family: var(--title);
 }
 h1 {
-	font-size: 5.8em;
-	line-height: initial;
+    font-size: 5.8em;
+    line-height: initial;
 }
-.bloc-title {
-	font-size: 3.2em;
-	line-height: 5rem;
+.title {
+    font-size: 3.2em;
+    line-height: 5rem;
 }
-.bloc-subtitle {
-	font-size: 2em;
-	line-height: initial;
+.subtitle {
+    font-size: 2em;
+    line-height: initial;
 }
 li:not(:first-child) {
-	margin-top: 1rem;
+    margin-top: 1rem;
 }

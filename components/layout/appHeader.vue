@@ -1,7 +1,7 @@
 <template>
-  <header id="header" role="banner">
-    <!-- <mainNav /> -->
-    <!-- <colorMode /> -->
-    <!-- <contactNav /> -->
-  </header>
+    <header id="header" role="banner">
+        <!-- <mainNav /> -->
+        <!-- <colorMode /> -->
+        <!-- <contactNav /> -->
+    </header>
 </template>

@@ -1,26 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-	--*: initial;
-	--alternative: Arial, Verdana;
-	--regular: Open Sans;
-	--italic: Open Sans;
-	--semibold: Open Sans;
-	--bold: Open Sans;
-	--title: Salsa;
-	--text-base: 1.6em;
-	--spacing: 1rem;
+    --*: initial;
+    --alternative: Arial, Verdana;
+    --regular: Open Sans;
+    --italic: Open Sans;
+    --semibold: Open Sans;
+    --bold: Open Sans;
+    --title: Salsa;
+    --text-base: 1.6em;
+    --spacing: 1rem;
 }
 @layer theme {
-	@import "./config/colors.css" layer(colors);
+    @import "./config/colors.css" layer(colors);
 }
 
 @layer base {
-	@import "./config/reset.css";
-	@import "./template.css";
+    @import "./config/reset.css";
+    @import "./template.css";
 }
 @layer utilities {
 }
 @layer components {
-	@import "./layout.css" layer(layout);
+    @import "./layout.css" layer(layout);
 }
