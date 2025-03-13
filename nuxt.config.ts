@@ -11,7 +11,12 @@ export default defineNuxtConfig({
     vite: {
         plugins: [tailwindcss()],
     },
-    modules: ["@nuxtjs/supabase", "@nuxtjs/color-mode", "@nuxtjs/google-fonts"],
+    modules: [
+        "@nuxtjs/supabase",
+        "@nuxtjs/color-mode",
+        "@nuxtjs/google-fonts",
+        "@nuxt/image",
+    ],
     supabase: {
         redirect: false,
     },
@@ -37,5 +42,10 @@ export default defineNuxtConfig({
                 wght: [400],
             },
         },
+    },
+    image: {
+        format: ["webp"],
+        dir: "assets/images",
+        // domains: ["nuxtjs.org"],
     },
 });

@@ -1,0 +1,9 @@
+@utility title-picto {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+@utility title-picto-small {
+    @apply title-picto;
+    font-size: 1em;
+    line-height: 1.2em;
+}

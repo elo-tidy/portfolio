@@ -4,12 +4,13 @@
     --*: initial;
     --alternative: Arial, Verdana;
     --regular: Open Sans;
-    --italic: Open Sans;
-    --semibold: Open Sans;
-    --bold: Open Sans;
     --title: Salsa;
-    --text-base: 1.6em;
+    --text-base: clamp(1.3em, 0.969rem + 0.517vw, 1.6em);
     --spacing: 1rem;
+    --breakpoint-sm: 20rem;
+    --breakpoint-md: 40rem;
+    --breakpoint-lg: 64rem;
+    --breakpoint-xl: 89.375rem;
 }
 @layer theme {
     @import "./config/colors.css" layer(colors);
@@ -19,8 +20,9 @@
     @import "./config/reset.css";
     @import "./template.css";
 }
-@layer utilities {
-}
+
+@import "./config/utilities.css";
+
 @layer components {
     @import "./layout.css" layer(layout);
 }

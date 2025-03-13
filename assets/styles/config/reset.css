@@ -10,10 +10,19 @@ html {
     height: 100%;
     scroll-behavior: smooth;
     font-size: 62.5%;
-
-    background-image: url(../../images/bgi.webp);
-    background-size: cover;
-    background-attachment: fixed;
+    background-image: url(../../images/avatar.webp), url(../../images/bgi.webp);
+    background-size:
+        auto 77vh,
+        cover;
+    background-attachment: scroll, fixed;
+    background-blend-mode: color-burn, normal;
+    background-repeat: no-repeat;
+    background-position:
+        top calc(23vh - 10rem) left
+            calc(
+                calc((100vw - 123rem) / 2) + calc((123rem - 11 * 3rem) / 12 * 5)
+            ),
+        center;
 }
 body {
     background: var(--dark-30);
@@ -22,8 +31,11 @@ body {
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
-    line-height: 2.2rem;
+    line-height: clamp(1.5rem, 0.728rem + 1.207vw, 2.2rem);
     width: 100%;
+}
+#main {
+    overflow-x: hidden;
 }
 p,
 ul li,
@@ -34,6 +46,10 @@ main ol li {
     font-size: var(--text-base);
     line-height: inherit;
 }
+li:not(:first-child) {
+    margin-top: 1rem;
+}
+
 ul li > p,
 ol li > p {
     font-size: 1em;
@@ -79,13 +95,13 @@ iframe {
 
 strong,
 b {
-    font-weight: normal;
-    font-family: var(--bold) !important;
+    font-weight: bold;
+    font-family: var(--regular) !important;
 }
 i,
 em {
     font-style: italic;
-    font-family: var(--italic) !important;
+    font-family: var(--regular) !important;
 }
 strong em,
 strong i,
@@ -97,7 +113,7 @@ em b,
 i b {
     font-style: italic;
     font-weight: normal;
-    font-family: var(--bold) !important;
+    font-family: var(--regular) !important;
 }
 table {
     border-collapse: collapse;
@@ -124,24 +140,27 @@ font {
 }
 
 @media only screen and (min-width: 64em) {
-    :not(html):not(body)::-webkit-scrollbar {
+    :not(html):not(#main)::-webkit-scrollbar {
         background: var(--light-grey);
         border-radius: 1.5rem;
         width: 1.5rem;
     }
-    :not(html):not(body)::-webkit-scrollbar-corner {
+    :not(html):not(#main)::-webkit-scrollbar-corner {
         background: var(--light-grey);
         border-radius: 1.5rem;
     }
-    :not(html):not(body)::-webkit-scrollbar-thumb {
+    :not(html):not(#main)::-webkit-scrollbar-thumb {
         background: oklch(var(--primary-init) / 0.4);
         border: 0.4rem solid var(--light-grey);
         border-radius: 1.5rem;
     }
-    :not(html):not(body)::-webkit-scrollbar-thumb:hover {
+    :not(html):not(#main)::-webkit-scrollbar-thumb:hover {
         background: oklch(var(--primary-init) / 0.2);
     }
-    :not(html):not(body)::-webkit-scrollbar-thumb:active {
+    :not(html):not(#main)::-webkit-scrollbar-thumb:active {
         background: oklch(var(--primary-init));
     }
+}
+.container-bloc {
+    max-width: clamp(28rem, 0.613rem + 85.586vw, 123rem);
 }
