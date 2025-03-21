@@ -16,6 +16,7 @@ export default defineNuxtConfig({
         "@nuxtjs/color-mode",
         "@nuxtjs/google-fonts",
         "@nuxt/image",
+        "@nuxt/test-utils/module",
     ],
     supabase: {
         redirect: false,
