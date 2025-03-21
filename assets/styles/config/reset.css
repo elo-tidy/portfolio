@@ -23,6 +23,16 @@ html {
                 calc((100vw - 123rem) / 2) + calc((123rem - 11 * 3rem) / 12 * 5)
             ),
         center;
+    background-size:
+        auto clamp(40rem, 0.506rem + 86.42vh, 77vh),
+        cover;
+    background-position:
+        top calc(100% - clamp(0rem, -46.139rem + 100.962vh, 10.5rem)) left
+            calc(
+                calc((100vw - 123rem) / 2) +
+                    clamp(25rem, 4.747rem + 31.646vw, 50rem)
+            ),
+        center;
 }
 body {
     background: var(--dark-30);

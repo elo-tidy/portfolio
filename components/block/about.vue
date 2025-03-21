@@ -1,33 +1,33 @@
 <script setup lang="ts">
-import type { Database, Tables } from "~/types/supabase";
+import type { Database } from "~/types/supabase";
+import type { About } from "~/types/homeSections";
 const client = useSupabaseClient<Database>();
 const nuxtApp = useNuxtApp();
 
 const { data, error } = await useAsyncData(
-    "intro",
+    "About",
 
     async () => {
         const cachedData =
             nuxtApp.payload.data["intro"] || nuxtApp.static.data["intro"];
 
         if (cachedData) {
-            console.log("cachedData", cachedData);
-            return cachedData;
+            return cachedData as About;
         }
 
-        const { data, error } = await client.from("intro").select();
+        // const { data, error } = await client.from("intro").select();
+        let { data, error } = await client.rpc("get_intro_data").select();
         // console.log("data", data);
-
         if (error) {
-            console.error("Error fetching intro:", error.message);
+            // console.error("Error fetching intro:", error.message);
             throw error;
         }
 
-        return data[0] as Tables<"intro">;
+        // return data[0] as Tables<"intro">;
+        return data as About;
     },
 );
 </script>
-
 <template>
     <div
         v-if="data"
@@ -44,6 +44,13 @@ const { data, error } = await useAsyncData(
                 />
                 <div class="bloc-content">
                     <p>{{ data.description }}</p>
+                    <genericTags :skills="data.skills" />
+                    <genericCta
+                        v-if="data.cvurl"
+                        :newwindow="true"
+                        :linktext="data.cvtxt"
+                        :linkurl="data.cvurl"
+                    />
                 </div>
             </div>
         </div>
@@ -52,30 +59,30 @@ const { data, error } = await useAsyncData(
             class="relative grid shrink grid-cols-2 md:grid-cols-4"
         >
             <div class="intro-footer-item">
-                <p class="footer-title">{{ data.locationTitle }}</p>
-                <p>{{ data.locationDescription }}</p>
+                <p class="footer-title">{{ data.locationtitle }}</p>
+                <p>{{ data.locationdescription }}</p>
             </div>
-            <div v-if="data.opquastUrl" class="intro-footer-item">
+            <div v-if="data.opquasturl" class="intro-footer-item">
                 <p class="footer-title">
-                    {{ data.opquastTitle }}
+                    {{ data.opquasttitle }}
                 </p>
                 <p>
                     <a
-                        :href="data.opquastUrl"
-                        :title="`${data.opquastDescription} (nouvelle fenêtre)`"
+                        :href="data.opquasturl"
+                        :title="`${data.opquastdescription} (nouvelle fenêtre)`"
                         target="_blank"
                     >
-                        {{ data.opquastDescription }}
+                        {{ data.opquastdescription }}
                     </a>
                 </p>
             </div>
             <div class="intro-footer-item">
-                <p class="footer-title">{{ data.situationTitle }}</p>
-                <p>{{ data.situationDescription }}</p>
+                <p class="footer-title">{{ data.situationtitle }}</p>
+                <p>{{ data.situationdescription }}</p>
             </div>
             <div class="intro-footer-item">
-                <p class="footer-title">{{ data.xpTitle }}</p>
-                <p>{{ data.xpDescription }}</p>
+                <p class="footer-title">{{ data.xptitle }}</p>
+                <p>{{ data.xpdescription }}</p>
             </div>
         </div>
     </div>

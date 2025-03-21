@@ -87,75 +87,57 @@ export type Database = {
           },
         ]
       }
-      instruments: {
-        Row: {
-          id: number
-          name: string
-        }
-        Insert: {
-          id?: never
-          name: string
-        }
-        Update: {
-          id?: never
-          name?: string
-        }
-        Relationships: []
-      }
       intro: {
         Row: {
-          cvTxt: string
-          cvUrl: string | null
+          cvtxt: string
+          cvurl: string | null
           description: string
           id: number
-          imgUrl: string | null
-          locationDescription: string
-          locationTitle: string
-          opquastDescription: string
-          opquastTitle: string
-          opquastUrl: string | null
-          situationDescription: string
-          situationTitle: string
+          locationdescription: string
+          locationtitle: string
+          opquastdescription: string
+          opquasttitle: string
+          opquasturl: string | null
+          situationdescription: string
+          situationtitle: string
           subtitle: string
           title: string
-          xpDescription: string
-          xpTitle: string
+          xpdescription: string
+          xptitle: string
         }
         Insert: {
-          cvTxt: string
-          cvUrl?: string | null
+          cvtxt: string
+          cvurl?: string | null
           description: string
           id?: number
-          imgUrl?: string | null
-          locationDescription: string
-          locationTitle: string
-          opquastDescription: string
-          opquastTitle: string
-          opquastUrl?: string | null
-          situationDescription: string
-          situationTitle: string
+          locationdescription: string
+          locationtitle: string
+          opquastdescription: string
+          opquasttitle: string
+          opquasturl?: string | null
+          situationdescription: string
+          situationtitle: string
           subtitle: string
           title: string
-          xpDescription: string
-          xpTitle: string
+          xpdescription: string
+          xptitle: string
         }
         Update: {
-          cvTxt?: string
-          cvUrl?: string | null
+          cvtxt?: string
+          cvurl?: string | null
           description?: string
           id?: number
-          imgUrl?: string | null
-          locationDescription?: string
-          locationTitle?: string
-          opquastDescription?: string
-          opquastTitle?: string
-          opquastUrl?: string | null
-          situationDescription?: string
-          situationTitle?: string
+          locationdescription?: string
+          locationtitle?: string
+          opquastdescription?: string
+          opquasttitle?: string
+          opquasturl?: string | null
+          situationdescription?: string
+          situationtitle?: string
           subtitle?: string
           title?: string
-          xpDescription?: string
-          xpTitle?: string
+          xpdescription?: string
+          xptitle?: string
         }
         Relationships: []
       }
@@ -289,7 +271,22 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_experiences_data: {
+        Args: Record<PropertyKey, never>
+        Returns: Json
+      }
+      get_intro_data: {
+        Args: Record<PropertyKey, never>
+        Returns: Json
+      }
+      get_skills: {
+        Args: Record<PropertyKey, never>
+        Returns: Json
+      }
+      get_skills_data: {
+        Args: Record<PropertyKey, never>
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never

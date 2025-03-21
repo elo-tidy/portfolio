@@ -1,14 +1,19 @@
 #about {
-    p,
-    li {
+    p {
         margin-bottom: 0;
     }
 
     #intro-content {
         max-width: clamp(25em, 4.747em + 31.646vw, 50em);
-        .bloc-content p {
-            font-size: clamp(1.6em, 1.159em + 0.69vw, 2em);
-            line-height: initial;
+        .bloc-content {
+            p:not(.cust_cta) {
+                font-size: clamp(1.6em, 1.159em + 0.69vw, 2em);
+                line-height: initial;
+            }
+            .tags {
+                margin-top: 2.55rem;
+                margin-bottom: 2.55rem;
+            }
         }
     }
 

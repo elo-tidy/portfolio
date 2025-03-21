@@ -7,3 +7,55 @@
     font-size: 1em;
     line-height: 1.2em;
 }
+@utility tagsli {
+    font-size: 1.3em;
+    line-height: initial;
+    margin: 0.45rem;
+    padding: 0.6rem 1.4rem;
+    color: var(--txt);
+    border: 0.2rem solid var(--primary-80);
+    background-color: var(--dark-80);
+    box-shadow: 0 0 0 0.1rem var(--dark-80);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+@utility cust_cta {
+    margin-top: 2rem;
+    font-size: var(--text-base);
+    @apply title-picto;
+    a {
+        color: var(--txt);
+        background-color: var(--dark-50);
+        border: 0.2rem solid var(--txt);
+        padding: 1.1rem 3rem;
+        display: inline-block;
+        position: relative;
+    }
+    a::before,
+    a::after {
+        width: 1.3rem;
+        height: 0.8rem;
+        border: 0.2rem solid var(--primary);
+        background: var(--dark);
+        position: absolute;
+        content: "";
+    }
+    a::before {
+        left: calc(100% - 1.3rem - 1.3rem);
+        top: -0.4rem;
+    }
+    a::after {
+        left: 1.3rem;
+        bottom: -0.4rem;
+    }
+    a:is(:hover, :focus) {
+        border-color: var(--primary);
+    }
+    a:is(:hover, :focus)::before {
+        left: 1.3rem;
+    }
+    a:is(:hover, :focus)::after {
+        left: calc(100% - 1.3rem - 1.3rem);
+    }
+}

@@ -23,6 +23,7 @@
     --light-40: oklch(var(--light-init) / 0.4);
     --dark: oklch(var(--dark-init));
     --dark-80: oklch(var(--dark-init) / 0.8);
+    --dark-50: oklch(var(--dark-init) / 0.5);
     --dark-30: oklch(var(--dark-init) / 0.3);
     --dark-35: oklch(var(--dark-init) / 0.35);
     --txt: var(--light);
@@ -46,6 +47,7 @@
     --light-40: oklch(var(--dark-init) / 0.4);
     --dark: oklch(var(--light-init));
     --dark-80: oklch(var(--light-init) / 0.8);
+    --dark-50: oklch(var(--light-init) / 0.5);
     --dark-35: oklch(var(--light-init) / 0.35);
     --dark-30: oklch(var(--light-init) / 0.3);
     --txt: var(--dark-grey);
