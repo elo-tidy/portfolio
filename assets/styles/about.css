@@ -5,8 +5,9 @@
 
     #intro-content {
         max-width: clamp(25em, 4.747em + 31.646vw, 50em);
+        padding: 5rem 0;
         .bloc-content {
-            p:not(.cust_cta) {
+            p:not(.cta) {
                 font-size: clamp(1.6em, 1.159em + 0.69vw, 2em);
                 line-height: initial;
             }

@@ -63,8 +63,8 @@ a::after {
 a:hover::after {
     width: 100%;
 }
-.cust_cta {
-    @apply cust_cta;
+.cta {
+    @apply cta;
     color: inherit;
 }
 

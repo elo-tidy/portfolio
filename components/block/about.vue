@@ -4,7 +4,7 @@ import type { About } from "~/types/homeSections";
 const client = useSupabaseClient<Database>();
 const nuxtApp = useNuxtApp();
 
-const { data, error } = await useAsyncData(
+const { data, error } = await useAsyncData<About>(
     "About",
 
     async () => {
@@ -24,7 +24,7 @@ const { data, error } = await useAsyncData(
         }
 
         // return data[0] as Tables<"intro">;
-        return data as About;
+        return data as object as About;
     },
 );
 </script>

@@ -9,7 +9,7 @@ const target = props.newwindow ? "_blank" : null;
 const title = props.newwindow ? `${props.linktext} (Nouvelle fenêtre)` : null;
 </script>
 <template>
-    <p class="cust_cta">
+    <p class="cta">
         <NuxtLink :target="target" :title="title" :href="linkurl">
             {{ linktext }}
         </NuxtLink>

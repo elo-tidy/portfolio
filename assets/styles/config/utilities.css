@@ -20,7 +20,7 @@
     font-weight: 600;
 }
 
-@utility cust_cta {
+@utility cta {
     margin-top: 2rem;
     font-size: var(--text-base);
     @apply title-picto;
