@@ -6,8 +6,6 @@ name: Runs All Unit tests
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
