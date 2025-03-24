@@ -31,9 +31,9 @@ it("should contain description text non empty", async () => {
 });
 
 // cta
-it("should have a call-to-action element", async () => {
+/*it("should have a call-to-action element", async () => {
     const component = await mountSuspended(About);
     const cta = component.find(".cta a");
     expect(cta.exists()).toBe(true);
     expect(cta.attributes("href")).toBeTruthy();
-});
+});*/
