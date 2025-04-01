@@ -6,7 +6,6 @@ export default defineNuxtConfig({
     devtools: {
         enabled: true,
     },
-    // ssr: false,
     debug: true,
     app: {
         head: {
@@ -70,7 +69,7 @@ export default defineNuxtConfig({
     },
     image: {
         // format: ["webp"],
-        dir: "assets/images",
+        // dir: "assets/images",
         // domains: ["nuxtjs.org"],
     },
 });
