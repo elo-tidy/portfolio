@@ -22,12 +22,12 @@
     #hard-skills {
         li {
             font-size: 1em;
-            ul {
-                margin-bottom: 1.5rem;
-            }
+        }
+        ul {
+            margin-bottom: 0;
         }
         .skill-item {
-            margin: 0;
+            margin: 0 0 1.5rem;
             .skill-label {
                 @apply title-picto-small;
                 margin-top: 1rem;

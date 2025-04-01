@@ -79,7 +79,9 @@ const group_wording = (subtype: string) => {
             </div>
             <div id="soft-skills">
                 <genericTitle :title="data.soft_skills.soft_skills_title" />
-                <ul class="skills">
+                <ul
+                    class="skills grid grid-cols-1 md:grid-cols-2 md:gap-x-2 lg:grid-cols-1"
+                >
                     <li v-for="skill in data.soft_skills.soft_skills_list">
                         {{ skill }}
                     </li>
