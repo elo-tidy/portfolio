@@ -8,7 +8,7 @@
         padding: 5rem 0;
         .bloc-content {
             p:not(.cta) {
-                font-size: clamp(1.6em, 1.159em + 0.69vw, 2em);
+                font-size: clamp(1.5em, 0.948em + 0.862vw, 2em);
                 line-height: initial;
             }
             .tags {

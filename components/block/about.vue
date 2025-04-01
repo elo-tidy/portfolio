@@ -5,35 +5,26 @@ const client = useSupabaseClient<Database>();
 const nuxtApp = useNuxtApp();
 
 const { data, error } = await useAsyncData<About>(
-    "About",
+    "Intro",
 
     async () => {
         const cachedData =
-            nuxtApp.payload.data["intro"] || nuxtApp.static.data["intro"];
+            nuxtApp.payload.data["Intro"] || nuxtApp.static.data["Intro"];
 
         if (cachedData) {
             return cachedData as About;
         }
 
-        // const { data, error } = await client.from("intro").select();
-        let { data, error } = await client.rpc("get_intro_data").select();
-        // console.log("data", data);
+        let { data, error } = await client.rpc("get_intro_data");
         if (error) {
-            // console.error("Error fetching intro:", error.message);
             throw error;
         }
-
-        // return data[0] as Tables<"intro">;
         return data as object as About;
     },
 );
 </script>
 <template>
-    <div
-        v-if="data"
-        id="about"
-        class="container-bloc flex h-screen grid-cols-1 flex-col"
-    >
+    <div v-if="data" id="about" class="flex min-h-screen grid-cols-1 flex-col">
         <div id="intro-content" class="bloc grid grow">
             <div class="content-center">
                 <!-- <genericTitle :data="data" /> -->
