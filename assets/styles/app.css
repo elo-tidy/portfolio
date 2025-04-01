@@ -11,6 +11,8 @@
     --breakpoint-md: 40rem;
     --breakpoint-lg: 64rem;
     --breakpoint-xl: 89.375rem;
+    --wrap: 123rem;
+    --container: clamp(28rem, 0.613rem + 85.586vw, var(--wrap));
 }
 @layer theme {
     @import "./config/colors.css" layer(colors);

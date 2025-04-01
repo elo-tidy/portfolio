@@ -8,10 +8,11 @@
     line-height: 1.2em;
 }
 @utility tagsli {
-    font-size: 1.3em;
+    font-size: clamp(1.1em, 0.879em + 0.345vw, 1.3em);
     line-height: initial;
     margin: 0.45rem;
-    padding: 0.6rem 1.4rem;
+    padding: clamp(0.4em, 0.179em + 0.345vw, 0.6em)
+        clamp(0.9em, 0.348em + 0.862vw, 1.4em);
     color: var(--txt);
     border: 0.2rem solid var(--primary-80);
     background-color: var(--dark-80);

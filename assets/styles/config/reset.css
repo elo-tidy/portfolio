@@ -20,7 +20,8 @@ html {
     background-position:
         top calc(23vh - 10rem) left
             calc(
-                calc((100vw - 123rem) / 2) + calc((123rem - 11 * 3rem) / 12 * 5)
+                calc((100vw - var(--wrap)) / 2) +
+                    calc((var(--wrap) - 11 * 3rem) / 12 * 5)
             ),
         center;
     background-size:
@@ -29,7 +30,7 @@ html {
     background-position:
         top calc(100% - clamp(0rem, -46.139rem + 100.962vh, 10.5rem)) left
             calc(
-                calc((100vw - 123rem) / 2) +
+                calc((100vw - var(--wrap)) / 2) +
                     clamp(25rem, 4.747rem + 31.646vw, 50rem)
             ),
         center;
@@ -172,5 +173,5 @@ font {
     }
 }
 .container-bloc {
-    max-width: clamp(28rem, 0.613rem + 85.586vw, 123rem);
+    max-width: var(--container);
 }

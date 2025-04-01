@@ -143,6 +143,7 @@ export type Database = {
       }
       skills: {
         Row: {
+          icon: string | null
           id: number
           isHomeDisplayed: boolean
           isSkillsDisplayed: boolean
@@ -151,6 +152,7 @@ export type Database = {
           type: number
         }
         Insert: {
+          icon?: string | null
           id?: number
           isHomeDisplayed: boolean
           isSkillsDisplayed: boolean
@@ -159,6 +161,7 @@ export type Database = {
           type: number
         }
         Update: {
+          icon?: string | null
           id?: number
           isHomeDisplayed?: boolean
           isSkillsDisplayed?: boolean

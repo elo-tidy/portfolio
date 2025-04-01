@@ -1,0 +1,50 @@
+#skills {
+    position: relative;
+    padding: 4rem 0;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: calc((100vw - var(--container)) / 2 * -1);
+        width: 50vw;
+        background-color: var(--dark-50);
+        height: 100%;
+        z-index: -1;
+    }
+    #skills-content {
+        gap: clamp(8rem, -59.918rem + 66.327vw, 21rem);
+    }
+    .skills {
+        padding: clamp(2em, -1.31em + 5.172vw, 5em) 0;
+        margin-bottom: 0;
+    }
+
+    #hard-skills {
+        li {
+            font-size: 1em;
+            ul {
+                margin-bottom: 1.5rem;
+            }
+        }
+        .skill-item {
+            margin: 0;
+            .skill-label {
+                @apply title-picto-small;
+                margin-top: 1rem;
+                min-height: 2.4rem;
+            }
+            .skill-icon img {
+                height: 4rem;
+            }
+        }
+    }
+    #soft-skills {
+        li {
+            padding-left: clamp(2.5rem, 1.397rem + 1.724vw, 3.5rem);
+            background-image: url(../images/icons/check.svg);
+            background-repeat: no-repeat;
+            background-position: top 0.2rem left;
+            background-size: clamp(1.3rem, 0.748rem + 0.862vw, 1.8rem) auto;
+        }
+    }
+}
