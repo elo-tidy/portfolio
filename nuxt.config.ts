@@ -6,7 +6,30 @@ export default defineNuxtConfig({
     devtools: {
         enabled: true,
     },
+    // ssr: false,
     debug: true,
+    app: {
+        head: {
+            htmlAttrs: {
+                lang: "en",
+            },
+            title: "Eloïse Lombard - Portfolio",
+            meta: [
+                {
+                    name: "viewport",
+                    content: "width=device-width, initial-scale=1",
+                },
+                {
+                    name: "theme-color",
+                    content: "#90ff00",
+                },
+            ],
+            link: [
+                { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+                { rel: "icon", type: "image/png", href: "/favicon.ico" },
+            ],
+        },
+    },
     css: ["~/assets/styles/app.css"],
     vite: {
         plugins: [tailwindcss()],
@@ -17,6 +40,7 @@ export default defineNuxtConfig({
         "@nuxtjs/google-fonts",
         "@nuxt/image",
         "@nuxt/test-utils/module",
+        "@nuxtjs/html-validator",
     ],
     supabase: {
         redirect: false,
@@ -45,7 +69,7 @@ export default defineNuxtConfig({
         },
     },
     image: {
-        format: ["webp"],
+        // format: ["webp"],
         dir: "assets/images",
         // domains: ["nuxtjs.org"],
     },
