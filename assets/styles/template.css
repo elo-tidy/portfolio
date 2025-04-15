@@ -63,19 +63,34 @@ a::after {
 a:hover::after {
     width: 100%;
 }
-.cta {
-    @apply cta;
-    color: inherit;
-}
 
 /************************/
 /****** Components ******/
 /************************/
 .tags {
     margin: -0.45rem 0 0 -0.45rem;
-    li {
-        @apply tagsli;
+
+    &.technique li {
+        color: var(--txt);
+        border: 0.2rem solid var(--primary-80);
+        background-color: var(--dark-80);
+        box-shadow: 0 0 0 0.1rem var(--dark-80);
     }
+    &.personal li {
+        color: var(--dark);
+        border: 0.2rem solid var(--dark-80);
+        background-color: var(--light-40);
+        box-shadow: 0 0 0 0.1rem var(--light-80);
+    }
+    &.other li {
+        color: var(--light);
+        border: 0.2rem solid var(--light-80);
+        background-color: var(--dark-80);
+        box-shadow: 0 0 0 0.1rem var(--dark-80);
+    }
+}
+.tags ~ .tags {
+    margin-top: 1rem;
 }
 .highlight {
     padding: 2rem;

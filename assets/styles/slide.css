@@ -1,0 +1,50 @@
+p {
+    margin-bottom: 0;
+}
+.slide-item {
+    .xp-date {
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0.5rem;
+            left: -14.8rem;
+            width: 2rem;
+            height: 2rem;
+            border: 0.3rem solid var(--primary);
+            border-radius: 50%;
+        }
+        &::after {
+            border-radius: 0 0 5.4rem 0;
+            border-bottom: 0.3rem solid var(--primary);
+            border-right: 0.3rem solid var(--primary);
+            content: "";
+            position: absolute;
+            top: 2.3rem;
+            left: -19rem;
+            width: 5.4rem;
+            height: 5.4rem;
+        }
+    }
+
+    &.git-branch .xp-date {
+        &::after {
+            border-radius: 0 0 0 0;
+            height: calc(100% + 4.3rem);
+            border-bottom: 0;
+        }
+    }
+}
+
+.xp-title,
+.xp-date {
+    @apply title-picto;
+    font-size: var(--text-base);
+    font-family: var(--regular);
+}
+.xp-date {
+    color: var(--primary);
+}
+.xp-desc {
+    margin-top: 1.5rem;
+}

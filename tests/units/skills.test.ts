@@ -20,7 +20,7 @@ it("should have two h2 tags non empty with the classe 'title'", async () => {
 });
 
 // Hard skills
-it("should display hard skills items with svg icons and labels", async () => {
+it("should display hard skills items with svg icons and labels, label should be placed before icon in html", async () => {
     const component = await mountSuspended(Skills);
     const skillItems = component.findAll(".skill-item");
     expect(skillItems.length).toBeGreaterThan(0);
@@ -30,6 +30,9 @@ it("should display hard skills items with svg icons and labels", async () => {
         expect(item.find(".skill-icon img[src$='.svg']").exists()).toBe(true);
         expect(item.find(".skill-label").exists()).toBe(true);
         expect(item.find(".skill-label").text()).not.toHaveLength(0);
+        expect(item.find(".skill-label").element).toBe(
+            item.element.firstElementChild,
+        );
     });
 });
 
@@ -38,4 +41,7 @@ it("should display soft skills items", async () => {
     const component = await mountSuspended(Skills);
     const skillItems = component.findAll("#soft-skills li");
     expect(skillItems.length).toBeGreaterThan(0);
+    skillItems.forEach((item) => {
+        expect(item.text()).not.toHaveLength(0);
+    });
 });

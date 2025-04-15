@@ -40,6 +40,7 @@ export default defineNuxtConfig({
         "@nuxt/image",
         "@nuxt/test-utils/module",
         "@nuxtjs/html-validator",
+        "nuxt-swiper",
     ],
     supabase: {
         redirect: false,

@@ -34,3 +34,14 @@ export type Skills = {
     soft_skills: softskills;
     missing_skills: missingskills;
 };
+// Experiences section
+export type XpSkills = {
+    [key: string]: {
+        type_name: string;
+        skills_list: Tables<"skills">["name"][];
+    };
+};
+export type XpItem = Tables<"experiences"> & {
+    skills: XpSkills;
+};
+export type Xp = XpItem[][];

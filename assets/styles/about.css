@@ -11,7 +11,7 @@
                 font-size: clamp(1.5em, 0.948em + 0.862vw, 2em);
                 line-height: initial;
             }
-            .tags {
+            .tags-container {
                 margin-top: 2.55rem;
                 margin-bottom: 2.55rem;
             }

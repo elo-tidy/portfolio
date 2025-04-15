@@ -35,7 +35,9 @@ const { data, error } = await useAsyncData<About>(
                 />
                 <div class="bloc-content">
                     <p>{{ data.description }}</p>
-                    <genericTags :skills="data.skills" />
+                    <div class="tags-container">
+                        <genericTags :skills="data.skills" />
+                    </div>
                     <genericCta
                         v-if="data.cvurl"
                         :newwindow="true"

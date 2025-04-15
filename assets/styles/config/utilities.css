@@ -7,18 +7,16 @@
     font-size: 1em;
     line-height: 1.2em;
 }
-@utility tagsli {
-    font-size: clamp(1.1em, 0.879em + 0.345vw, 1.3em);
-    line-height: initial;
-    margin: 0.45rem;
-    padding: clamp(0.4em, 0.179em + 0.345vw, 0.6em)
-        clamp(0.9em, 0.348em + 0.862vw, 1.4em);
-    color: var(--txt);
-    border: 0.2rem solid var(--primary-80);
-    background-color: var(--dark-80);
-    box-shadow: 0 0 0 0.1rem var(--dark-80);
-    text-transform: uppercase;
-    font-weight: 600;
+@utility tags {
+    li {
+        font-size: clamp(1.1rem, 0.879em + 0.345vw, 1.3rem);
+        line-height: 1rem;
+        margin: 0.45rem;
+        padding: clamp(0.4rem, 0.179rem + 0.345vw, 0.6rem)
+            clamp(0.9rem, 0.348rem + 0.862vw, 1.4rem);
+        text-transform: uppercase;
+        font-weight: 600;
+    }
 }
 
 @utility cta {
