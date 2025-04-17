@@ -59,30 +59,24 @@ const duration = props.slide.course ? "" : calculateDuration();
         {{ slideDate }}
     </p>
     <div
+        v-if="slide.skills && Object.keys(slide.skills).length > 0"
         class="tags-container sm:col-span-1 md:col-span-8 md:col-start-3 lg:col-span-10"
     >
         <template v-for="(skillType, typeid) in slide.skills">
             <p :id="`${slide.id}-skills-${typeid}`" class="sr-only">
                 {{
-                    skillType.type_name?.toLowerCase() === "personnal"
+                    skillType.type_name?.toLowerCase() === "personal"
                         ? "Softskills :"
                         : skillType.type_name?.toLowerCase() === "other"
                           ? "Outils et ressources :"
                           : "Hardskills :"
                 }}
             </p>
-
-            <genericTags
-                v-if="skillType.type_name != null"
-                v-bind="
-                    Object.keys(slide.skills).length > 0
-                        ? {
-                              'aria-describedby': `${slide.id}-skills-${typeid}`,
-                          }
-                        : {}
-                "
+            <blockExperienceSkills
                 :skills="skillType.skills_list"
-                :customClass="skillType.type_name?.toLowerCase()"
+                :type_name="skillType.type_name"
+                :typeid="Number(typeid)"
+                :id="slide.id"
             />
         </template>
     </div>
