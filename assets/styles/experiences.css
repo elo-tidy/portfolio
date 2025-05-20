@@ -105,39 +105,4 @@
         margin-left: clamp(5rem, -73.367rem + 76.531vw, 20rem);
         margin-top: 3rem;
     }
-    [class^="swiper-btn-"] {
-        border: 0.3rem solid var(--light);
-        width: 3rem;
-        height: 3rem;
-        position: relative;
-        &::before {
-            position: absolute;
-            content: "";
-            width: 1rem;
-            height: 1rem;
-            border-bottom: 0.3rem solid var(--light);
-            border-right: 0.3rem solid var(--light);
-            transform: translate(-50%, -50%) rotate(45deg);
-            top: calc(50% - 0.2rem);
-            left: 50%;
-        }
-    }
-    .swiper-btn-prev {
-        margin-right: 2rem;
-        &::before {
-            transform: translate(-50%, -50%) rotate(225deg);
-            top: calc(50% + 0.3rem);
-        }
-    }
-    .swiper-button-disabled {
-        opacity: 0.5;
-        pointer-events: none;
-    }
-    [class^="swiper-btn-"]:is(:hover, :focus) {
-        border-color: var(--primary);
-        cursor: pointer;
-        &::before {
-            border-color: var(--primary);
-        }
-    }
 }

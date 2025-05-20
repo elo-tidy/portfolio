@@ -1,1 +1,29 @@
-@layer header, footer, navigation;
+/************************/
+/******** Header ********/
+/************************/
+
+/************************/
+/******** Footer ********/
+/************************/
+
+#footer {
+    background-color: var(--dark);
+    p {
+        margin: 0;
+        text-align: right;
+    }
+    .container-bloc {
+        position: relative;
+        padding: clamp(2.5rem, -0.81rem + 5.172vw, 5.5rem) 0;
+    }
+    #back-to-top {
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translateY(-50%);
+        a::before,
+        a::after {
+            background: transparent;
+        }
+    }
+}
