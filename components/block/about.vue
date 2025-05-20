@@ -43,6 +43,8 @@ const { data, error } = await useAsyncData<About>(
                         :newwindow="true"
                         :linktext="data.cvtxt"
                         :linkurl="data.cvurl"
+                        htmlTag="p"
+                        componentClass="cta"
                     />
                 </div>
             </div>

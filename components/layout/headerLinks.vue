@@ -1,0 +1,34 @@
+<script setup lang="ts">
+import type { Cv } from "~/types/homeSections";
+const { data } = useAsyncData<Cv | null>("Intro", () => null as any);
+</script>
+<template>
+    <div v-if="data" id="header-links">
+        <ul>
+            <li class="gm">
+                <NuxtLink
+                    to="mailto:lombard.eloise@gmail.com"
+                    target="_blank"
+                    title="Me contacter par mail (nouvelle fenêtre)"
+                    >Me contacter par mail</NuxtLink
+                >
+            </li>
+            <li class="li">
+                <NuxtLink
+                    to="https://www.linkedin.com/in/eloiselombard"
+                    target="_blank"
+                    title="Mon profil LinkedIn (nouvelle fenêtre)"
+                    >Mon profil LinkedIn</NuxtLink
+                >
+            </li>
+            <genericCta
+                v-if="data.cvurl"
+                :newwindow="true"
+                :linktext="data.cvtxt"
+                :linkurl="data.cvurl"
+                htmlTag="li"
+                componentClass="cv"
+            />
+        </ul>
+    </div>
+</template>

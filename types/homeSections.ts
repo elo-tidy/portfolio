@@ -7,6 +7,12 @@ export interface About extends Intro {
     skills: Topskills[];
 }
 
+// Cv
+export type Cv = {
+    cvtxt: string;
+    cvurl: string | null;
+};
+
 // Skill item type
 export type skillItem = {
     icon: Tables<"skills">["icon"];
