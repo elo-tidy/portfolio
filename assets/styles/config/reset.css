@@ -5,6 +5,14 @@
     font-family: var(--regular), var(--alternative), sans-serif;
     font-weight: normal;
 }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+*:is(:focus-visible, :focus) {
+    outline: none;
+}
 html {
     width: 100%;
     height: 100%;

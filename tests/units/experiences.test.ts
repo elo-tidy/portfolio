@@ -1,6 +1,6 @@
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 import { it, expect } from "vitest";
-import Experiences from "../../components/block/experiences.vue";
+import Experiences from "~/components/block/experiences.vue";
 
 // Component mounting
 it("should mount the component Experiences", async () => {

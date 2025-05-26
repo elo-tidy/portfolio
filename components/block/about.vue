@@ -24,7 +24,11 @@ const { data, error } = await useAsyncData<About>(
 );
 </script>
 <template>
-    <div v-if="data" id="about" class="flex min-h-screen grid-cols-1 flex-col">
+    <div
+        v-if="data"
+        id="about"
+        class="section flex min-h-screen grid-cols-1 flex-col"
+    >
         <div id="intro-content" class="bloc grid grow">
             <div class="content-center">
                 <!-- <genericTitle :data="data" /> -->

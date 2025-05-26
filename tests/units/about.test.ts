@@ -1,6 +1,6 @@
 import { mountSuspended } from "@nuxt/test-utils/runtime";
 import { it, expect } from "vitest";
-import About from "../../components/block/about.vue";
+import About from "~/components/block/about.vue";
 
 // Component mounting
 it("should mount the component About", async () => {

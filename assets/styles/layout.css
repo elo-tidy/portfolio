@@ -11,6 +11,11 @@
     height: calc(100% - clamp(6.5rem, -0.893rem + 11.552vw, 13.2rem));
     left: 0;
     width: 100%;
+    a::before,
+    a::after {
+        background: none;
+        display: none;
+    }
 }
 #header-links {
     position: sticky;
@@ -19,6 +24,90 @@
     bottom: 0;
 }
 /*** Navigation ***/
+#skip-link {
+    position: absolute;
+    top: 0;
+    left: -0.1rem;
+    a {
+        display: block;
+        padding: 0.7rem 1.5rem;
+        background-color: var(--dark-50);
+        border: 0.1rem solid var(--primary);
+        transform: translateX(-100%);
+    }
+    a:focus {
+        transform: translateX(0);
+    }
+    p {
+        margin-bottom: 0;
+    }
+}
+#header-nav {
+    position: sticky;
+    top: calc(50vh + 8.3rem);
+    left: 0;
+    bottom: 0;
+    transform: translateY(calc(-50% - 8.3rem));
+    z-index: 2;
+    display: inline-block;
+    ul {
+        margin: 0;
+    }
+    li {
+        min-height: 2.6rem;
+        margin: 0;
+        font-size: 1em;
+    }
+    li a {
+        @apply title-picto-small;
+
+        display: inline-block;
+        &:before {
+            content: "";
+            display: block;
+            width: 1.8rem;
+            height: 0.1rem;
+            background-color: var(--light);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        span {
+            background-color: var(--dark-80);
+            display: block;
+            padding: 0.5rem;
+            opacity: 0;
+            max-width: clamp(6rem, -9.673rem + 15.306vw, 9rem);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: absolute;
+            top: 0.2rem;
+            /* writing-mode: vertical-lr; */
+            /* text-orientation: upright; */
+        }
+    }
+    li a:is(:hover, :focus, .active) {
+        &:before {
+            width: 3rem;
+            background-color: var(--primary);
+        }
+    }
+    li a:is(.active, :focus) {
+        span {
+            opacity: 0.3;
+        }
+    }
+    li a:hover {
+        span {
+            opacity: 1;
+            white-space: initial;
+            text-overflow: initial;
+            max-width: 9rem;
+        }
+    }
+}
 
 /*** Links ***/
 #header-links {
@@ -48,10 +137,6 @@
         text-indent: -9999rem;
         display: block;
         background-position: center;
-    }
-    li a::before,
-    li a::after {
-        display: none;
     }
     li a:is(:hover, :focus) {
         opacity: 1;

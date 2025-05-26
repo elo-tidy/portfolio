@@ -62,7 +62,7 @@ const swiper = useSwiper(containerRef, {
 onMounted(() => {});
 </script>
 <template>
-    <div v-if="data" id="experiences">
+    <div v-if="data" id="experiences" class="section">
         <div id="xp-content" class="bloc">
             <genericTitle title="Parcours professionnel" />
 

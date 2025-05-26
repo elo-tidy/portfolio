@@ -1,17 +1,14 @@
 <template>
     <header id="header" role="banner">
-        <!-- <mainNav /> -->
         <!-- <colorMode /> -->
-        <div
-            id="test"
-            style="
-                height: 20rem;
-                width: 10rem;
-                /* background: blue; */
-                position: sticky;
-                top: 0;
-            "
-        ></div>
+        <div id="skip-link">
+            <p>
+                <nuxtLink href="#main" title="Passer au contenu principal"
+                    >Passer au contenu principal</nuxtLink
+                >
+            </p>
+        </div>
+        <LayoutHeaderNav />
         <layoutHeaderLinks />
     </header>
 </template>

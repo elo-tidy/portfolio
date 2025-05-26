@@ -30,7 +30,11 @@ const group_wording = (subtype: string) => {
 };
 </script>
 <template>
-    <div v-if="data" id="skills" class="flex min-h-screen grid-cols-1 flex-col">
+    <div
+        v-if="data"
+        id="skills"
+        class="section flex min-h-screen grid-cols-1 flex-col"
+    >
         <div
             id="skills-content"
             class="bloc grid grow grid-cols-1 lg:grid-cols-2"
