@@ -77,6 +77,7 @@ onMounted(() => {});
                             'slide-item grid gap-2 sm:grid-cols-1 md:grid-cols-10 lg:grid-cols-25 lg:gap-3',
                             id % 2 === 0 ? 'even' : 'odd',
                             slide.gitBranch === true ? 'git-branch' : null,
+                            slide.course === true ? 'formation' : null,
                         ]"
                     >
                         <GenericSlideItem :slide="slide" />

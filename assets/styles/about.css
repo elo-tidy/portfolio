@@ -12,8 +12,7 @@
             height: 100%;
             position: absolute;
             background-image:
-                url(/_nuxt/assets/images/avatar.webp),
-                url(/_nuxt/assets/images/bgi.webp);
+                url(../images/avatar.webp), url(../images/bgi.webp);
             background-size:
                 auto 77vh,
                 cover;
