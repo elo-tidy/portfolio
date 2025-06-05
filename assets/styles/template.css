@@ -9,8 +9,8 @@ h1 {
     line-height: initial;
 }
 .bloc-title {
-    padding-bottom: 2.2rem;
-    margin-bottom: 1.8rem;
+    padding-bottom: clamp(1.5rem, 0.333rem + 1.823vw, 2.2rem);
+    margin-bottom: clamp(1rem, -0.333rem + 2.083vw, 1.8rem);
     position: relative;
 }
 .bloc-title::before {
@@ -190,7 +190,7 @@ a:hover::after {
 
     .highlight-title {
         @apply title-picto;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     .highlight-desc {
@@ -199,6 +199,6 @@ a:hover::after {
         background-repeat: no-repeat;
         background-position: left top;
         margin-bottom: 0;
-        background-size: clamp(2.4rem, 0.966rem + 2.241vw, 3.7rem) auto;
+        background-size: clamp(2.2rem, 1.097rem + 1.724vw, 3.2rem) auto;
     }
 }

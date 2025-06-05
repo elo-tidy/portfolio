@@ -1,5 +1,9 @@
 <template>
-    <header id="header" role="banner">
+    <header
+        id="header"
+        role="banner"
+        class="flex flex-row justify-between lg:block lg:justify-normal"
+    >
         <!-- <colorMode /> -->
         <div id="skip-link">
             <p>

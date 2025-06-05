@@ -12,6 +12,8 @@
 
     --dark-grey: oklch(29.31% 0 0);
     --light-grey: oklch(86.99% 0 0);
+
+    --headerHeight: 6rem;
 }
 
 .mode-dark {

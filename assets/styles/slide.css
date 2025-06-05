@@ -3,14 +3,14 @@ p {
 }
 .slide-item {
     .xp-date {
-        position: relative;
+        /* position: relative; */
         &::before {
             content: "";
             position: absolute;
-            top: 0.5rem;
-            left: -14.8rem;
-            width: 2rem;
-            height: 2rem;
+            top: 3.5rem;
+            left: clamp(-14.8rem, 58.649rem + -60.204vw, -3rem);
+            width: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
+            height: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
             border: 0.3rem solid var(--primary);
             border-radius: 50%;
         }
@@ -20,17 +20,17 @@ p {
             border-right: 0.3rem solid var(--primary);
             content: "";
             position: absolute;
-            top: 2.3rem;
-            left: -19rem;
-            width: 5.4rem;
-            height: 5.4rem;
+            top: clamp(5rem, 2.388rem + 2.551vw, 5.5rem);
+            left: clamp(-19rem, 72.5rem + -75vw, -4.3rem);
+            width: clamp(2.2rem, -14.518rem + 16.327vw, 5.4rem);
+            height: clamp(5.2rem, 8.935rem + -3.061vw, 5.8rem);
         }
     }
 
     &.git-branch .xp-date {
         &::after {
             border-radius: 0 0 0 0;
-            height: calc(100% + 4.3rem);
+            height: calc(100% - clamp(1.5rem, -1.112rem + 2.551vw, 2rem));
             border-bottom: 0;
         }
     }

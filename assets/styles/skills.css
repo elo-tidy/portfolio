@@ -34,7 +34,8 @@
                 min-height: 2.4rem;
             }
             .skill-icon img {
-                height: 4rem;
+                height: clamp(3rem, 1.897rem + 1.724vw, 4rem);
+                max-width: 6rem;
             }
         }
     }
@@ -45,6 +46,31 @@
             background-repeat: no-repeat;
             background-position: top 0.2rem left;
             background-size: clamp(1.3rem, 0.748rem + 0.862vw, 1.8rem) auto;
+        }
+    }
+}
+
+/************************/
+/****** Responsive ******/
+/************************/
+
+@media only screen and (0 < width < 64rem) {
+    #skills {
+        &::before {
+            width: 100vw;
+        }
+        #skills-content {
+            gap: 4rem;
+        }
+
+        #soft-skills {
+            li:first-child {
+                margin-top: 1rem;
+            }
+            .skills {
+                margin-top: -2rem;
+                margin-bottom: -3rem;
+            }
         }
     }
 }

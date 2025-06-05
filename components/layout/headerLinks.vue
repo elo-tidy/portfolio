@@ -4,7 +4,7 @@ const { data } = useAsyncData<Cv | null>("Intro", () => null as any);
 </script>
 <template>
     <div v-if="data" id="header-links">
-        <ul>
+        <ul class="flex flex-row lg:block">
             <li class="gm">
                 <NuxtLink
                     to="mailto:lombard.eloise@gmail.com"

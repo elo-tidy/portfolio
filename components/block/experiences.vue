@@ -74,7 +74,7 @@ onMounted(() => {});
                     <div
                         v-for="(slide, id) in slideGr"
                         :class="[
-                            'slide-item grid gap-3 sm:grid-cols-1 md:grid-cols-10 lg:grid-cols-25',
+                            'slide-item grid gap-2 sm:grid-cols-1 md:grid-cols-10 lg:grid-cols-25 lg:gap-3',
                             id % 2 === 0 ? 'even' : 'odd',
                             slide.gitBranch === true ? 'git-branch' : null,
                         ]"

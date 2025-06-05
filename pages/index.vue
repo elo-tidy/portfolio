@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const observerOptions = {
     root: null,
-    rootMargin: "-50% 0px",
+    rootMargin: "-1px 0px -100% 0px",
     threshold: 0,
 };
 
@@ -12,7 +12,6 @@ onMounted(() => {
             const eltToActive = document.querySelector(
                 `#header-nav a[href="#${id}"]`,
             );
-            console.log(entry.intersectionRatio);
             if (entry.isIntersecting) {
                 eltToActive?.classList.add("active");
             } else {
@@ -22,6 +21,31 @@ onMounted(() => {
     }, observerOptions);
     document.querySelectorAll(".section").forEach((section) => {
         observer.observe(section);
+    });
+
+    const unobserveSections = () => {
+        const currentDevice = getBreakpoints();
+
+        if (currentDevice !== "is-lg+") {
+            document.querySelectorAll(".section").forEach((section) => {
+                observer.unobserve(section);
+            });
+
+            const navElt = document.querySelectorAll("#header-nav a");
+            navElt.forEach((element) => {
+                if (element.classList.contains("active")) {
+                    element.classList.remove("active");
+                }
+            });
+        } else {
+            document.querySelectorAll(".section").forEach((section) => {
+                observer.observe(section);
+            });
+        }
+    };
+    unobserveSections();
+    window.addEventListener("resize", () => {
+        unobserveSections();
     });
 });
 </script>

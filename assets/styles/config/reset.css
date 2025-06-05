@@ -18,31 +18,14 @@ html {
     height: 100%;
     scroll-behavior: smooth;
     font-size: 62.5%;
-    background-image: url(../../images/avatar.webp), url(../../images/bgi.webp);
-    background-size:
-        auto 77vh,
-        cover;
-    background-attachment: scroll, fixed;
-    background-blend-mode: color-burn, normal;
+    background-image: url(../../images/bgi.webp);
+    background-attachment: fixed;
+    background-blend-mode: normal;
     background-repeat: no-repeat;
-    background-position:
-        top calc(23vh - 10rem) left
-            calc(
-                calc((100vw - var(--wrap)) / 2) +
-                    calc((var(--wrap) - 11 * 3rem) / 12 * 5)
-            ),
-        center;
-    background-size:
-        auto clamp(40rem, 0.506rem + 86.42vh, 77vh),
-        cover;
-    background-position:
-        top calc(100% - clamp(0rem, -46.139rem + 100.962vh, 10.5rem)) left
-            calc(
-                calc((100vw - var(--wrap)) / 2) +
-                    clamp(25rem, 4.747rem + 31.646vw, 50rem)
-            ),
-        center;
+    background-position: center;
+    background-size: cover;
 }
+
 body {
     background: var(--dark-30);
     color: var(--txt);
@@ -50,8 +33,11 @@ body {
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
-    line-height: clamp(1.5rem, 0.728rem + 1.207vw, 2.2rem);
+    line-height: clamp(2rem, 1.779rem + 0.345vw, 2.2rem);
     width: 100%;
+}
+.reveal-is-open {
+    overflow: hidden;
 }
 #main {
     overflow-x: hidden;
