@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Cv } from "~/types/homeSections";
-const { data } = useAsyncData<Cv | null>("Intro", () => null as any);
+import { useIntroData } from "~/composables/useIntroData";
+const { data } = useIntroData();
 </script>
 <template>
     <div v-if="data" id="header-links">

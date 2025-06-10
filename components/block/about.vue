@@ -1,27 +1,6 @@
 <script setup lang="ts">
-import type { Database } from "~/types/supabase";
-import type { About } from "~/types/homeSections";
-const client = useSupabaseClient<Database>();
-const nuxtApp = useNuxtApp();
-
-const { data, error } = await useAsyncData<About>(
-    "Intro",
-
-    async () => {
-        const cachedData =
-            nuxtApp.payload.data["Intro"] || nuxtApp.static.data["Intro"];
-
-        if (cachedData) {
-            return cachedData as About;
-        }
-
-        let { data, error } = await client.rpc("get_intro_data");
-        if (error) {
-            throw error;
-        }
-        return data as object as About;
-    },
-);
+import { useIntroData } from "~/composables/useIntroData";
+const { data, error } = useIntroData();
 </script>
 <template>
     <div
