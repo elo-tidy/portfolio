@@ -60,7 +60,7 @@ a::after {
     height: 0.2rem;
     transition: all 0.3s ease-in-out;
 }
-a:hover::after {
+a:is(:hover, :focus)::after {
     width: 100%;
 }
 [class^="swiper-btn-"],

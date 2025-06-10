@@ -75,6 +75,7 @@
         }
         span {
             background-color: var(--dark-80);
+            border: 0.1rem solid var(--dark-80);
             display: block;
             padding: 0.5rem;
             opacity: 0;
@@ -102,6 +103,15 @@
     }
     li a:hover {
         span {
+            opacity: 1;
+            white-space: initial;
+            text-overflow: initial;
+            max-width: 9rem;
+        }
+    }
+    li a:focus {
+        span {
+            border: 0.1rem solid var(--primary);
             opacity: 1;
             white-space: initial;
             text-overflow: initial;
@@ -141,6 +151,7 @@
     }
     li a:is(:hover, :focus) {
         opacity: 1;
+        filter: var(--header-link-filter);
     }
     .gm a {
         background-image: url(../images/icons/mail.svg);
@@ -351,16 +362,6 @@
                 opacity: 1;
             }
         }
-        li a:is(:hover, :focus, .active) {
-            &:before {
-            }
-        }
-        li a:is(.active, :focus) {
-            span {
-            }
-        }
-        li a:hover {
-        }
     }
 
     #header-links {
@@ -389,14 +390,6 @@
         li a {
             width: 5rem;
             height: 100% !important;
-        }
-        li a:is(:hover, :focus) {
-        }
-        .gm a {
-        }
-        .li a {
-        }
-        .cv a {
         }
     }
 

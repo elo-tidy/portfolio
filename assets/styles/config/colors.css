@@ -29,6 +29,8 @@
     --dark-30: oklch(var(--dark-init) / 0.3);
     --dark-35: oklch(var(--dark-init) / 0.35);
     --txt: var(--light);
+    --header-link-filter: brightness(0) saturate(100%) invert(79%) sepia(46%)
+        saturate(3023%) hue-rotate(39deg) brightness(119%) contrast(105%);
 }
 
 .mode-light {
@@ -53,4 +55,7 @@
     --dark-35: oklch(var(--light-init) / 0.35);
     --dark-30: oklch(var(--light-init) / 0.3);
     --txt: var(--dark-grey);
+    --header-link-filter: filter: brightness(0) saturate(100%) invert(58%)
+        sepia(56%) saturate(2106%) hue-rotate(49deg) brightness(95%)
+        contrast(94%);
 }

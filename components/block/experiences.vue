@@ -25,8 +25,8 @@ const { data, error } = await useAsyncData<Xp>(
     },
 );
 
-const containerRef = ref(null);
-const slides = ref(Array.from({ length: data.value?.length ?? 0 }));
+const containerRef = ref<null>(null);
+// const slides = ref(Array.from({ length: data.value?.length ?? 0 }));
 
 const swiper = useSwiper(containerRef, {
     a11y: {
@@ -35,9 +35,10 @@ const swiper = useSwiper(containerRef, {
     },
     autoHeight: true,
     keyboard: {
-        enabled: true,
+        enabled: false,
     },
     watchSlidesProgress: true,
+
     navigation: {
         nextEl: ".swiper-btn-next",
         prevEl: ".swiper-btn-prev",
@@ -55,6 +56,7 @@ const swiper = useSwiper(containerRef, {
             opacity: 0,
         },
     },
+    speed: 800,
     // direction: "vertical",
     // injectStyles: [`.swiper-wrapper {flex-direction:column;}`],
 });
@@ -79,6 +81,7 @@ onMounted(() => {});
                             slide.gitBranch === true ? 'git-branch' : null,
                             slide.course === true ? 'formation' : null,
                         ]"
+                        :data-type="slide.course === true ? 'formation' : 'xp'"
                     >
                         <GenericSlideItem :slide="slide" />
                     </div>
