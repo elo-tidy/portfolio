@@ -47,4 +47,5 @@ p {
 }
 .xp-desc {
     margin-top: 1.5rem;
+    white-space: pre-line;
 }
