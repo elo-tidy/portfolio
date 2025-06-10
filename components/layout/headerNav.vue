@@ -17,12 +17,15 @@ const toggleMenu = () => {
     ariaHidden.value = !isOpen.value;
 };
 const removeTransition = () => {
-    const headerNav = document.querySelector("#header-nav");
-    headerNav?.classList.add("no-transition");
-    setTimeout(() => {
-        headerNav?.classList.remove("no-transition");
-        toggleMenu();
-    }, 500);
+    const currentDevice = getBreakpoints();
+    if (currentDevice !== "is-lg+") {
+        const headerNav = document.querySelector("#header-nav");
+        headerNav?.classList.add("no-transition");
+        setTimeout(() => {
+            headerNav?.classList.remove("no-transition");
+            toggleMenu();
+        }, 500);
+    }
 };
 
 onMounted(() => {
