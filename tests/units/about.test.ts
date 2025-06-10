@@ -1,6 +1,28 @@
 import { mountSuspended } from "@nuxt/test-utils/runtime";
-import { it, expect } from "vitest";
+import { it, expect, vi } from "vitest";
 import About from "~/components/block/about.vue";
+
+vi.mock("~/composables/useIntroData", () => ({
+    useIntroData: () => ({
+        data: ref({
+            title: "Titre",
+            subtitle: "Sous-titre",
+            description: "Description de test",
+            skills: ["Skill1", "Skill2"],
+            cvurl: "https://example.com/cv.pdf",
+            cvtxt: "Télécharger le CV",
+            locationtitle: "Localisation",
+            locationdescription: "Paris",
+            opquasturl: "https://opquast.com",
+            opquasttitle: "Opquast",
+            opquastdescription: "Certification Opquast",
+            situationtitle: "Situation",
+            situationdescription: "Disponible",
+            xptitle: "Expérience",
+            xpdescription: "5 ans",
+        }),
+    }),
+}));
 
 // Component mounting
 it("should mount the component About", async () => {
