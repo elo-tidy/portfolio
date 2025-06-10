@@ -17,7 +17,7 @@ const endDate = props.slide.endDate
 const slideDate =
     startDate === endDate || endDate == null
         ? startDate
-        : endDate + " - " + startDate;
+        : startDate + " - " + endDate;
 
 const calculateDuration = () => {
     if (!props.slide.endDate) return "";
