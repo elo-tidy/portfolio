@@ -273,7 +273,7 @@
                 }
             }
 
-            &.open {
+            &[data-state="open"] {
                 .inner {
                     transition-delay: 0s;
                     transition-timing-function: ease-out;
