@@ -75,10 +75,10 @@
         }
         span {
             background-color: var(--dark-80);
-            border: 0.1rem solid var(--dark-80);
+            border: 0.1rem solid transparent;
             display: block;
             padding: 0.5rem;
-            opacity: 0;
+            opacity: 0.3;
             max-width: clamp(6rem, -9.673rem + 15.306vw, 9rem);
             transition: all 0.3s ease;
             white-space: nowrap;
@@ -98,12 +98,12 @@
     }
     li a:is(.active, :focus) {
         span {
-            opacity: 0.3;
+            opacity: 1;
         }
     }
     li a:hover {
         span {
-            opacity: 1;
+            opacity: 0.5;
             white-space: initial;
             text-overflow: initial;
             max-width: 9rem;
