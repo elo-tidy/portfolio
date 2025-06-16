@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const currentYear = new Date().getFullYear();
+const currentYear: number = new Date().getFullYear();
 </script>
 <template>
     <footer id="footer" role="contentinfo">

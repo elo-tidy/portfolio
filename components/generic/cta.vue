@@ -2,17 +2,19 @@
 interface Props {
     linktext: string;
     newwindow?: boolean;
-    linkurl: string | null;
+    linkurl: string | undefined;
     htmlTag: string;
     componentClass: string;
 }
 const props = defineProps<Props>();
-const target = props.newwindow ? "_blank" : null;
-const title = props.newwindow ? `${props.linktext} (Nouvelle fenêtre)` : null;
+const target: string | null = props.newwindow ? "_blank" : null;
+const title: string | null = props.newwindow
+    ? `${props.linktext} (Nouvelle fenêtre)`
+    : null;
 </script>
 <template>
     <component :is="`${htmlTag}`" :class="componentClass">
-        <NuxtLink :target="target" :title="title" :href="linkurl">
+        <NuxtLink :target="target" :title="title" :href="linkurl" external>
             {{ linktext }}
         </NuxtLink>
     </component>

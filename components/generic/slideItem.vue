@@ -4,17 +4,20 @@ interface Props {
     slide: XpItem;
 }
 const props = defineProps<Props>();
-const startDate = new Date(props.slide.startDate).toLocaleDateString("fr-FR", {
-    year: "numeric",
-    month: "long",
-});
-const endDate = props.slide.endDate
+const startDate: string = new Date(props.slide.startDate).toLocaleDateString(
+    "fr-FR",
+    {
+        year: "numeric",
+        month: "long",
+    },
+);
+const endDate: string | null = props.slide.endDate
     ? new Date(props.slide.endDate).toLocaleDateString("fr-FR", {
           year: "numeric",
           month: "long",
       })
     : null;
-const slideDate =
+const slideDate: string =
     startDate === endDate || endDate == null
         ? startDate
         : startDate + " - " + endDate;
@@ -22,10 +25,10 @@ const slideDate =
 const calculateDuration = () => {
     if (!props.slide.endDate) return "";
 
-    const start = new Date(props.slide.startDate);
-    const end = new Date(props.slide.endDate);
+    const start: Date = new Date(props.slide.startDate);
+    const end: Date = new Date(props.slide.endDate);
 
-    const months = Math.ceil(
+    const months: number = Math.ceil(
         (end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 30.44),
     );
 
@@ -34,8 +37,8 @@ const calculateDuration = () => {
     }
 
     if (months >= 12) {
-        const years = Math.floor(months / 12);
-        const remainingMonths = months % 12;
+        const years: number = Math.floor(months / 12);
+        const remainingMonths: number = months % 12;
         return remainingMonths > 0
             ? ` (${years} an${years > 1 ? "s" : ""} ${remainingMonths} mois)`
             : ` (${years} an${years > 1 ? "s" : ""})`;
@@ -43,7 +46,9 @@ const calculateDuration = () => {
 
     return ` (${months} mois)`;
 };
-const duration = props.slide.course ? "" : calculateDuration();
+const duration: string | undefined = props.slide.course
+    ? ""
+    : calculateDuration();
 </script>
 
 <template>

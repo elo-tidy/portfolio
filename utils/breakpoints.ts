@@ -10,7 +10,7 @@ export function getBreakpoints(): string {
     }
 
     // Get current window width in rem
-    const currentWindowWidth = window.innerWidth / 16;
+    const currentWindowWidth: number = window.innerWidth / 16;
     breakpoints["currentWidth"] = currentWindowWidth;
     // Get current device
     switch (true) {
