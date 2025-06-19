@@ -80,9 +80,11 @@
         .intro-footer-item .footer-title {
             @apply title-picto;
             margin-bottom: 1rem;
+            font-family: var(--regular);
+            font-size: var(--text-base);
         }
-        .intro-footer-item p:not(.footer-title) {
-            white-space: pre-line;
+        .intro-footer-item p {
+            display: inline-grid;
         }
     }
 }

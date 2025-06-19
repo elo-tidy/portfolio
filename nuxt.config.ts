@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     app: {
         head: {
             htmlAttrs: {
-                lang: "en",
+                lang: "fr",
             },
             title: "Eloïse Lombard - Portfolio",
             meta: [

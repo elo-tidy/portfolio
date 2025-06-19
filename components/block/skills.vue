@@ -35,12 +35,16 @@ const group_wording = (subtype: string) => {
         id="skills"
         class="section flex min-h-screen grid-cols-1 flex-col"
     >
+        <genericTitle title="Compétences" />
         <div
             id="skills-content"
             class="bloc grid grow grid-cols-1 lg:grid-cols-2"
         >
             <div id="hard-skills">
-                <genericTitle :title="data.hard_skills.hard_skills_title" />
+                <genericTitle
+                    :subtitle="data.hard_skills.hard_skills_title"
+                    :removeBloctitleClass="true"
+                />
                 <ul class="skills">
                     <li
                         v-for="(skill, key) in data.hard_skills
@@ -51,7 +55,7 @@ const group_wording = (subtype: string) => {
                             {{ group_wording(skill.subtype) }}
                         </span>
                         <ul
-                            class="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-5 xl:grid-cols-6"
+                            class="grid grid-cols-3 gap-x-1 md:grid-cols-6 lg:grid-cols-5 xl:grid-cols-6"
                         >
                             <li
                                 v-for="item in skill.skills"
@@ -82,9 +86,12 @@ const group_wording = (subtype: string) => {
                 </div>
             </div>
             <div id="soft-skills">
-                <genericTitle :title="data.soft_skills.soft_skills_title" />
+                <genericTitle
+                    :subtitle="data.soft_skills.soft_skills_title"
+                    :removeBloctitleClass="true"
+                />
                 <ul
-                    class="skills grid grid-cols-1 md:grid-cols-2 md:gap-x-2 lg:grid-cols-1"
+                    class="skills list grid grid-cols-1 md:grid-cols-2 md:gap-x-2 lg:grid-cols-1"
                 >
                     <li v-for="skill in data.soft_skills.soft_skills_list">
                         {{ skill }}

@@ -37,13 +37,13 @@ const { data, error } = useIntroData();
             class="relative grid shrink grid-cols-2 md:grid-cols-4"
         >
             <div class="intro-footer-item">
-                <p class="footer-title">{{ data.locationtitle }}</p>
-                <p>{{ data.locationdescription }}</p>
+                <h3 class="footer-title">{{ data.locationtitle }}</h3>
+                <p v-html="data.locationdescription" />
             </div>
             <div v-if="data.opquasturl" class="intro-footer-item">
-                <p class="footer-title">
+                <h3 class="footer-title">
                     {{ data.opquasttitle }}
-                </p>
+                </h3>
                 <p>
                     <a
                         :href="data.opquasturl"
@@ -55,11 +55,11 @@ const { data, error } = useIntroData();
                 </p>
             </div>
             <div class="intro-footer-item">
-                <p class="footer-title">{{ data.situationtitle }}</p>
-                <p>{{ data.situationdescription }}</p>
+                <h3 class="footer-title">{{ data.situationtitle }}</h3>
+                <p v-html="data.situationdescription" />
             </div>
             <div class="intro-footer-item">
-                <p class="footer-title">{{ data.xptitle }}</p>
+                <h3 class="footer-title">{{ data.xptitle }}</h3>
                 <p>{{ data.xpdescription }}</p>
             </div>
         </div>

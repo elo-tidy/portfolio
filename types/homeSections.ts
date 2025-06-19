@@ -1,10 +1,11 @@
 import type { Tables } from "./supabase";
 
 // Intro section
-export type Intro = Tables<"intro">;
-export type Topskills = Tables<"skills">["name"];
+export type Intro = Tables<"intro">; // This is already the Row of intro
+export type Topskills = Pick<Tables<"skills">, "name">;
+
 export interface About extends Intro {
-    skills: Topskills[];
+    skills: Topskills[]; // array of { name: string }
 }
 
 // Cv

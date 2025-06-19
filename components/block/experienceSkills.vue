@@ -8,21 +8,22 @@ interface Props {
 }
 const props = defineProps<Props>();
 
-const skillsArray: Array<string> = [];
+const skillsArray: Array<{ name: string }> = [];
 const skillsData = props.skills;
 
 if (skillsData) {
     skillsData.forEach((skill) => {
         if (skill.subtype_skills) {
             skill.subtype_skills.forEach((skillItem) => {
-                skillsArray.push(skillItem);
+                skillsArray.push({ name: skillItem });
             });
         }
     });
 }
 </script>
 
-<template v-for="skill in skillsData">
+<!-- <template v-for="skill in skillsData"> -->
+<template>
     <genericTags
         v-if="type_name != null"
         v-bind="

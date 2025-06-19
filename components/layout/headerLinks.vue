@@ -10,7 +10,7 @@ const { data } = useIntroData();
                     to="mailto:lombard.eloise@gmail.com"
                     target="_blank"
                     title="Me contacter par mail (nouvelle fenêtre)"
-                    >Me contacter par mail</NuxtLink
+                    ><span>Me contacter par mail</span></NuxtLink
                 >
             </li>
             <li class="li">
@@ -18,7 +18,7 @@ const { data } = useIntroData();
                     to="https://www.linkedin.com/in/eloiselombard"
                     target="_blank"
                     title="Mon profil LinkedIn (nouvelle fenêtre)"
-                    >Mon profil LinkedIn</NuxtLink
+                    ><span>Mon profil LinkedIn</span></NuxtLink
                 >
             </li>
             <genericCta

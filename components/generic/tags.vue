@@ -1,6 +1,9 @@
 <script lang="ts" setup>
+interface Skill {
+    name: string;
+}
 interface Props {
-    skills: string[] | null;
+    skills: Skill[] | null;
     customClass?: string | null;
 }
 const props = defineProps<Props>();
@@ -12,7 +15,7 @@ const customClass: string | null = props.customClass
 <template>
     <ul v-if="skills" class="tags flex flex-row flex-wrap" :class="customClass">
         <li v-for="skill in skills" class="shrink">
-            {{ skill }}
+            {{ skill.name }}
         </li>
     </ul>
 </template>

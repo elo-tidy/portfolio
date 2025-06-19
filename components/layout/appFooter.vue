@@ -9,13 +9,16 @@ const currentYear: number = new Date().getFullYear();
                     <NuxtLink
                         to="#main"
                         class="top-btn"
-                        title="Retourner à l'accueil"
+                        title="Retourner en haut de page"
                     >
                         <span class="sr-only">Accueil</span>
                     </NuxtLink>
                 </p>
             </div>
-            <p>© Eloïse Lombard {{ currentYear }} - All rights reserved</p>
+            <p>
+                © Eloïse Lombard {{ currentYear }} -
+                <span lang="en">All rights reserved</span>
+            </p>
         </div>
     </footer>
 </template>

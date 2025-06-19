@@ -2,7 +2,6 @@
 const isOpen = ref(false);
 const dataState = ref("closed");
 const dataTitle = ref("Ouvrir le menu principal");
-const headerNavRole = ref();
 const ariaHidden = ref(!isOpen.value);
 
 const toggleMenu = () => {
@@ -42,14 +41,10 @@ onMounted(() => {
 
     const menuAria = (currentDevice: string) => {
         if (currentDevice === "is-lg+") {
-            headerNavRole.value !== null ? (headerNavRole.value = null) : null;
             if (ariaHidden.value !== false) {
                 ariaHidden.value = false;
             }
         } else {
-            headerNavRole.value !== "navigation"
-                ? (headerNavRole.value = "navigation")
-                : null;
             if (ariaHidden.value !== true) {
                 ariaHidden.value = true;
             }
@@ -65,6 +60,7 @@ onMounted(() => {
 });
 </script>
 <template>
+    <ColorMode :isOpen :dataState :ariaHidden :toggleMenu />
     <button
         class="visible lg:invisible"
         id="hamburger"
@@ -74,6 +70,7 @@ onMounted(() => {
         :aria-expanded="isOpen"
         :title="dataTitle"
         @click="toggleMenu"
+        type="button"
     >
         <span class="inner">
             <span class="sr-only">
@@ -84,10 +81,9 @@ onMounted(() => {
     <div
         id="header-nav"
         class="flex flex-wrap content-center justify-center lg:inline-block"
-        :role="headerNavRole"
         :aria-hidden="ariaHidden"
     >
-        <nav role="navigation">
+        <nav role="navigation" aria-label="Menu">
             <ul>
                 <li>
                     <NuxtLink to="#about" @click="removeTransition"

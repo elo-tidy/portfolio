@@ -66,7 +66,7 @@ onMounted(() => {});
 <template>
     <div v-if="data" id="experiences" class="section">
         <div id="xp-content" class="bloc">
-            <genericTitle title="Parcours professionnel" />
+            <genericTitle title="Parcours professionnel et formations" />
 
             <swiper-container id="XpSwiper" ref="containerRef" :init="false">
                 <swiper-slide
