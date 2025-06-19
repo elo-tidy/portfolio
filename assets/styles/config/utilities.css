@@ -4,7 +4,7 @@
 }
 @utility title-picto-small {
     @apply title-picto;
-    font-size: 1em;
+    font-size: clamp(0.9rem, 0.648rem + 0.246vw, 1rem);
     line-height: 1.2em;
 }
 @utility tags {
@@ -24,9 +24,9 @@
     font-size: var(--text-base);
     @apply title-picto;
     a {
-        color: var(--txt);
+        color: var(--hightlight);
         background-color: var(--dark-50);
-        border: 0.2rem solid var(--txt);
+        border: 0.1rem solid var(--hightlight);
         padding: 1.1rem 3rem;
         display: inline-block;
         position: relative;
@@ -35,7 +35,7 @@
     a::after {
         width: 1.3rem;
         height: 0.8rem;
-        border: 0.2rem solid var(--primary);
+        border: 0.1rem solid var(--primary);
         background: var(--dark);
         position: absolute;
         content: "";
@@ -50,6 +50,10 @@
     }
     a:is(:hover, :focus) {
         border-color: var(--primary);
+    }
+    a:is(:hover, :focus)::before,
+    a:is(:hover, :focus)::after {
+        border-color: var(--light);
     }
     a:is(:hover, :focus)::before {
         left: 1.3rem;

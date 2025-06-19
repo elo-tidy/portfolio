@@ -1,21 +1,20 @@
 #skills {
-    position: relative;
-    padding: 4rem 0;
     &::before {
         content: "";
         position: absolute;
         top: 0;
         left: calc((100vw - var(--container)) / 2 * -1);
         width: 50vw;
-        background-color: var(--dark-50);
+        background-color: var(--dark-35);
         height: 100%;
         z-index: -1;
     }
     #skills-content {
-        gap: clamp(8rem, -59.918rem + 66.327vw, 21rem);
+        gap: clamp(5rem, -52.469rem + 56.122vw, 16rem);
     }
     .skills {
-        padding: clamp(2em, -1.31em + 5.172vw, 5em) 0;
+        padding-top: clamp(2em, -1.31em + 5.172vw, 5em);
+        padding-bottom: clamp(2em, -1.31em + 5.172vw, 5em);
         margin-bottom: 0;
     }
 
@@ -32,20 +31,14 @@
                 @apply title-picto-small;
                 margin-top: 1rem;
                 min-height: 2.4rem;
+                max-width: 100%;
+                display: inline-flex;
+                justify-content: center;
             }
             .skill-icon img {
                 height: clamp(3rem, 1.897rem + 1.724vw, 4rem);
                 max-width: 6rem;
             }
-        }
-    }
-    #soft-skills {
-        li {
-            padding-left: clamp(2.5rem, 1.397rem + 1.724vw, 3.5rem);
-            background-image: url(../images/icons/check.svg);
-            background-repeat: no-repeat;
-            background-position: top 0.2rem left;
-            background-size: clamp(1.3rem, 0.748rem + 0.862vw, 1.8rem) auto;
         }
     }
 }
@@ -58,9 +51,19 @@
     #skills {
         &::before {
             width: 100vw;
+            left: calc(
+                (100vw - clamp(28rem, 3rem + 78.125vw, var(--wrap))) / 2 * -1
+            );
         }
         #skills-content {
             gap: 4rem;
+        }
+        #hard-skills {
+            .skill-item {
+                .skill-label {
+                    font-size: 1rem;
+                }
+            }
         }
 
         #soft-skills {

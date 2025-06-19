@@ -45,77 +45,54 @@
 }
 #header-nav {
     position: sticky;
-    top: calc(50vh + 8.3rem);
+    top: calc(50vh + 18rem);
     left: 0;
     bottom: 0;
-    transform: translateY(calc(-50% - 8.3rem));
+    transform: translateY(calc(-50% - 17rem));
     z-index: 2;
     display: inline-block;
+
     ul {
         margin: 0;
     }
     li {
-        min-height: 2.6rem;
         margin: 0;
         font-size: 1em;
     }
     li a {
         @apply title-picto-small;
-
-        display: inline-block;
-        &:before {
+        display: block;
+        &::before {
             content: "";
-            display: block;
-            width: 1.8rem;
-            height: 0.1rem;
-            background-color: var(--light);
+            width: 0.7rem;
+            height: 0.2rem;
             position: absolute;
-            left: 0;
-            top: 0;
+            top: 0.9rem;
+            left: 0px;
+            display: block;
+            background-color: var(--hightlight);
         }
         span {
-            background-color: var(--dark-80);
-            border: 0.1rem solid transparent;
+            padding: 0.5rem 0.5rem 0.5rem 1.7rem;
+            max-width: 10rem;
             display: block;
-            padding: 0.5rem;
-            opacity: 0.3;
-            max-width: clamp(6rem, -9.673rem + 15.306vw, 9rem);
+            transform: translateX(-100%);
             transition: all 0.3s ease;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            position: absolute;
-            top: 0.2rem;
-            /* writing-mode: vertical-lr; */
-            /* text-orientation: upright; */
+            color: var(--hightlight);
         }
     }
-    li a:is(:hover, :focus, .active) {
+    li a:is(:hover, :focus) {
+        span {
+            transform: translateX(0);
+        }
+    }
+
+    li.active {
         &:before {
-            width: 3rem;
-            background-color: var(--primary);
+            width: 1.7rem;
         }
-    }
-    li a:is(.active, :focus) {
         span {
-            opacity: 1;
-        }
-    }
-    li a:hover {
-        span {
-            opacity: 0.5;
-            white-space: initial;
-            text-overflow: initial;
-            max-width: 9rem;
-        }
-    }
-    li a:focus {
-        span {
-            border: 0.1rem solid var(--primary);
-            opacity: 1;
-            white-space: initial;
-            text-overflow: initial;
-            max-width: 9rem;
+            transform: translateX(0);
         }
     }
 }
@@ -130,11 +107,10 @@
         position: absolute;
         bottom: 0;
         left: 50%;
-        width: clamp(0.2rem, 0.09rem + 0.172vw, 0.3rem);
+        width: 0.1rem;
         height: 10.6rem;
-        background-color: var(--light);
+        background-color: var(--hightlight);
         transform: translateX(-50%);
-        opacity: 0.8;
     }
     ul {
         margin-bottom: 0;
@@ -144,14 +120,12 @@
     }
     li a {
         background-repeat: no-repeat;
-        opacity: 0.8;
         text-indent: -9999rem;
         display: block;
         background-position: center;
     }
     li a:is(:hover, :focus) {
-        opacity: 1;
-        filter: var(--header-link-filter);
+        /* filter: var(--header-link-filter); */
     }
     .gm a {
         background-image: url(../images/icons/mail.svg);
@@ -171,12 +145,63 @@
     }
 }
 
+/*** Color mode ***/
+#color-choice {
+    /* position: absolute; */
+    z-index: 2;
+    button[aria-controls="color-panel"] {
+        width: 3rem;
+        height: 3rem;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3C!-- Icon from BoxIcons Solid by Atisa - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='%23ffffff' d='M7.08 11.25A4.84 4.84 0 0 1 8 9.05L4.43 5.49A9.88 9.88 0 0 0 2 11.25zM9.05 8a4.84 4.84 0 0 1 2.2-.91V2a9.88 9.88 0 0 0-5.76 2.43zm3.7-6v5A4.84 4.84 0 0 1 15 8l3.56-3.56A9.88 9.88 0 0 0 12.75 2M8 15a4.84 4.84 0 0 1-.91-2.2H2a9.88 9.88 0 0 0 2.39 5.76zm3.25 1.92a4.84 4.84 0 0 1-2.2-.92l-3.56 3.57A9.88 9.88 0 0 0 11.25 22zM16 9.05a4.84 4.84 0 0 1 .91 2.2h5a9.88 9.88 0 0 0-2.39-5.76zM15 16a4.84 4.84 0 0 1-2.2.91v5a9.88 9.88 0 0 0 5.76-2.39zm1.92-3.25A4.84 4.84 0 0 1 16 15l3.56 3.56A9.88 9.88 0 0 0 22 12.75z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+    #color-panel {
+        button {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            text-indent: -999em;
+            &.vert-1 {
+                background-color: #00a86b;
+            }
+            &.vert-2 {
+                background-color: #3ecf8e;
+            }
+        }
+        li {
+            margin-top: 0;
+        }
+    }
+}
+
+#color-mode-toggle {
+    width: 2rem;
+    height: 2rem;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    /* position: absolute; */
+    left: calc(100% - 5vw);
+    top: 1rem;
+    &[data-mode-color="light"] {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3C!-- Icon from Material Line Icons by Vjacheslav Trushkin - https://github.com/cyberalien/line-md/blob/master/license.txt --%3E%3Cpath fill='none' stroke='%23ffffff' stroke-dasharray='64' stroke-dashoffset='64' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 3c-4.97 0 -9 4.03 -9 9c0 4.97 4.03 9 9 9c3.53 0 6.59 -2.04 8.06 -5c0 0 -6.06 1.5 -9.06 -3c-3 -4.5 1 -10 1 -10Z'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.6s' values='64;0'/%3E%3C/path%3E%3C/svg%3E");
+    }
+    &[data-mode-color="dark"] {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3C!-- Icon from Material Line Icons by Vjacheslav Trushkin - https://github.com/cyberalien/line-md/blob/master/license.txt --%3E%3Cg fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cpath stroke-dasharray='36' stroke-dashoffset='36' d='M12 7c2.76 0 5 2.24 5 5c0 2.76 -2.24 5 -5 5c-2.76 0 -5 -2.24 -5 -5c0 -2.76 2.24 -5 5 -5'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.4s' values='36;0'/%3E%3C/path%3E%3Cpath stroke-dasharray='2' stroke-dashoffset='2' d='M12 19v1M19 12h1M12 5v-1M5 12h-1'%3E%3Canimate fill='freeze' attributeName='d' begin='0.5s' dur='0.2s' values='M12 19v1M19 12h1M12 5v-1M5 12h-1;M12 21v1M21 12h1M12 3v-1M3 12h-1'/%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' begin='0.5s' dur='0.2s' values='2;0'/%3E%3C/path%3E%3Cpath stroke-dasharray='2' stroke-dashoffset='2' d='M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5'%3E%3Canimate fill='freeze' attributeName='d' begin='0.7s' dur='0.2s' values='M17 17l0.5 0.5M17 7l0.5 -0.5M7 7l-0.5 -0.5M7 17l-0.5 0.5;M18.5 18.5l0.5 0.5M18.5 5.5l0.5 -0.5M5.5 5.5l-0.5 -0.5M5.5 18.5l-0.5 0.5'/%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' begin='0.7s' dur='0.2s' values='2;0'/%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+    }
+}
+
 /************************/
 /******** Footer ********/
 /************************/
 
 #footer {
     background-color: var(--dark);
+    z-index: 2;
+    position: relative;
     p {
         margin: 0;
         text-align: right;
@@ -373,7 +398,7 @@
         bottom: inherit;
         &::before {
             height: clamp(0.2rem, 0.09rem + 0.172vw, 0.3rem);
-            width: 10rem;
+            width: clamp(5rem, 2.727rem + 11.364vw, 10rem);
             left: 0;
             bottom: inherit;
             top: 50%;
@@ -393,7 +418,7 @@
         li a {
             height: 100% !important;
             width: 3.5rem;
-            background-size: auto 3rem !important;
+            background-size: auto 2.5rem !important;
         }
     }
 

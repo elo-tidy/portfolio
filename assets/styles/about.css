@@ -5,12 +5,17 @@
 
     #intro-content {
         position: relative;
-        &::before {
+        &::before,
+        &::after {
             content: "";
-            display: block;
+            position: absolute;
             width: 100vw;
             height: 100%;
-            position: absolute;
+            display: block;
+            left: calc(clamp(28rem, 3rem + 78.125vw, var(--wrap)) / 2);
+            transform: translateX(-50%);
+        }
+        &::before {
             background-image:
                 url(../images/avatar.webp), url(../images/bgi.webp);
             background-size:
@@ -27,8 +32,13 @@
                 center;
             z-index: -1;
             bottom: 0;
-            left: calc(clamp(28rem, 0.613rem + 85.586vw, var(--wrap)) / 2);
-            transform: translateX(-50%);
+        }
+        &::after {
+            background-color: var(--bgimg-filter);
+            display: block;
+            z-index: -1;
+            top: 0;
+            backdrop-filter: brightness(1.2) contrast(1.2);
         }
         .content-center {
             max-width: clamp(35rem, 18.448rem + 25.862vw, 50rem);
@@ -75,6 +85,9 @@
             white-space: pre-line;
         }
     }
+}
+
+html.mode-light #about #intro-content::before {
 }
 
 /************************/

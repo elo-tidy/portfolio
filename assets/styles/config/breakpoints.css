@@ -1,0 +1,6 @@
+:root {
+    --brkpt-sm: var(--breakpoint-sm: 20rem);
+    --brkpt-md: var(--breakpoint-md: 40rem);
+    --brkpt-lg: var(--breakpoint-lg: 64rem);
+    --brkpt-xl: var(--breakpoint-xl: 89.375rem);
+}

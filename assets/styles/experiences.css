@@ -1,13 +1,12 @@
 #experiences {
-    padding: 4rem 0;
-
     #XpSwiper {
+        position: relative;
         &::before {
             content: "";
             position: absolute;
             top: 3.5rem;
-            left: 1rem;
-            width: 0.3rem;
+            left: clamp(0.7rem, -0.345rem + 1.02vw, 0.9rem);
+            width: 0.2rem;
             height: calc(100% - 3.5rem);
             background-color: var(--light);
         }
@@ -26,7 +25,7 @@
             content: "";
             position: absolute;
             top: 9.8rem;
-            left: clamp(-19rem, 75.612rem + -77.551vw, -3.8rem);
+            left: clamp(-19rem, 75.612rem + -77.551vw, -4.2rem);
             width: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
             height: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
             background-color: var(--light);
@@ -35,14 +34,14 @@
         }
         &::after {
             border-radius: 0 5.4rem 0 0;
-            border-top: 0.3rem solid var(--primary);
-            border-right: 0.3rem solid var(--primary);
+            border-top: 0.2rem solid var(--primary);
+            border-right: 0.2rem solid var(--primary);
             content: "";
             position: absolute;
-            top: clamp(10.2rem, 7.065rem + 3.061vw, 10.8rem);
+            top: clamp(10.4rem, 7.788rem + 2.551vw, 10.9rem);
             left: clamp(-19rem, 72.5rem + -75vw, -4.3rem);
             width: clamp(2.2rem, -14.518rem + 16.327vw, 5.4rem);
-            height: calc(100% - clamp(6.5rem, 2.843rem + 3.571vw, 7.2rem));
+            height: calc(100% - clamp(6.8rem, 4.188rem + 2.551vw, 7.3rem));
             z-index: -1;
         }
     }
@@ -84,7 +83,7 @@
             left top;
         background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
         background-size:
-            100% 0.2rem,
+            100% 0.1rem,
             0,
             0,
             0;

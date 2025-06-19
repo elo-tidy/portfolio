@@ -12,7 +12,7 @@
     --breakpoint-lg: 64rem;
     --breakpoint-xl: 89.375rem;
     --wrap: 123rem;
-    --container: clamp(28rem, 0.613rem + 85.586vw, var(--wrap));
+    --container: clamp(83rem, -17.887rem + 98.522vw, var(--wrap));
 }
 @layer theme {
     @import "./config/colors.css" layer(colors);
@@ -21,10 +21,10 @@
 @layer base {
     @import "./config/reset.css";
     @import "./template.css";
+    @import "./config/breakpoints.css" layer(breakpoints);
 }
 
 @import "./config/utilities.css";
-
 @layer components {
     @import "./layout.css" layer(layout);
 }

@@ -8,22 +8,22 @@ p {
             content: "";
             position: absolute;
             top: 3.5rem;
-            left: clamp(-14.8rem, 58.649rem + -60.204vw, -3rem);
+            left: clamp(-14.7rem, 58.749rem + -60.204vw, -2.9rem);
             width: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
             height: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
-            border: 0.3rem solid var(--primary);
+            border: 0.2rem solid var(--primary);
             border-radius: 50%;
         }
         &::after {
             border-radius: 0 0 5.4rem 0;
-            border-bottom: 0.3rem solid var(--primary);
-            border-right: 0.3rem solid var(--primary);
+            border-bottom: 0.2rem solid var(--primary);
+            border-right: 0.2rem solid var(--primary);
             content: "";
             position: absolute;
             top: clamp(5rem, 2.388rem + 2.551vw, 5.5rem);
             left: clamp(-19rem, 72.5rem + -75vw, -4.3rem);
             width: clamp(2.2rem, -14.518rem + 16.327vw, 5.4rem);
-            height: clamp(5.2rem, 8.935rem + -3.061vw, 5.8rem);
+            height: clamp(5.3rem, 7.79rem + -2.041vw, 5.7rem);
         }
     }
 
