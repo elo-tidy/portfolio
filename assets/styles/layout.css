@@ -11,6 +11,7 @@
     height: calc(100% - clamp(6.5rem, -0.893rem + 11.552vw, 13.2rem));
     left: 0;
     width: 100%;
+    /* border-left: 0.1rem solid var(--light); */
     a::before,
     a::after {
         background: none;
@@ -18,9 +19,9 @@
     }
 }
 #header-links {
+    --headerLinksHeight: 21.7rem;
     position: sticky;
-    top: calc(100% - clamp(17.3rem, 16.417rem + 1.379vw, 18.1rem));
-    /* left: calc(100% - clamp(3.5rem, -3.672rem + 11.207vw, 10rem)); */
+    top: calc(100% - var(--headerLinksHeight));
     left: calc(100% - 5vw);
     bottom: 0;
 }
@@ -44,13 +45,15 @@
     }
 }
 #header-nav {
+    --headerNavHeight: 8.7rem;
     position: sticky;
-    top: calc(50vh + 18rem);
     left: 0;
     bottom: 0;
-    transform: translateY(calc(-50% - 17rem));
     z-index: 2;
     display: inline-block;
+
+    top: calc(100vh - var(--headerNavHeight));
+    transform: translateY(calc(-50vh + var(--headerNavHeight) / 2));
 
     ul {
         margin: 0;
@@ -62,6 +65,7 @@
     li a {
         @apply title-picto-small;
         display: block;
+        padding-left: 1.2rem;
         &::before {
             content: "";
             width: 0.7rem;
@@ -73,12 +77,13 @@
             background-color: var(--hightlight);
         }
         span {
-            padding: 0.5rem 0.5rem 0.5rem 1.7rem;
-            max-width: 10rem;
-            display: block;
-            transform: translateX(-100%);
+            padding: 0.5rem 0.5rem 0.5rem 0;
+            max-width: 8rem;
+            display: inline-block;
+            transform: translateX(-130%);
             transition: all 0.3s ease;
             color: var(--hightlight);
+            border-bottom: 0.1rem solid transparent;
         }
     }
     li a:is(:hover, :focus) {
@@ -87,12 +92,16 @@
         }
     }
 
-    li.active {
-        &:before {
+    li.active a {
+        padding-left: 2.2rem;
+        &::before {
             width: 1.7rem;
         }
         span {
             transform: translateX(0);
+        }
+        &:is(:focus) span {
+            border-color: var(--hightlight);
         }
     }
 }
@@ -116,7 +125,7 @@
         margin-bottom: 0;
     }
     li:not(:first-child) {
-        margin-top: 1.5rem;
+        margin-top: 1rem;
     }
     li {
         font-size: 1rem;
@@ -125,16 +134,16 @@
             display: block;
             background-position: center;
             position: relative;
-        }
-        span {
-            position: absolute;
-            top: 50%;
-            right: 0;
-            white-space: nowrap;
-            transition: 0.3s all ease;
-            transform-origin: right;
-            opacity: 0;
-            transform: translateY(-50%);
+            span {
+                opacity: 0;
+                position: absolute;
+                left: -1rem;
+                top: 0;
+                transform: translateX(calc(-100% + 2rem));
+                transform-origin: right;
+                white-space: nowrap;
+                transition: 0.3s all ease;
+            }
         }
         a:is(:hover) {
             /* filter: var(--header-link-filter); */
@@ -142,71 +151,133 @@
         }
         a:is(:focus) {
             span {
-                transform: translateY(-50%) translateX(-4rem);
                 opacity: 1;
+                transform: translateX(-100%);
             }
         }
     }
 
     .gm a {
         background-image: url(../images/icons/mail.svg);
-        background-size: 2.7rem auto;
+        background-size: 2.2rem auto;
         height: 2.1rem;
     }
     .li a {
         background-image: url(../images/icons/linkedin.svg);
 
-        background-size: auto 2.5rem;
+        background-size: auto 2rem;
         height: 2.5rem;
     }
     .cv a {
         background-image: url(../images/icons/download-cv.svg);
-        background-size: auto 3.1rem;
+        background-size: auto 2.7rem;
         height: 3.1rem;
     }
 }
 
 /*** Color mode ***/
-#color-choice {
-    /* position: absolute; */
+#color-tools {
+    position: absolute;
+    top: 1rem;
+    left: calc(100% - 5vw);
+    transform: translateX(-4rem);
     z-index: 2;
-    button[aria-controls="color-panel"] {
+    .button {
         width: 3rem;
         height: 3rem;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3C!-- Icon from BoxIcons Solid by Atisa - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='%23ffffff' d='M7.08 11.25A4.84 4.84 0 0 1 8 9.05L4.43 5.49A9.88 9.88 0 0 0 2 11.25zM9.05 8a4.84 4.84 0 0 1 2.2-.91V2a9.88 9.88 0 0 0-5.76 2.43zm3.7-6v5A4.84 4.84 0 0 1 15 8l3.56-3.56A9.88 9.88 0 0 0 12.75 2M8 15a4.84 4.84 0 0 1-.91-2.2H2a9.88 9.88 0 0 0 2.39 5.76zm3.25 1.92a4.84 4.84 0 0 1-2.2-.92l-3.56 3.57A9.88 9.88 0 0 0 11.25 22zM16 9.05a4.84 4.84 0 0 1 .91 2.2h5a9.88 9.88 0 0 0-2.39-5.76zM15 16a4.84 4.84 0 0 1-2.2.91v5a9.88 9.88 0 0 0 5.76-2.39zm1.92-3.25A4.84 4.84 0 0 1 16 15l3.56 3.56A9.88 9.88 0 0 0 22 12.75z'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-position: center;
-        background-size: contain;
+        background-size: auto 2.5rem;
+        cursor: pointer;
+        position: relative;
+        span {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transition: 0.3s all ease;
+            transform-origin: top;
+            opacity: 0;
+            transform: translate(-50%, -100%);
+            width: 9rem;
+            line-height: 1.4;
+            padding-top: 0.5rem;
+            visibility: hidden;
+        }
+        &:is(:focus-visible) span {
+            transform: translate(-50%, 0);
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+.mode-light {
+    #color-tools .button,
+    #header-links li a {
+        filter: invert(0.95);
+    }
+}
+#color-choice {
+    position: relative;
+    z-index: 2;
+    button[aria-controls="color-panel"] {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3C!-- Icon from BoxIcons Solid by Atisa - https://creativecommons.org/licenses/by/4.0/ --%3E%3Cpath fill='%23ffffff' d='M7.08 11.25A4.84 4.84 0 0 1 8 9.05L4.43 5.49A9.88 9.88 0 0 0 2 11.25zM9.05 8a4.84 4.84 0 0 1 2.2-.91V2a9.88 9.88 0 0 0-5.76 2.43zm3.7-6v5A4.84 4.84 0 0 1 15 8l3.56-3.56A9.88 9.88 0 0 0 12.75 2M8 15a4.84 4.84 0 0 1-.91-2.2H2a9.88 9.88 0 0 0 2.39 5.76zm3.25 1.92a4.84 4.84 0 0 1-2.2-.92l-3.56 3.57A9.88 9.88 0 0 0 11.25 22zM16 9.05a4.84 4.84 0 0 1 .91 2.2h5a9.88 9.88 0 0 0-2.39-5.76zM15 16a4.84 4.84 0 0 1-2.2.91v5a9.88 9.88 0 0 0 5.76-2.39zm1.92-3.25A4.84 4.84 0 0 1 16 15l3.56 3.56A9.88 9.88 0 0 0 22 12.75z'/%3E%3C/svg%3E");
     }
     #color-panel {
+        position: absolute;
+        right: 3rem;
+        transition: all 0.3s ease;
+
+        ul {
+            margin: 0;
+        }
+        &[aria-hidden="true"] {
+            opacity: 0;
+            transform: translateX(1rem);
+        }
+        &[aria-hidden="false"] {
+            opacity: 1;
+            transform: translateX(0);
+            button {
+                z-index: inherit;
+            }
+        }
         button {
+            text-indent: -999em;
+            background-color: var(--primary);
             width: 3rem;
             height: 3rem;
-            border-radius: 50%;
-            text-indent: -999em;
-            &.vert-1 {
-                background-color: #00a86b;
+            cursor: pointer;
+            z-index: -1;
+            position: relative;
+
+            /* &.vert-2 {
+                background-color: #00eeb1;
+            } */
+            &.vert-init {
+                background-color: #70de00;
+                &:is(:hover, :focus) {
+                    box-shadow:
+                        0 0 0 0.1rem #70de00,
+                        inset 0 0 0 0.2rem var(--dark);
+                }
             }
-            &.vert-2 {
-                background-color: #3ecf8e;
+            &.jaune {
+                background-color: #c5c900;
+                &:is(:hover, :focus) {
+                    box-shadow:
+                        0 0 0 0.1rem #c5c900,
+                        inset 0 0 0 0.2rem var(--dark);
+                }
             }
         }
         li {
             margin-top: 0;
+            line-height: 0;
         }
     }
 }
 
 #color-mode-toggle {
-    width: 2rem;
-    height: 2rem;
-
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    /* position: absolute; */
-    left: calc(100% - 5vw);
-    top: 1rem;
     &[data-mode-color="light"] {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3C!-- Icon from Material Line Icons by Vjacheslav Trushkin - https://github.com/cyberalien/line-md/blob/master/license.txt --%3E%3Cpath fill='none' stroke='%23ffffff' stroke-dasharray='64' stroke-dashoffset='64' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 3c-4.97 0 -9 4.03 -9 9c0 4.97 4.03 9 9 9c3.53 0 6.59 -2.04 8.06 -5c0 0 -6.06 1.5 -9.06 -3c-3 -4.5 1 -10 1 -10Z'%3E%3Canimate fill='freeze' attributeName='stroke-dashoffset' dur='0.6s' values='64;0'/%3E%3C/path%3E%3C/svg%3E");
     }

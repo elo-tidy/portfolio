@@ -60,7 +60,7 @@ onMounted(() => {
 });
 </script>
 <template>
-    <ColorMode :isOpen :dataState :ariaHidden :toggleMenu />
+    <LayoutColorMode />
     <button
         class="visible lg:invisible"
         id="hamburger"

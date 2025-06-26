@@ -231,3 +231,137 @@ a:is(:hover, :focus)::after {
         background-size: clamp(2.2rem, 1.097rem + 1.724vw, 3.2rem) auto;
     }
 }
+
+@keyframes move-dash {
+    100% {
+        background-position:
+            24rem 0,
+            100% 24rem,
+            -24rem 100%,
+            0 -24rem;
+    }
+}
+/*
+@keyframes title-highlight {
+    from {
+        width: 0;
+    }
+    to {
+        width: clamp(5em, 3.559rem + 4.505vw, 10em);
+    }
+}
+@keyframes subtitle-highlight {
+    from {
+        width: 0;
+    }
+    to {
+        width: 3rem;
+    }
+}*/
+@keyframes move-dash-a {
+    to {
+        background-position: 8rem;
+    }
+}
+@-webkit-keyframes move-dash-a {
+    to {
+        background-position: 8rem;
+    }
+}
+@-moz-keyframes move-dash-a {
+    to {
+        background-position: 8rem;
+    }
+}
+@-o-keyframes move-dash-a {
+    to {
+        background-position: 8rem;
+    }
+}
+
+@keyframes glow-btn {
+    from {
+        --glow: transparent;
+    }
+    to {
+        --glow: var(--primary-50);
+    }
+}
+@-webkit-keyframes glow-btn {
+    from {
+        --glow: transparent;
+    }
+    to {
+        --glow: var(--primary-50);
+    }
+}
+@-moz-keyframes glow-btn {
+    from {
+        --glow: transparent;
+    }
+    to {
+        --glow: var(--primary-50);
+    }
+}
+@-o-keyframes glow-btn {
+    from {
+        --glow: transparent;
+    }
+    to {
+        --glow: var(--primary-50);
+    }
+}
+@property --glow {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: transparent;
+}
+
+@supports (animation-range: 0vh 100vh) {
+    .section {
+        view-timeline-name: --section-scroll;
+        view-timeline-axis: block;
+    }
+    a::before {
+        -webkit-animation: move-dash-a linear both;
+        -moz-animation: move-dash-a linear both;
+        -o-animation: move-dash-a linear both;
+        animation: move-dash-a linear both;
+
+        animation-timeline: scroll();
+        animation-range: entry 0% exit 100%;
+    }
+    .highlight {
+        -webkit-animation: move-dash linear both;
+        -moz-animation: move-dash linear both;
+        -o-animation: move-dash linear both;
+        animation: move-dash linear both;
+
+        animation-timeline: scroll();
+        animation-range: cover 0% exit 100%;
+    }
+    /*.bloc-title:not(.subtitle)::before,
+    .subtitle::before {
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-timeline: view();
+    }
+    .bloc-title:not(.subtitle)::before {
+        animation-name: title-highlight;
+        animation-range: contain 20% contain 50%;
+    }
+    .subtitle::before {
+        animation-name: subtitle-highlight;
+        animation-range: contain 24% contain 54%;
+    }*/
+    .cta a {
+        -webkit-animation: glow-btn linear both;
+        -moz-animation: glow-btn linear both;
+        -o-animation: glow-btn linear both;
+        animation: glow-btn linear both;
+
+        animation-timeline: --section-scroll;
+        animation-range: cover 60% cover 70%;
+        box-shadow: 0 0 2rem var(--glow);
+    }
+}

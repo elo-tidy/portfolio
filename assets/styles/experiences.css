@@ -77,7 +77,7 @@
                 transparent 0.8rem
             );
         background-position:
-            left top,
+            0.4rem 0,
             right top,
             left bottom,
             left top;
@@ -89,7 +89,7 @@
             0;
     }
     .slide-item.odd {
-        background-color: var(--dark-35);
+        /* background-color: var(--dark-30); */
     }
 
     .slide-item:last-child::after {
@@ -101,5 +101,54 @@
     .swiper-nav {
         margin-left: clamp(5rem, -73.367rem + 76.531vw, 20rem);
         margin-top: 3rem;
+    }
+}
+
+@keyframes move-dash {
+    to {
+        background-position:
+            12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+@-webkit-keyframes move-dash {
+    to {
+        background-position:
+            12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+@-moz-keyframes move-dash {
+    to {
+        background-position:
+            12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+@-o-keyframes move-dash {
+    to {
+        background-position:
+            12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+
+@supports (animation-range: 0vh 100vh) {
+    #experiences .slide-item {
+        -webkit-animation: move-dash linear both;
+        -moz-animation: move-dash linear both;
+        -o-animation: move-dash linear both;
+        animation: move-dash linear both;
+
+        animation-timeline: scroll();
+        animation-range: entry 0% exit 100%;
     }
 }

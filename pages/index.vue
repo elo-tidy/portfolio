@@ -4,8 +4,14 @@ const observerOptions = {
     rootMargin: "-1px 0px -100% 0px",
     threshold: 0,
 };
+const imageReady = ref(false);
 
 onMounted(() => {
+    const img = new Image();
+    img.src = "/bgi.webp"; // Image réelle (dans /public)
+    img.onload = () => {
+        imageReady.value = true;
+    };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             const id: string | null = entry.target.getAttribute("id");
@@ -90,6 +96,21 @@ onMounted(() => {
     window.addEventListener("resize", () => {
         unobserveSections();
     });
+    // Check if a custom primary color is stored
+    const storedPrimary = localStorage.getItem("primary-init");
+    const storedL = localStorage.getItem("primary-init-l");
+    const storedC = localStorage.getItem("primary-init-c");
+    const storedH = localStorage.getItem("primary-init-h");
+
+    if (storedPrimary && storedL && storedC && storedH) {
+        document.documentElement.style.setProperty(
+            "--primary-init",
+            storedPrimary,
+        );
+        document.documentElement.style.setProperty("--primary-init-l", storedL);
+        document.documentElement.style.setProperty("--primary-init-c", storedC);
+        document.documentElement.style.setProperty("--primary-init-h", storedH);
+    }
 });
 </script>
 <template>
@@ -97,5 +118,8 @@ onMounted(() => {
         <blockAbout />
         <blockSkills />
         <blockExperiences />
+    </div>
+    <div v-if="imageReady" id="anim-img">
+        <NuxtImg src="bgi.webp" height="1920" alt="1229" />
     </div>
 </template>
