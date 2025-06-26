@@ -35,12 +35,17 @@ const group_wording = (subtype: string) => {
         id="skills"
         class="section flex min-h-screen grid-cols-1 flex-col"
     >
+        <!-- <div class="pin-wrap-sticky"> -->
+        <!-- <div class="pin-wrap"> -->
         <genericTitle title="Compétences" />
         <div
             id="skills-content"
-            class="bloc grid grow grid-cols-1 lg:grid-cols-2"
+            class="bloc grid grow grid-cols-1 lg:grid-cols-5 xl:grid-cols-2"
         >
-            <div id="hard-skills">
+            <div
+                id="hard-skills"
+                class="grid-cols-1 lg:col-span-3 xl:col-span-1"
+            >
                 <genericTitle
                     :subtitle="data.hard_skills.hard_skills_title"
                     :removeBloctitleClass="true"
@@ -81,11 +86,14 @@ const group_wording = (subtype: string) => {
                         {{ data.missing_skills.txt }}
                     </p>
                     <p class="highlight-desc">
-                        {{ data.missing_skills.description }}
+                        <span>{{ data.missing_skills.description }}</span>
                     </p>
                 </div>
             </div>
-            <div id="soft-skills">
+            <div
+                id="soft-skills"
+                class="grid-cols-1 lg:col-span-2 xl:col-span-1"
+            >
                 <genericTitle
                     :subtitle="data.soft_skills.soft_skills_title"
                     :removeBloctitleClass="true"
@@ -99,6 +107,8 @@ const group_wording = (subtype: string) => {
                 </ul>
             </div>
         </div>
+        <!-- </div> -->
+        <!-- </div> -->
     </div>
 </template>
 <style lang="css" scoped>
