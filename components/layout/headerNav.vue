@@ -4,7 +4,7 @@ const dataState = ref("closed");
 const dataTitle = ref("Ouvrir le menu principal");
 const ariaHidden = ref(!isOpen.value);
 
-const toggleMenu = () => {
+const toggleMenu = (): void => {
     isOpen.value = !isOpen.value;
     isOpen.value
         ? ((dataState.value = "open"),
@@ -34,7 +34,7 @@ onMounted(() => {
             currentDevice === "is-lg+" &&
             document.body.classList.contains("reveal-is-open")
         ) {
-            document.body.classList.remove("reveal-is-open");
+            // document.body.classList.remove("reveal-is-open");
             toggleMenu();
         }
     };
@@ -60,7 +60,7 @@ onMounted(() => {
 });
 </script>
 <template>
-    <LayoutColorMode />
+    <LayoutColorMode :isOpen="isOpen" :class="isOpen ? 'show-tools' : null" />
     <button
         class="visible lg:invisible"
         id="hamburger"
@@ -69,7 +69,7 @@ onMounted(() => {
         :data-state="dataState"
         :aria-expanded="isOpen"
         :title="dataTitle"
-        @click="toggleMenu"
+        @click="toggleMenu()"
         type="button"
     >
         <span class="inner">

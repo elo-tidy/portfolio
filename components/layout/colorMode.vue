@@ -1,15 +1,22 @@
 <script setup lang="ts">
+interface Props {
+    isOpen?: boolean;
+}
+const props = defineProps<Props>();
+
 const isPanelOpen = ref(false);
+
 const dataState = ref("closed");
 const dataTitle = ref("Ouvrir le panneau de sélection de couleurs");
 
 const togglePanel = (): void => {
+    console.log("test" + isPanelOpen);
     isPanelOpen.value = !isPanelOpen.value;
     isPanelOpen.value
         ? ((dataState.value = "open"),
-          (dataTitle.value = "Fermer le menu principal"))
+          (dataTitle.value = "Fermer le panneau de sélection de couleurs"))
         : ((dataState.value = "closed"),
-          (dataTitle.value = "Fermer le panneau de sélection de couleurs"));
+          (dataTitle.value = "Ouvrir le panneau de sélection de couleurs"));
     // Toggle tabindex between -1 and 0 for color panel buttons
     document.querySelectorAll("#color-panel button").forEach((btn: Element) => {
         const currentTabIndex = btn.getAttribute("tabindex");
@@ -50,13 +57,23 @@ const toggleColorMode = (): void => {
     oppositeColorModeTitle.value =
         oppositeColorMode.value === "dark" ? "foncé" : "clair";
 };
+onMounted(() => {});
+
+watch(
+    () => props.isOpen,
+    (newVal) => {
+        if (newVal === false && isPanelOpen.value === true) {
+            togglePanel();
+        }
+    },
+);
 </script>
 <template>
     <div id="color-tools" class="grid grid-cols-2 gap-1">
         <div id="color-choice" class="grid grid-flow-row">
             <button
                 type="button"
-                title="Changer le thème de couleur"
+                :title="dataTitle"
                 aria-controls="color-panel"
                 :aria-expanded="isPanelOpen"
                 :data-state="dataState"
