@@ -9,12 +9,22 @@ it("should mount the component Skills", async () => {
 });
 
 // h2
-it("should have two h2 tags non empty with the classe 'title'", async () => {
+it("should have one h2 tags non empty with the classe 'title'", async () => {
     const component = await mountSuspended(Skills);
     const h2Tags = component.findAll("h2");
-    expect(h2Tags.length).toEqual(2);
+    expect(h2Tags.length).toEqual(1);
     h2Tags.forEach((item) => {
         expect(item.classes()).toContainEqual("title");
+        expect(item.text()).not.toHaveLength(0);
+    });
+});
+// h3
+it("should have 2 h3 tags non empty with parent class subtitle", async () => {
+    const component = await mountSuspended(Skills);
+    const h2Tags = component.findAll("h3");
+    expect(h2Tags.length).toEqual(2);
+    h2Tags.forEach((item) => {
+        expect(item.element.parentElement?.classList).toContain("subtitle");
         expect(item.text()).not.toHaveLength(0);
     });
 });
