@@ -1,6 +1,7 @@
 p {
     margin-bottom: 0;
 }
+
 .slide-item {
     .xp-date {
         /* position: relative; */
@@ -13,7 +14,11 @@ p {
             height: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
             border: 0.2rem solid var(--primary);
             border-radius: 50%;
+            filter: drop-shadow(0 0 0.3rem var(--glow));
+            background-color: var(--glow);
+            animation: 15s glow-up 0s linear both infinite;
         }
+
         &::after {
             border-radius: 0 0 5.4rem 0;
             border-bottom: 0.2rem solid var(--primary);
@@ -35,7 +40,23 @@ p {
         }
     }
 }
-
+.swiper-slide-fully-visible {
+    .slide-item:nth-child(1) .xp-date::before {
+        animation-delay: 2.5s;
+    }
+    .slide-item:nth-child(2) .xp-date::before {
+        animation-delay: 5s;
+    }
+    .slide-item:nth-child(3) .xp-date::before {
+        animation-delay: 7.5s;
+    }
+    .slide-item:nth-child(4) .xp-date::before {
+        animation-delay: 10s;
+    }
+    .slide-item:nth-child(5) .xp-date::before {
+        animation-delay: 12.5s;
+    }
+}
 .xp-title,
 .xp-date {
     @apply title-picto;
@@ -48,4 +69,22 @@ p {
 .xp-desc {
     margin-top: 1.5rem;
     white-space: pre-line;
+}
+
+@property --glow {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: transparent;
+}
+@keyframes glow-up {
+    7%,
+    100% {
+        --glow: transparent;
+    }
+
+    0%,
+    5% {
+        transform: scale(1.05);
+        --glow: var(--primary-50);
+    }
 }

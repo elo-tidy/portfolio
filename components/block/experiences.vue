@@ -26,12 +26,14 @@ const { data, error } = await useAsyncData<Xp>(
 );
 
 const containerRef = ref<null>(null);
+const activeIndex = ref(0);
 // const slides = ref(Array.from({ length: data.value?.length ?? 0 }));
 
 const swiper = useSwiper(containerRef, {
     a11y: {
         prevSlideMessage: "Voir les expériences précédentes",
         nextSlideMessage: "Voir les expériences suivantes",
+        slideLabelMessage: "{{index}} sur {{slidesLength}}",
     },
     autoHeight: true,
     keyboard: {
@@ -42,6 +44,13 @@ const swiper = useSwiper(containerRef, {
     navigation: {
         nextEl: ".swiper-btn-next",
         prevEl: ".swiper-btn-prev",
+    },
+    pagination: {
+        type: "custom",
+        el: ".swiper-pagination",
+        renderCustom: function (swiper, current, total) {
+            return "<p>" + current + " / " + total + "</p>";
+        },
     },
     scrollbar: false,
     mousewheel: false,
@@ -59,9 +68,12 @@ const swiper = useSwiper(containerRef, {
     speed: 800,
     // direction: "vertical",
     // injectStyles: [`.swiper-wrapper {flex-direction:column;}`],
+    on: {
+        slideChange() {
+            activeIndex.value = swiper.instance.value?.activeIndex ?? 0;
+        },
+    },
 });
-
-onMounted(() => {});
 </script>
 <template>
     <div v-if="data" id="experiences" class="section">
@@ -70,8 +82,10 @@ onMounted(() => {});
 
             <swiper-container id="XpSwiper" ref="containerRef" :init="false">
                 <swiper-slide
-                    v-for="slideGr in data"
+                    v-for="(slideGr, i) in data"
                     class="slide flex flex-col"
+                    :aria-current="activeIndex === i ? 'true' : null"
+                    :aria-hidden="activeIndex === i ? 'false' : 'true'"
                 >
                     <div
                         v-for="(slide, id) in slideGr"
@@ -88,7 +102,7 @@ onMounted(() => {});
                 </swiper-slide>
             </swiper-container>
 
-            <div class="swiper-nav">
+            <div class="swiper-nav grid auto-cols-max grid-flow-col gap-2">
                 <button
                     class="swiper-btn-prev"
                     type="button"
@@ -105,6 +119,7 @@ onMounted(() => {});
                 >
                     <span class="sr-only">Voir les expériences suivantes</span>
                 </button>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </div>

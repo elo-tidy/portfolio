@@ -14,7 +14,9 @@
 
     .slide {
         padding-left: clamp(5rem, -73.367rem + 76.531vw, 20rem);
-        overflow: hidden;
+        /* overflow: hidden; */
+        font-size: inherit;
+        margin: 0;
     }
     .slide-item {
         padding: 3rem 1rem;
@@ -89,66 +91,120 @@
             0;
     }
     .slide-item.odd {
-        /* background-color: var(--dark-30); */
+        background-color: var(--dark-30);
     }
 
     .slide-item:last-child::after {
         height: calc(100% - 10rem);
     }
-    .slide:last-child .slide-item:last-child::after {
+    .slide-item:last-child::after {
         display: none;
     }
     .swiper-nav {
         margin-left: clamp(5rem, -73.367rem + 76.531vw, 20rem);
         margin-top: 3rem;
     }
-}
-
-@keyframes move-dash {
-    to {
-        background-position:
-            12rem 0,
-            right top,
-            left bottom,
-            left top;
-    }
-}
-@-webkit-keyframes move-dash {
-    to {
-        background-position:
-            12rem 0,
-            right top,
-            left bottom,
-            left top;
-    }
-}
-@-moz-keyframes move-dash {
-    to {
-        background-position:
-            12rem 0,
-            right top,
-            left bottom,
-            left top;
-    }
-}
-@-o-keyframes move-dash {
-    to {
-        background-position:
-            12rem 0,
-            right top,
-            left bottom,
-            left top;
+    .swiper-pagination p {
+        margin: 0;
     }
 }
 
-@supports (animation-range: 0vh 100vh) {
-    #experiences .slide-item {
-        -webkit-animation: move-dash linear both;
-        -moz-animation: move-dash linear both;
-        -o-animation: move-dash linear both;
-        animation: move-dash linear both;
+@keyframes move-dash-right {
+    to {
+        background-position:
+            12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+@-webkit-keyframes move-dash-right {
+    to {
+        background-position:
+            12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+@-moz-keyframes move-dash-right {
+    to {
+        background-position:
+            12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+@-o-keyframes move-dash-right {
+    to {
+        background-position:
+            12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
 
-        animation-timeline: scroll();
-        animation-range: entry 0% exit 100%;
+@keyframes move-dash-left {
+    to {
+        background-position:
+            -12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+@-webkit-keyframes move-dash-left {
+    to {
+        background-position:
+            -12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+@-moz-keyframes move-dash-left {
+    to {
+        background-position:
+            -12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+@-o-keyframes move-dash-left {
+    to {
+        background-position:
+            -12rem 0,
+            right top,
+            left bottom,
+            left top;
+    }
+}
+
+@supports (animation-range: entry 0% exit 100%) {
+    #experiences {
+        view-timeline-name: --slide-item-scroll;
+        view-timeline-axis: block;
+
+        .slide-item:not(.odd):not(:first-child) {
+            -webkit-animation: move-dash-right linear both;
+            -moz-animation: move-dash-right linear both;
+            -o-animation: move-dash-right linear both;
+            animation: move-dash-right linear both;
+            animation-timeline: view();
+            animation-range: entry 0% exit 100%;
+            animation-timeline: --slide-item-scroll;
+        }
+        .slide-item.odd:not(:first-child) {
+            -webkit-animation: move-dash-left linear both;
+            -moz-animation: move-dash-left linear both;
+            -o-animation: move-dash-left linear both;
+            animation: move-dash-left linear both;
+            animation-timeline: view();
+            animation-range: entry 0% exit 100%;
+            animation-timeline: --slide-item-scroll;
+        }
     }
 }
