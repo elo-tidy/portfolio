@@ -13,6 +13,7 @@
         "test:unit": "vitest"
     },
     "dependencies": {
+        "@jridgewell/sourcemap-codec": "^1.5.0",
         "@nuxt/eslint-plugin": "^1.0.0",
         "@nuxt/image": "^1.9.0",
         "@nuxtjs/color-mode": "^3.5.2",

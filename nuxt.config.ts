@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     devtools: {
         enabled: true,
     },
-    debug: true,
+    debug: false,
+    logLevel: process.env.NODE_ENV === "production" ? "silent" : "info",
     app: {
         head: {
             htmlAttrs: {
@@ -25,7 +26,7 @@ export default defineNuxtConfig({
             ],
             link: [
                 { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-                { rel: "icon", type: "image/png", href: "/favicon.ico" },
+                { rel: "icon", type: "image/jpg", href: "/favicon.ico" },
             ],
         },
     },
@@ -67,10 +68,5 @@ export default defineNuxtConfig({
                 wght: [400],
             },
         },
-    },
-    image: {
-        // format: ["webp"],
-        // dir: "assets/images",
-        // domains: ["nuxtjs.org"],
     },
 });
