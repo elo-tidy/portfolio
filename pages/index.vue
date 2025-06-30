@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const observerOptions = {
     root: null,
-    rootMargin: "-1px 0px -100% 0px",
+    rootMargin: "0px 0px -100% 0px",
     threshold: 0,
 };
 const imageReady = ref(false);
@@ -41,7 +41,7 @@ onMounted(() => {
         observer.observe(section);
     });
 
-    const getPrevNextEl = function () {
+    /*const getPrevNextEl = function () {
         // const degre: number = 0;
         const transform: number = 1;
         const prevLi: boolean = true;
@@ -70,7 +70,7 @@ onMounted(() => {
             }
         }
         console.log("test");
-    };
+    };*/
 
     const unobserveSections = () => {
         const currentDevice = getBreakpoints();
@@ -96,7 +96,6 @@ onMounted(() => {
     window.addEventListener("resize", () => {
         unobserveSections();
     });
-    // Check if a custom primary color is stored
     const storedPrimary = localStorage.getItem("primary-init");
     const storedL = localStorage.getItem("primary-init-l");
     const storedC = localStorage.getItem("primary-init-c");

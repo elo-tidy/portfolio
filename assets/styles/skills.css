@@ -22,7 +22,6 @@
         box-shadow: 0 0 5rem var(--dark-30);
     }
     #skills-content {
-        /* gap: clamp(5rem, -52.469rem + 56.122vw, var(--gap)); */
         gap: var(--gap);
     }
     .skills {
@@ -51,6 +50,12 @@
             .skill-icon img {
                 height: clamp(3rem, 1.897rem + 1.724vw, 4rem);
                 max-width: 6rem;
+                filter: drop-shadow(0 0 0.5rem transparent);
+                transition: all 1s ease;
+            }
+            &.focus .skill-icon img {
+                filter: drop-shadow(0 0 0.5rem var(--primary-30));
+                transform: scale(1.1);
             }
         }
     }
@@ -69,18 +74,7 @@
     inherits: false;
     initial-value: transparent;
 }
-/*
-@keyframes scale-up {
-    0%,
-    100% {
-        --glow: transparent;
-    }
 
-    30% {
-        transform: scale(1.05);
-        --glow: var(--primary-50);
-    }
-}*/
 @keyframes overlay-entry {
     from {
         transform: translateX(-50vw);
@@ -113,61 +107,9 @@
         transform: translateX(0);
     }
 }
-@keyframes list-rotate {
-    to {
-        transform: rotate(450deg);
-    }
-}
-@-webkit-keyframes overlay-entry {
-    from {
-        transform: translateX(-50vw);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-@-moz-keyframes overlay-entry {
-    from {
-        transform: translateX(-50vw);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-@-o-keyframes overlay-entry {
-    from {
-        transform: translateX(-50vw);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-/*
-@keyframes list-rotate {
-    10% {
-        transform: rotate(90deg);
-    }
-    11% {
-        transform: rotate(0deg);
-    }
-}*/
+
 @supports (animation-range: 40vh 50vh) {
     #skills {
-        /*position: relative;
-        #hard-skills .skill-item {
-            view-timeline-name: --icon-scroll;
-            view-timeline-axis: block;
-            .skill-icon img {
-                animation-name: scale-up;
-                animation-timing-function: ease-in-out;
-                animation-fill-mode: forwards;
-                animation-timeline: scroll();
-                animation-range: contain 40% contain 60%;
-                filter: drop-shadow(0 0 0.3rem var(--glow));
-
-                animation-timeline: --icon-scroll;
-            }
-        }*/
         &::before {
             -webkit-animation: overlay-entry linear both;
             -moz-animation: overlay-entry linear both;
@@ -178,45 +120,6 @@
             animation-timeline: scroll();
             animation-range: cover 0% exit 30%;
         }
-        /*
-        ul.list li {
-             view-timeline-name: --li-scroll; 
-             view-timeline-axis: block; 
-
-            &::before {
-                animation-timing-function: linear;
-                animation-fill-mode: backwards;
-                animation-timeline: --li-scroll;
-                animation-range: contain 60% contain 90%;
-                animation-name: list-rotate
-                animation: list-rotate 5s linear backwards infinite;
-            }
-        }
-        
-        ul.list li:nth-child(2)::before {
-            animation-delay: 0.6s;
-        }
-        ul.list li:nth-child(3)::before {
-            animation-delay: 1.2s;
-        }
-        ul.list li:nth-child(4)::before {
-            animation-delay: 1.8s;
-        }
-        ul.list li:nth-child(5)::before {
-            animation-delay: 2.4s;
-        }
-        ul.list li:nth-child(6)::before {
-            animation-delay: 3s;
-        }
-        ul.list li:nth-child(7)::before {
-            animation-delay: 3.6s;
-        }
-        ul.list li:nth-child(8)::before {
-            animation-delay: 4.2s;
-        }
-        ul.list li:nth-child(9)::before {
-            animation-delay: 4.8s;
-        }*/
     }
 }
 
@@ -237,6 +140,7 @@
         }
     }
 }
+
 @media only screen and (0 < width < 64rem) {
     #skills {
         &::before {
@@ -257,12 +161,12 @@
         }
 
         #soft-skills {
-            li:first-child {
-                margin-top: 1rem;
-            }
             .skills {
                 margin-top: -2rem;
                 margin-bottom: -3rem;
+            }
+            li:first-child {
+                margin-top: 1rem;
             }
         }
     }

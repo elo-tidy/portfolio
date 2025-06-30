@@ -101,9 +101,28 @@ ul.list {
             height: 0.8rem;
             border: 0.1rem solid var(--primary);
             position: absolute;
-            top: 0.8rem;
+            top: clamp(0.6rem, 0.379rem + 0.345vw, 0.8rem);
             left: 0;
         }
+    }
+    li::after {
+        position: absolute;
+        content: "";
+        top: -2.4rem;
+        left: 0;
+        width: 0.8rem;
+        height: 0.8rem;
+        background-color: transparent;
+
+        transform: translateY(-50%);
+    }
+    li.focus::after {
+        transform: translateY(0);
+        background-color: var(--primary-80);
+        box-shadow: 0 0 0.5rem 0.3rem var(--primary-30);
+        top: clamp(0.6rem, 0.379rem + 0.345vw, 0.8rem);
+        transition: 0.3s all ease;
+        transform: scale(1.2);
     }
 }
 p,
@@ -300,10 +319,14 @@ font {
         transform: scale(1);
     }
 }
+@property --glow {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: transparent;
+}
+
 @supports (animation-range: 40vh 50vh) {
     #anim-img {
-        /* position: relative; */
-
         &::before {
             -webkit-animation: hide linear forwards;
             -moz-animation: hide linear forwards;
@@ -325,8 +348,6 @@ font {
         }
     }
     html.mode-light #anim-img {
-        /* position: relative; */
-
         &::before {
             -webkit-animation: light-hide linear forwards;
             -moz-animation: light-hide linear forwards;
@@ -335,6 +356,36 @@ font {
 
             animation-timeline: scroll();
             animation-range: exit 20vh entry 40vh;
+        }
+    }
+}
+
+@media only screen and (40rem <= width < 64rem) {
+    ul.list {
+        li:first-child::after {
+            top: clamp(0.6rem, 0.379rem + 0.345vw, 0.8rem);
+            left: 0;
+            transform: none;
+        }
+        li:nth-child(2n)::after {
+            top: clamp(0.6rem, 0.379rem + 0.345vw, 0.8rem);
+            left: -2.4rem;
+            transform: translateX(-50%);
+        }
+        li.focus:nth-child(2n)::after {
+            transform: translateX(0);
+            top: clamp(0.6rem, 0.379rem + 0.345vw, 0.8rem);
+            left: 0;
+        }
+        li:nth-child(2n + 1):not(:first-child)::after {
+            top: -1rem;
+            left: 4.4rem;
+            transform: translateX(50%);
+        }
+        li.focus:nth-child(2n + 1):not(:first-child)::after {
+            transform: translateX(0);
+            top: clamp(0.6rem, 0.379rem + 0.345vw, 0.8rem);
+            left: 0;
         }
     }
 }

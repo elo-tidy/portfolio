@@ -1,18 +1,6 @@
 .section:not(#about) {
     padding: 4rem 0;
     position: relative;
-    /*&:nth-child(2n)::after {
-        content: "";
-        position: absolute;
-        left: calc((100vw - var(--container)) / 2 * -1);
-        top: 0;
-        background: var(--dark-10);
-        height: 100%;
-        width: 100vw;
-        display: block;
-        box-shadow: 0 0 0.3rem var(--primary-30);
-        z-index: -2;
-    }*/
 }
 /************************/
 /*** heading - title ***/
@@ -98,6 +86,7 @@ a:is(:hover, :focus)::after {
     height: 3rem;
     position: relative;
     display: inline-block;
+    background: var(--dark-50);
     &::before {
         position: absolute;
         content: "";
@@ -117,10 +106,7 @@ a:is(:hover, :focus)::after {
         top: calc(50% + 0.3rem);
     }
 }
-.swiper-btn-prev {
-    margin-right: 2rem;
-}
-.swiper-button-disabled {
+[class^="swiper-btn-"][disabled] {
     opacity: 0.5;
     pointer-events: none;
 }
@@ -235,47 +221,57 @@ a:is(:hover, :focus)::after {
 @keyframes move-dash {
     100% {
         background-position:
-            24rem 0,
-            100% 24rem,
-            -24rem 100%,
-            0 -24rem;
+            5.2rem 0,
+            100% 5.2rem,
+            -5.2rem 100%,
+            0 -5.2rem;
     }
 }
-/*
-@keyframes title-highlight {
-    from {
-        width: 0;
-    }
-    to {
-        width: clamp(5em, 3.559rem + 4.505vw, 10em);
+@-webkit-keyframes move-dash {
+    100% {
+        background-position:
+            5.2rem 0,
+            100% 5.2rem,
+            -5.2rem 100%,
+            0 -5.2rem;
     }
 }
-@keyframes subtitle-highlight {
-    from {
-        width: 0;
+@-moz-keyframes move-dash {
+    100% {
+        background-position:
+            5.2rem 0,
+            100% 5.2rem,
+            -5.2rem 100%,
+            0 -5.2rem;
     }
-    to {
-        width: 3rem;
+}
+@-o-keyframes move-dash {
+    100% {
+        background-position:
+            5.2rem 0,
+            100% 5.2rem,
+            -5.2rem 100%,
+            0 -5.2rem;
     }
-}*/
+}
 @keyframes move-dash-a {
     to {
-        background-position: 8rem;
+        background-position: 5.2rem;
     }
 }
 @-webkit-keyframes move-dash-a {
     to {
-        background-position: 8rem;
+        background-position: 5.2rem;
     }
 }
 @-moz-keyframes move-dash-a {
     to {
-        background-position: 8rem;
+        background-position: 5.2rem;
     }
 }
 @-o-keyframes move-dash-a {
     to {
-        background-position: 8rem;
+        background-position: 5.2rem;
     }
 }
 
@@ -317,7 +313,7 @@ a:is(:hover, :focus)::after {
     initial-value: transparent;
 }
 
-@supports (animation-range: 0vh 100vh) {
+@supports (animation-range: entry-crossing 0% exit-crossing 100%) {
     .section {
         view-timeline-name: --section-scroll;
         view-timeline-axis: block;
@@ -328,7 +324,7 @@ a:is(:hover, :focus)::after {
         -o-animation: move-dash-a linear both;
         animation: move-dash-a linear both;
 
-        animation-timeline: scroll();
+        animation-timeline: view();
         animation-range: entry 0% exit 100%;
     }
     .highlight {
@@ -337,23 +333,9 @@ a:is(:hover, :focus)::after {
         -o-animation: move-dash linear both;
         animation: move-dash linear both;
 
-        animation-timeline: scroll();
+        animation-timeline: view();
         animation-range: cover 0% exit 100%;
     }
-    /*.bloc-title:not(.subtitle)::before,
-    .subtitle::before {
-        animation-timing-function: linear;
-        animation-fill-mode: both;
-        animation-timeline: view();
-    }
-    .bloc-title:not(.subtitle)::before {
-        animation-name: title-highlight;
-        animation-range: contain 20% contain 50%;
-    }
-    .subtitle::before {
-        animation-name: subtitle-highlight;
-        animation-range: contain 24% contain 54%;
-    }*/
     .cta a {
         -webkit-animation: glow-btn linear both;
         -moz-animation: glow-btn linear both;

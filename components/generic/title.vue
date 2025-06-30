@@ -15,7 +15,7 @@ const hnNext: number = hn + 1;
 const hnNextClass: string | null = Number(hnNext) !== 1 ? "title" : null;
 
 const removeBloctitleClass: string | null =
-    props.removeBloctitleClass === true ? "subtitle" : null;
+    props.removeBloctitleClass === true ? "subtitle" : "null";
 </script>
 <template>
     <div :class="['bloc-title', removeBloctitleClass]">

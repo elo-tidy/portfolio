@@ -28,6 +28,43 @@ const group_wording = (subtype: string) => {
         ? subtype
         : `Liste des compétences en ${subtype}`;
 };
+
+onMounted(() => {
+    const softSkillItems = document.querySelectorAll("#soft-skills li");
+    const hardSkillGroups = document.querySelectorAll(".skills > li");
+    let hardSkillItems: HTMLElement[] = [];
+    hardSkillGroups.forEach((group) => {
+        group.querySelectorAll(".skill-item").forEach((item) => {
+            hardSkillItems.push(item as HTMLElement);
+        });
+    });
+
+    function cycleFocus(
+        items: NodeListOf<Element> | HTMLElement[],
+        delay: number,
+    ) {
+        let index = 0;
+        function focus() {
+            items.forEach((item) => item.classList.remove("focus"));
+            if (items.length) {
+                (items[index] as HTMLElement).classList.add("focus");
+                index = (index + 1) % items.length;
+            }
+        }
+        focus();
+        const interval = window.setInterval(focus, delay);
+        return interval;
+    }
+
+    const delay = 2500;
+    const softInterval = cycleFocus(softSkillItems, delay);
+    const hardInterval = cycleFocus(hardSkillItems, delay);
+
+    onBeforeUnmount(() => {
+        clearInterval(softInterval);
+        clearInterval(hardInterval);
+    });
+});
 </script>
 <template>
     <div
@@ -35,8 +72,6 @@ const group_wording = (subtype: string) => {
         id="skills"
         class="section flex min-h-screen grid-cols-1 flex-col"
     >
-        <!-- <div class="pin-wrap-sticky"> -->
-        <!-- <div class="pin-wrap"> -->
         <genericTitle title="Compétences" />
         <div
             id="skills-content"
@@ -107,8 +142,6 @@ const group_wording = (subtype: string) => {
                 </ul>
             </div>
         </div>
-        <!-- </div> -->
-        <!-- </div> -->
     </div>
 </template>
 <style lang="css" scoped>
