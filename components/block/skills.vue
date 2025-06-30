@@ -108,7 +108,7 @@ onMounted(() => {
                                 >
                                     <NuxtImg
                                         :src="`/icons/${item.icon}`"
-                                        height="40"
+                                        height="45"
                                         alt=""
                                     />
                                 </span>

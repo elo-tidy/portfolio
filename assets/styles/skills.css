@@ -1,28 +1,22 @@
 #skills {
-    --gap: 10rem;
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: calc((100vw - var(--container)) / 2 * -1);
-        width: 50vw;
-        background-color: var(--dark-30);
-        height: 100%;
-        z-index: -1;
-    }
     &::after {
         content: "";
         position: absolute;
-        top: 0;
+
+        background: linear-gradient(
+            0deg,
+            transparent,
+            var(--primary-30),
+            transparent
+        );
+        width: 2px;
+        height: 80%;
         left: 50%;
-        transform: translateX(-50%);
-        width: 100vw;
-        height: 100%;
-        z-index: -1;
-        box-shadow: 0 0 5rem var(--dark-30);
+        transform: translateX(50%);
+        z-index: 2;
     }
     #skills-content {
-        gap: var(--gap);
+        gap: 10rem;
     }
     .skills {
         padding-top: clamp(2em, -1.31em + 5.172vw, 5em);
@@ -47,78 +41,40 @@
                 display: inline-flex;
                 justify-content: center;
             }
-            .skill-icon img {
-                height: clamp(3rem, 1.897rem + 1.724vw, 4rem);
-                max-width: 6rem;
+            .skill-icon {
                 filter: drop-shadow(0 0 0.5rem transparent);
-                transition: all 1s ease;
+                /* transition: all 1s ease; */
+                img {
+                    height: clamp(3rem, 1.897rem + 1.724vw, 4rem);
+                    max-width: 6rem;
+                    transition: all 1s ease;
+                    transform: scale(0.9);
+                }
             }
-            &.focus .skill-icon img {
-                filter: drop-shadow(0 0 0.5rem var(--primary-30));
-                transform: scale(1.1);
+            &.focus .skill-icon {
+                filter: drop-shadow(0 0 0.5rem var(--primary-50));
+                img {
+                    transform: scale(1);
+                }
             }
         }
     }
 }
 .mode-light {
-    .skill-icon img,
-    .highlight-desc {
-        filter: invert(0.95);
-    }
-    .highlight-desc span {
-        filter: invert(1);
-    }
-}
-@property --glow {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: transparent;
-}
-
-@keyframes overlay-entry {
-    from {
-        transform: translateX(-50vw);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-@-webkit-keyframes overlay-entry {
-    from {
-        transform: translateX(-50vw);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-@-moz-keyframes overlay-entry {
-    from {
-        transform: translateX(-50vw);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-@-o-keyframes overlay-entry {
-    from {
-        transform: translateX(-50vw);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@supports (animation-range: 40vh 50vh) {
     #skills {
-        &::before {
-            -webkit-animation: overlay-entry linear both;
-            -moz-animation: overlay-entry linear both;
-            -o-animation: overlay-entry linear both;
-            animation: overlay-entry linear both;
-
-            animation-fill-mode: both;
-            animation-timeline: scroll();
-            animation-range: cover 0% exit 30%;
+        & #hard-skills {
+            & .skill-item {
+                .skill-icon img,
+                .highlight-desc {
+                    filter: invert(0.95);
+                }
+                .highlight-desc span {
+                    filter: invert(1);
+                }
+                &.focus .skill-icon {
+                    filter: drop-shadow(0 0 0.5rem var(--primary-80));
+                }
+            }
         }
     }
 }
@@ -128,26 +84,19 @@
 /************************/
 @media only screen and (64rem <= width < 89.375rem) {
     #skills {
-        --gap: 10rem;
-        &::before {
-            width: calc(
-                (100% - var(--gap) * 4) / 5 * 3 + 2.5 * var(--gap) +
-                    calc((100vw - var(--container)) / 2)
+        &::after {
+            left: calc(
+                60% - var(--gap) * 4 / 5 * 3 + var(--gap) * 2.5 +
+                    (100% - var(--container)) / 2
             );
-        }
-        #skills-content {
-            gap: var(--gap);
         }
     }
 }
 
 @media only screen and (0 < width < 64rem) {
     #skills {
-        &::before {
-            width: 100vw;
-            left: calc(
-                (100vw - clamp(28rem, 3rem + 78.125vw, var(--wrap))) / 2 * -1
-            );
+        &::after {
+            display: none;
         }
         #skills-content {
             gap: 4rem;

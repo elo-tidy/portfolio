@@ -29,6 +29,7 @@ body {
     font-variant: normal;
     line-height: clamp(2rem, 1.559rem + 0.69vw, 2.4rem);
     width: 100%;
+    overflow-x: hidden;
 }
 #anim-img {
     position: fixed;
@@ -261,22 +262,22 @@ font {
 
 @keyframes hide {
     100% {
-        backdrop-filter: brightness(0.7) blur(0.7rem);
+        backdrop-filter: brightness(0.7) blur(0.5rem);
     }
 }
 @-webkit-keyframes hide {
     100% {
-        backdrop-filter: brightness(0.7) blur(0.7rem);
+        backdrop-filter: brightness(0.7) blur(0.5rem);
     }
 }
 @-moz-keyframes hide {
     100% {
-        backdrop-filter: brightness(0.7) blur(0.7rem);
+        backdrop-filter: brightness(0.7) blur(0.5rem);
     }
 }
 @-o-keyframes hide {
     100% {
-        backdrop-filter: brightness(0.7) blur(0.7rem);
+        backdrop-filter: brightness(0.7) blur(0.5rem);
     }
 }
 @keyframes light-hide {

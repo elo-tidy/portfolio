@@ -1,6 +1,19 @@
+/************************/
+/******** section *******/
+/************************/
 .section:not(#about) {
-    padding: 4rem 0;
+    padding: 4rem 0 7rem 0;
     position: relative;
+    &:nth-child(2n)::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: calc((100vw - var(--container)) / 2 * -1);
+        width: 50vw;
+        background-color: var(--dark-30);
+        height: 100%;
+        z-index: -1;
+    }
 }
 /************************/
 /*** heading - title ***/
@@ -209,14 +222,59 @@ a:is(:hover, :focus)::after {
     }
 
     .highlight-desc {
-        padding-left: clamp(3.2rem, 1.545rem + 2.586vw, 4.7rem);
-        background-image: url(../images/icons/missing-techno.svg);
-        background-repeat: no-repeat;
-        background-position: left top;
         margin-bottom: 0;
-        background-size: clamp(2.2rem, 1.097rem + 1.724vw, 3.2rem) auto;
+        padding-left: clamp(3.2rem, 1.545rem + 2.586vw, 4.7rem);
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url(../images/icons/missing-techno.svg);
+            background-repeat: no-repeat;
+            background-position: left top;
+            background-size: clamp(2.2rem, 1.097rem + 1.724vw, 3.2rem) auto;
+            width: clamp(2.2rem, 1.097rem + 1.724vw, 3.2rem);
+            height: clamp(2.2rem, 1.097rem + 1.724vw, 3.2rem);
+        }
     }
 }
+.mode-light .highlight {
+    .highlight-desc {
+        &::before {
+            filter: invert(0.8);
+        }
+    }
+}
+
+/************************/
+/****** Responsive ******/
+/************************/
+
+@media only screen and (64rem <= width < 89.375rem) {
+    .section:not(#about) {
+        --gap: 10rem;
+        &:nth-child(2n)::before {
+            width: calc(
+                60% - var(--gap) * 4 / 5 * 3 + var(--gap) * 2.5 +
+                    (100vw - var(--container)) / 2
+            );
+        }
+    }
+}
+
+@media only screen and (0 < width < 64rem) {
+    .section:not(#about) {
+        --gap: 10rem;
+        &:nth-child(2n)::before {
+            width: 100vw;
+        }
+    }
+}
+
+/************************/
+/****** Animations ******/
+/************************/
 
 @keyframes move-dash {
     100% {
@@ -313,11 +371,43 @@ a:is(:hover, :focus)::after {
     initial-value: transparent;
 }
 
+@keyframes overlay-entry {
+    to {
+        width: 100vw;
+    }
+}
+@-webkit-keyframes overlay-entry {
+    to {
+        width: 100vw;
+    }
+}
+@-moz-keyframes overlay-entry {
+    to {
+        width: 100vw;
+    }
+}
+@-o-keyframes overlay-entry {
+    to {
+        width: 100vw;
+    }
+}
+
 @supports (animation-range: entry-crossing 0% exit-crossing 100%) {
     .section {
         view-timeline-name: --section-scroll;
         view-timeline-axis: block;
+
+        &:not(#about):nth-child(2n)::before {
+            -webkit-animation: overlay-entry linear both;
+            -moz-animation: overlay-entry linear both;
+            -o-animation: overlay-entry linear both;
+            animation: overlay-entry linear both;
+
+            animation-timeline: --section-scroll;
+            animation-range: cover 40% exit 0%;
+        }
     }
+
     a::before {
         -webkit-animation: move-dash-a linear both;
         -moz-animation: move-dash-a linear both;
