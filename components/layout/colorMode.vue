@@ -84,17 +84,17 @@ watch(
             </button>
             <div id="color-panel" :aria-hidden="!isPanelOpen">
                 <ul class="flex flex-row">
-                    <!-- <li>
+                    <li>
                         <button
                             type="button"
-                            class="vert-2"
+                            class="orange"
                             tabindex="-1"
-                            title="vert 2"
-                            @click="changePrimaryColor('80%', '0.257', '174')"
+                            title="Orange"
+                            @click="changePrimaryColor('80%', '0.257', '442')"
                         >
-                            <span class="sr-only">vert</span>
+                            <span class="sr-only">orange</span>
                         </button>
-                    </li> -->
+                    </li>
 
                     <li>
                         <button
@@ -102,7 +102,7 @@ watch(
                             class="jaune"
                             tabindex="-1"
                             title="Jaune"
-                            @click="changePrimaryColor('80%', '0.257', '472')"
+                            @click="changePrimaryColor('88%', '0.257', '472')"
                         >
                             <span class="sr-only">jaune</span>
                         </button>

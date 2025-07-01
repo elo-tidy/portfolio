@@ -43,23 +43,23 @@
 
 .mode-light {
     --primary: oklch(
-        calc(var(--primary-init-l) * 0.7649) calc(var(--primary-init-c) / 1.32)
+        calc(var(--primary-init-l) * 0.55) calc(var(--primary-init-c) / 1.32)
             var(--primary-init-h)
     );
     --primary-10: oklch(
-        calc(var(--primary-init-l) * 0.7649) calc(var(--primary-init-c) / 1.32)
+        calc(var(--primary-init-l) * 0.55) calc(var(--primary-init-c) / 1.32)
             var(--primary-init-h) / 0.1
     );
     --primary-30: oklch(
-        calc(var(--primary-init-l) * 0.7649) calc(var(--primary-init-c) / 1.32)
+        calc(var(--primary-init-l) * 0.55) calc(var(--primary-init-c) / 1.32)
             var(--primary-init-h) / 0.3
     );
     --primary-50: oklch(
-        calc(var(--primary-init-l) * 0.7649) calc(var(--primary-init-c) / 1.32)
+        calc(var(--primary-init-l) * 0.55) calc(var(--primary-init-c) / 1.32)
             var(--primary-init-h) / 0.5
     );
     --primary-80: oklch(
-        calc(var(--primary-init-l) * 0.7649) calc(var(--primary-init-c) / 1.32)
+        calc(var(--primary-init-l) * 0.55) calc(var(--primary-init-c) / 1.32)
             var(--primary-init-h) / 0.8
     );
     --light: oklch(var(--dark-init));

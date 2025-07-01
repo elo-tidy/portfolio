@@ -82,7 +82,7 @@ html.mode-light {
     #anim-img {
         filter: none;
         &::before {
-            background-color: var(--dark-30);
+            background-color: var(--dark-35);
         }
         img {
             filter: invert(1);
@@ -262,22 +262,22 @@ font {
 
 @keyframes hide {
     100% {
-        backdrop-filter: brightness(0.7) blur(0.5rem);
+        backdrop-filter: brightness(0.8) blur(0.5rem);
     }
 }
 @-webkit-keyframes hide {
     100% {
-        backdrop-filter: brightness(0.7) blur(0.5rem);
+        backdrop-filter: brightness(0.8) blur(0.5rem);
     }
 }
 @-moz-keyframes hide {
     100% {
-        backdrop-filter: brightness(0.7) blur(0.5rem);
+        backdrop-filter: brightness(0.8) blur(0.5rem);
     }
 }
 @-o-keyframes hide {
     100% {
-        backdrop-filter: brightness(0.7) blur(0.5rem);
+        backdrop-filter: brightness(0.8) blur(0.5rem);
     }
 }
 @keyframes light-hide {

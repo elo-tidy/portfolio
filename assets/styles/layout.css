@@ -270,6 +270,14 @@
                         inset 0 0 0 0.2rem var(--dark);
                 }
             }
+            &.orange {
+                background-color: #ffa400;
+                &:is(:hover, :focus) {
+                    box-shadow:
+                        0 0 0 0.1rem #ffa400,
+                        inset 0 0 0 0.2rem var(--dark);
+                }
+            }
         }
         li {
             margin-top: 0;
