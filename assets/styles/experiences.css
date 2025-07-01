@@ -5,7 +5,7 @@
             content: "";
             position: absolute;
             top: 3.5rem;
-            left: clamp(0.7rem, -0.345rem + 1.02vw, 0.9rem);
+            left: clamp(0.7rem, -0.867rem + 1.531vw, 1rem);
             width: 0.2rem;
             height: calc(100% - 3.5rem);
             background-color: var(--light);
@@ -27,7 +27,7 @@
             content: "";
             position: absolute;
             top: 9.8rem;
-            left: clamp(-19rem, 75.612rem + -77.551vw, -4.2rem);
+            left: clamp(-18.9rem, 72.6rem + -75vw, -4.2rem);
             width: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
             height: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
             background-color: var(--light);
