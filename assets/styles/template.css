@@ -8,10 +8,10 @@
         content: "";
         position: absolute;
         top: 0;
-        /* left: calc((100vw - var(--container)) / 2 * -1); */
-        left: calc(
+        left: calc((100vw - var(--container)) / 2 * -1);
+        /* left: calc(
             (100vw - clamp(28rem, 3rem + 78.125vw, var(--wrap)) / 2 * -1)
-        );
+        ); */
         width: 50vw;
         background-color: var(--dark-30);
         height: 100%;
@@ -319,9 +319,11 @@ a:is(:hover, :focus)::after {
 
 @media only screen and (0 < width < 64rem) {
     .section:not(#about) {
-        --gap: 10rem;
         &:nth-child(2n)::before {
-            width: 100vw;
+            width: 100vw !important;
+            left: calc(
+                (100vw - clamp(28rem, 3rem + 78.125vw, var(--wrap))) / 2 * -1
+            );
         }
     }
 }
