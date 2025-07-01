@@ -1,6 +1,39 @@
 #experiences {
+    #filters {
+        position: sticky;
+        top: 0;
+        padding: 2rem 0;
+        margin-top: 2rem;
+        z-index: 2;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100vw;
+            transform: translateX(-50%);
+            height: 100%;
+
+            z-index: -1;
+            transition: 0.3s all ease;
+        }
+        &.sticky-active::before {
+            background-color: var(--dark-80);
+            backdrop-filter: blur(0.5rem);
+        }
+        ul,
+        li {
+            margin: 0;
+        }
+    }
     #XpSwiper {
         position: relative;
+        &.loading {
+            &::before,
+            .slide-item {
+                opacity: 0.2;
+            }
+        }
         &::before {
             content: "";
             position: absolute;

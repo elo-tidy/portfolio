@@ -23,13 +23,19 @@
     margin-top: 2rem;
     font-size: var(--text-base);
     @apply title-picto;
-    a {
+    a,
+    .button {
         color: var(--hightlight);
         background-color: var(--dark-50);
         border: 0.1rem solid var(--hightlight);
         padding: 1.1rem 3rem;
         display: inline-block;
         position: relative;
+        /* text-transform: inherit; */
+        /* font-weight: inherit; */
+        span {
+            font-weight: inherit;
+        }
     }
     a::before,
     a::after {
@@ -50,6 +56,22 @@
     }
     a:is(:hover, :focus) {
         border-color: var(--primary);
+    }
+    .button {
+        padding: clamp(0.5rem, -0.5rem + 1.563vw, 1.1rem)
+            clamp(1rem, -2.333rem + 5.208vw, 3rem);
+        padding: 0.5rem clamp(1rem, -0.667rem + 2.604vw, 2rem);
+        font-weight: initial;
+    }
+    .button:is(:focus) {
+        box-shadow: 0 0 0rem 0.2rem var(--primary-80) !important;
+        border-color: var(--dark) !important;
+    }
+    .button[aria-pressed="true"],
+    .button:is(:hover) {
+        border-color: var(--light-80);
+        background-color: var(--light-80);
+        color: var(--dark);
     }
     a:is(:hover, :focus)::before,
     a:is(:hover, :focus)::after {

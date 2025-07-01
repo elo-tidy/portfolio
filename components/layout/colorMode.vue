@@ -10,7 +10,6 @@ const dataState = ref("closed");
 const dataTitle = ref("Ouvrir le panneau de sélection de couleurs");
 
 const togglePanel = (): void => {
-    console.log("test" + isPanelOpen);
     isPanelOpen.value = !isPanelOpen.value;
     isPanelOpen.value
         ? ((dataState.value = "open"),

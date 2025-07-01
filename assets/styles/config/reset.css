@@ -169,6 +169,9 @@ button *,
 .button * {
     transition: all 0.3s ease;
 }
+button {
+    cursor: pointer;
+}
 a img,
 :link img,
 :visited img {

@@ -25,6 +25,30 @@ const { data, error } = await useAsyncData<Xp>(
     },
 );
 
+const updatedExperiences = ref<Xp | null>(null);
+const activeFilter = ref<"xp" | "course" | null>(null);
+const loading = ref(false);
+const loadFilteredData = async (rpcName: string, filter: "xp" | "course") => {
+    loading.value = true;
+    const { data, error } = await client.rpc(rpcName);
+
+    if (error) {
+        console.error(`Error fetching ${rpcName}:`, error);
+    } else {
+        updatedExperiences.value = data as Xp;
+        activeFilter.value = filter;
+    }
+
+    loading.value = false;
+};
+const resetData = () => {
+    updatedExperiences.value = null;
+    activeFilter.value = null;
+};
+const currentExperiences = computed(
+    () => updatedExperiences.value ?? data.value,
+);
+
 const containerRef = ref<null>(null);
 const activeIndex = ref(0);
 // const slides = ref(Array.from({ length: data.value?.length ?? 0 }));
@@ -74,15 +98,107 @@ const swiper = useSwiper(containerRef, {
         },
     },
 });
+
+watch(loading, (isLoading) => {
+    if (isLoading) {
+        document.body.classList.add("reveal-is-open");
+    } else {
+        document.body.classList.remove("reveal-is-open");
+    }
+});
+onMounted(() => {
+    const stickyElement = document.querySelector<HTMLElement>("#filters");
+
+    if (stickyElement) {
+        window.addEventListener("scroll", () => {
+            const rect = stickyElement.getBoundingClientRect();
+
+            if (rect.top === 0) {
+                stickyElement.classList.add("sticky-active");
+            } else {
+                stickyElement.classList.remove("sticky-active");
+            }
+        });
+    }
+});
 </script>
 <template>
     <div v-if="data" id="experiences" class="section">
         <div id="xp-content" class="bloc">
             <genericTitle title="Parcours professionnel et formations" />
-
-            <swiper-container id="XpSwiper" ref="containerRef" :init="false">
+            <div id="filters">
+                <ul
+                    class="grid grid-flow-dense justify-end justify-items-end gap-x-2 gap-y-2 md:grid-flow-col md:gap-y-0"
+                >
+                    <li class="cta">
+                        <button
+                            type="button"
+                            title="Afficher uniquement les expériences"
+                            class="button"
+                            :aria-pressed="
+                                activeFilter === 'xp' ? 'true' : 'false'
+                            "
+                            @click="
+                                () =>
+                                    loadFilteredData(
+                                        'get_experiences_xp_data',
+                                        'xp',
+                                    )
+                            "
+                        >
+                            Expériences
+                        </button>
+                    </li>
+                    <li class="cta">
+                        <button
+                            type="button"
+                            title="Afficher uniquement les formations"
+                            class="button"
+                            :aria-pressed="
+                                activeFilter === 'course' ? 'true' : 'false'
+                            "
+                            @click="
+                                () =>
+                                    loadFilteredData(
+                                        'get_experiences_formations_data',
+                                        'course',
+                                    )
+                            "
+                        >
+                            Formations
+                        </button>
+                    </li>
+                    <li class="cta col-span-2 md:col-span-1">
+                        <button
+                            type="button"
+                            title="Réinitialiser les données"
+                            class="button"
+                            :aria-pressed="
+                                activeFilter === null ? 'true' : 'false'
+                            "
+                            @click="resetData"
+                        >
+                            Toutes les données
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <transition name="fade"
+                ><div v-if="loading" class="loader-wrapper">
+                    <div class="loader">
+                        <p class="sr-only">Chargement en cours...</p>
+                    </div>
+                </div></transition
+            >
+            <swiper-container
+                id="XpSwiper"
+                ref="containerRef"
+                :init="false"
+                :class="loading ? 'loading' : null"
+                :swiper="swiper"
+            >
                 <swiper-slide
-                    v-for="(slideGr, i) in data"
+                    v-for="(slideGr, i) in currentExperiences"
                     class="slide flex flex-col"
                     :aria-current="activeIndex === i ? 'true' : null"
                     :aria-hidden="activeIndex === i ? 'false' : 'true'"
