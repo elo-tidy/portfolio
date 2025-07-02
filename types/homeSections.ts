@@ -58,4 +58,4 @@ export type XpSkills = SkillsData;
 export type XpItem = Tables<"experiences"> & {
     skills: XpSkills;
 };
-export type Xp = XpItem[];
+export type Xp = XpItem[][];

@@ -200,7 +200,7 @@ onMounted(() => {
                 <swiper-slide
                     v-for="(slideGr, i) in currentExperiences"
                     class="slide flex flex-col"
-                    :aria-current="activeIndex === i ? 'true' : null"
+                    :aria-current="activeIndex === i ? 'true' : undefined"
                     :aria-hidden="activeIndex === i ? 'false' : 'true'"
                 >
                     <div

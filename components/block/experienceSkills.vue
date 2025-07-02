@@ -8,26 +8,26 @@ interface Props {
 }
 const props = defineProps<Props>();
 
-const skillsArray: Array<{ name: string }> = [];
-const skillsData = props.skills;
-
-if (skillsData) {
-    skillsData.forEach((skill) => {
-        if (skill.subtype_skills) {
-            skill.subtype_skills.forEach((skillItem) => {
-                skillsArray.push({ name: skillItem });
-            });
-        }
-    });
-}
+const skillsArray = computed(() => {
+    const arr: Array<{ name: string }> = [];
+    if (props.skills) {
+        props.skills.forEach((skill) => {
+            if (skill.subtype_skills) {
+                skill.subtype_skills.forEach((skillItem) => {
+                    arr.push({ name: skillItem });
+                });
+            }
+        });
+    }
+    return arr;
+});
 </script>
 
-<!-- <template v-for="skill in skillsData"> -->
 <template>
     <genericTags
         v-if="type_name != null"
         v-bind="
-            skillsData.length > 0
+            props.skills.length > 0
                 ? { 'aria-describedby': `${id}-skills-${typeid}` }
                 : {}
         "
