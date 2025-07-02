@@ -18,6 +18,7 @@
 }
 
 .mode-dark {
+    color-scheme: dark;
     --primary: oklch(var(--primary-init));
     --primary-10: oklch(var(--primary-init) / 0.1);
     --primary-30: oklch(var(--primary-init) / 0.3);
@@ -42,6 +43,7 @@
 }
 
 .mode-light {
+    color-scheme: light;
     --primary: oklch(
         calc(var(--primary-init-l) * 0.55) calc(var(--primary-init-c) / 1.32)
             var(--primary-init-h)
