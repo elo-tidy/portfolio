@@ -28,7 +28,10 @@ const { data, error } = await useAsyncData<Xp>(
 const updatedExperiences = ref<Xp | null>(null);
 const activeFilter = ref<"xp" | "course" | null>(null);
 const loading = ref(false);
-const loadFilteredData = async (rpcName: string, filter: "xp" | "course") => {
+const loadFilteredData = async (
+    rpcName: "get_experiences_xp_data" | "get_experiences_formations_data",
+    filter: "xp" | "course",
+) => {
     loading.value = true;
     const { data, error } = await client.rpc(rpcName);
 
@@ -98,6 +101,19 @@ const swiper = useSwiper(containerRef, {
         },
     },
 });
+
+const scrollToSliderTop = () => {
+    const section = document.getElementById("XpSwiper");
+    const yOffset: number =
+        -1 * (document.getElementById("filters")?.clientHeight ?? 0);
+    if (section) {
+        const y =
+            section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        setTimeout(() => {
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }, 100);
+    }
+};
 
 watch(loading, (isLoading) => {
     if (isLoading) {
@@ -171,7 +187,7 @@ onMounted(() => {
                     <li class="cta col-span-2 md:col-span-1">
                         <button
                             type="button"
-                            title="Réinitialiser les données"
+                            title="Afficher toutes les données"
                             class="button"
                             :aria-pressed="
                                 activeFilter === null ? 'true' : 'false'
@@ -223,6 +239,7 @@ onMounted(() => {
                     class="swiper-btn-prev"
                     type="button"
                     title="Voir les expériences précédentes"
+                    @click="scrollToSliderTop"
                 >
                     <span class="sr-only"
                         >Voir les expériences précédentes</span
@@ -232,6 +249,7 @@ onMounted(() => {
                     class="swiper-btn-next"
                     type="button"
                     title="Voir les expériences suivantes"
+                    @click="scrollToSliderTop"
                 >
                     <span class="sr-only">Voir les expériences suivantes</span>
                 </button>

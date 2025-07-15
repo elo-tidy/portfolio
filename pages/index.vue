@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+import { useActiveSection } from "~/composables/useActiveSection";
+
+const { setActiveSection } = useActiveSection();
 const observerOptions = {
     root: null,
     rootMargin: "0px 0px -100% 0px",
@@ -8,32 +11,16 @@ const imageReady = ref(false);
 
 onMounted(() => {
     const img = new Image();
-    img.src = "/bgi.webp"; // Image réelle (dans /public)
+    img.src = "/bgi.webp";
     img.onload = () => {
         imageReady.value = true;
     };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             const id: string | null = entry.target.getAttribute("id");
-            const eltToActive: HTMLElement | null | undefined =
-                document.querySelector(
-                    `#header-nav a[href="#${id}"]`,
-                )?.parentElement;
-            /*const otherEl: HTMLElement | null | undefined =
-                document.querySelector(
-                    `#header-nav a:not([href="#${id}"])`,
-                )?.parentElement;*/
-            // const li = document.querySelectorAll("#header-nav li");
-            if (entry.isIntersecting && eltToActive) {
-                // eltToActive.className = "";
-                // (eltToActive as HTMLElement).removeAttribute("style");
-                eltToActive.classList.add("active");
-                eltToActive.setAttribute("aria-current", "true");
-                // aria-current="true"
-                // getPrevNextEl();
-            } else {
-                eltToActive?.classList.remove("active");
-                eltToActive?.removeAttribute("aria-current");
+
+            if (entry.isIntersecting) {
+                setActiveSection(entry.target.id);
             }
         });
     }, observerOptions);

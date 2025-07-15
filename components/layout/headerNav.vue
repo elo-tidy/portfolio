@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { useActiveSection } from "~/composables/useActiveSection";
 const isOpen = ref(false);
 const dataState = ref("closed");
 const dataTitle = ref("Ouvrir le menu principal");
 const ariaHidden = ref(!isOpen.value);
+const { activeSection } = useActiveSection();
 
 const toggleMenu = (): void => {
     isOpen.value = !isOpen.value;
@@ -15,6 +17,7 @@ const toggleMenu = (): void => {
           document.body.classList.remove("reveal-is-open"));
     ariaHidden.value = !isOpen.value;
 };
+
 const removeTransition = () => {
     const currentDevice = getBreakpoints();
     if (currentDevice !== "is-lg+") {
@@ -26,7 +29,6 @@ const removeTransition = () => {
         }, 500);
     }
 };
-
 onMounted(() => {
     const currentDevice = getBreakpoints();
     const resetRevealOverlay = (currentDevice: string) => {
@@ -85,18 +87,27 @@ onMounted(() => {
     >
         <nav role="navigation" aria-label="Menu">
             <ul>
-                <li>
-                    <NuxtLink to="#about" @click="removeTransition"
+                <li :class="{ active: activeSection === 'about' }">
+                    <NuxtLink
+                        :aria-current="activeSection === 'about'"
+                        to="#about"
+                        @click="removeTransition"
                         ><span>Profil</span></NuxtLink
                     >
                 </li>
-                <li>
-                    <NuxtLink to="#skills" @click="removeTransition"
+                <li :class="{ active: activeSection === 'skills' }">
+                    <NuxtLink
+                        :aria-current="activeSection === 'skills'"
+                        to="#skills"
+                        @click="removeTransition"
                         ><span>Compétences</span></NuxtLink
                     >
                 </li>
-                <li>
-                    <NuxtLink to="#experiences" @click="removeTransition"
+                <li :class="{ active: activeSection === 'experiences' }">
+                    <NuxtLink
+                        :aria-current="activeSection === 'experiences'"
+                        to="#experiences"
+                        @click="removeTransition"
                         ><span
                             >Parcours professionnel et formations</span
                         ></NuxtLink
