@@ -1,6 +1,6 @@
 # Portfolio
 
-![Version](https://img.shields.io/badge/version--informational)
+![Version](https://img.shields.io/badge/version-v1.0.0-informational)
 
 ## Fonctionnalités
 
