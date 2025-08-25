@@ -65,7 +65,7 @@ jobs:
 
             - name: Get latest tag
               id: get_version
-              run: echo "VERSION=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+              run: echo "VERSION=$(git describe --tags --abbrev=0 | sed 's/^v//')" >> $GITHUB_OUTPUT
 
             - name: Update version badge in README.md
               run: |
