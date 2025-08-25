@@ -1,6 +1,7 @@
 # Portfolio
 
 ![Version](https://img.shields.io/badge/version-v1.0.0-informational)
+![Tests](https://github.com/elo-tidy/portfolio/actions/workflows/node.js.yml/badge.svg)
 
 ## Fonctionnalités
 
@@ -11,7 +12,7 @@
 - Section parcours professionnel et formations avec filtres sticky permettant de sélectionner uniquement les expériences professionnnelles, uniquement les formations ou d'afficher le tout
 - Navigation sticky avec section courante active
 - Liens directs sticky de contact (email, linkeding et du CV papier)
-- Animations expérimentales CSS scroll-driven 
+- Animations expérimentales CSS scroll-driven
 - Responsive
 
 ## Stack
@@ -34,3 +35,4 @@ git clone https://github.com/elo-tidy/portfolio.git
 cd portfolio
 npm install
 npm run dev
+```
