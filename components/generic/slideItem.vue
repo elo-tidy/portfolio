@@ -4,23 +4,26 @@ interface Props {
     slide: XpItem;
 }
 const props = defineProps<Props>();
-const startDate: string = new Date(props.slide.startDate).toLocaleDateString(
-    "fr-FR",
-    {
+const startDate = computed(() =>
+    new Date(props.slide.startDate).toLocaleDateString("fr-FR", {
         year: "numeric",
         month: "long",
-    },
+    }),
 );
-const endDate: string | null = props.slide.endDate
-    ? new Date(props.slide.endDate).toLocaleDateString("fr-FR", {
-          year: "numeric",
-          month: "long",
-      })
-    : null;
-const slideDate: string =
-    startDate === endDate || endDate == null
-        ? startDate
-        : startDate + " - " + endDate;
+const endDate = computed(() =>
+    props.slide.endDate
+        ? new Date(props.slide.endDate).toLocaleDateString("fr-FR", {
+              year: "numeric",
+              month: "long",
+          })
+        : null,
+);
+const slideDate = computed(() => {
+    if (startDate.value === endDate.value || endDate.value == null) {
+        return startDate.value;
+    }
+    return `${startDate.value} - ${endDate.value}`;
+});
 
 const calculateDuration = () => {
     if (!props.slide.endDate) return "";
@@ -46,9 +49,9 @@ const calculateDuration = () => {
 
     return ` (${months} mois)`;
 };
-const duration: string | undefined = props.slide.course
-    ? ""
-    : calculateDuration();
+const duration = computed(() =>
+    props.slide.course ? "" : calculateDuration(),
+);
 </script>
 
 <template>
