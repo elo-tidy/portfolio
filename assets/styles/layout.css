@@ -85,6 +85,7 @@
             color: var(--hightlight);
             border-bottom: 0.1rem solid transparent;
             font-weight: 600;
+            line-height: 1.4;
         }
     }
     li a:is(:hover, :focus) {

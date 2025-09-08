@@ -26,6 +26,11 @@ export default defineNuxtConfig({
                     name: "theme-color",
                     content: "#90ff00",
                 },
+                {
+                    name: "description",
+                    content:
+                        "Éloïse Lombard – Développeuse front-end Vue/Nuxt, experte en intégration web certifiée Opquast. Interfaces accessibles et optimisées pour l’expérience utilisateur.",
+                },
             ],
             link: [
                 { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },

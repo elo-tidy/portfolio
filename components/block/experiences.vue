@@ -58,6 +58,7 @@ const activeIndex = ref(0);
 
 const swiper = useSwiper(containerRef, {
     a11y: {
+        id: "XpSwiper",
         prevSlideMessage: "Voir les expériences précédentes",
         nextSlideMessage: "Voir les expériences suivantes",
         slideLabelMessage: "{{index}} sur {{slidesLength}}",
