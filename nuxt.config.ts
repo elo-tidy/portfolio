@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     },
     debug: false,
     logLevel: process.env.NODE_ENV === "production" ? "silent" : "info",
+    features: {
+        inlineStyles: false,
+    },
     app: {
         head: {
             htmlAttrs: {
