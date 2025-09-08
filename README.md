@@ -1,6 +1,6 @@
 # Portfolio
 
-![Version](https://img.shields.io/badge/version-1.0.0-informational)
+![Version](https://img.shields.io/badge/version-1.0.1-informational)
 ![Tests](https://github.com/elo-tidy/portfolio/actions/workflows/node.js.yml/badge.svg)
 
 ## Fonctionnalités
