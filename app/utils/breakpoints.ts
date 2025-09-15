@@ -14,11 +14,11 @@ export function getBreakpoints(): string {
     breakpoints["currentWidth"] = currentWindowWidth;
     // Get current device
     switch (true) {
-        case currentWindowWidth < breakpoints.sm:
+        case currentWindowWidth < (breakpoints.sm ?? 0):
             return "is-sm";
-        case currentWindowWidth < breakpoints.md:
+        case currentWindowWidth < (breakpoints.md ?? 0):
             return "is-md";
-        case currentWindowWidth < breakpoints.lg:
+        case currentWindowWidth < (breakpoints.lg ?? 0):
             return "is-lg";
         default:
             return "is-lg+";
