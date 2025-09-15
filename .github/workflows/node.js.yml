@@ -34,7 +34,7 @@ jobs:
             - name: Install Dependencies
               run: pnpm install --frozen-lockfile
             - name: Execute Unit tests
-              run: npm run test:unit
+              run: pnpm run test:unit
     release:
         needs: build
         runs-on: ubuntu-latest
