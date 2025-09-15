@@ -106,6 +106,6 @@ onMounted(() => {
         <blockExperiences />
     </div>
     <div v-if="imageReady" id="anim-img">
-        <NuxtImg src="bgi.webp" height="1920" alt="1229" />
+        <NuxtImg src="bgi.webp" width="1920" height="1229" alt="" />
     </div>
 </template>
