@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { XpItem } from "~/types/homeSections";
+import type { XpItem } from "~/../types/homeSections";
 interface Props {
     slide: XpItem;
 }

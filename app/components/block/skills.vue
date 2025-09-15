@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { Database } from "~/types/supabase";
-import type { Skills } from "~/types/homeSections";
+import type { Database } from "~/../types/supabase";
+import type { Skills } from "~/../types/homeSections";
 const client = useSupabaseClient<Database>();
 const nuxtApp = useNuxtApp();
 

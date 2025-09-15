@@ -1,5 +1,5 @@
-import type { About } from "~/types/homeSections";
-import type { Database } from "~/types/supabase";
+import type { About } from "~/../types/homeSections";
+import type { Database } from "~/../types/supabase";
 
 export function useIntroData() {
     const client = useSupabaseClient<Database>();

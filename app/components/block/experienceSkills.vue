@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { SkillSubtype } from "~/types/homeSections";
+import type { SkillSubtype } from "~/../types/homeSections";
 interface Props {
     skills: SkillSubtype[];
     type_name: string | null;
