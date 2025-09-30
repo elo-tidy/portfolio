@@ -1,6 +1,6 @@
 # Portfolio
 
-![Version](https://img.shields.io/badge/version-1.1.0-informational)
+![Version](https://img.shields.io/badge/version-1.1.1-informational)
 ![Tests](https://github.com/elo-tidy/portfolio/actions/workflows/node.js.yml/badge.svg)
 
 ## Fonctionnalités
@@ -17,7 +17,7 @@
 
 ## Stack
 
-- Nuxt 3
+- Nuxt 4
 - Tailwind 4
 - Vercel
 - Supabase
@@ -33,6 +33,6 @@
 ```bash
 git clone https://github.com/elo-tidy/portfolio.git
 cd portfolio
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
