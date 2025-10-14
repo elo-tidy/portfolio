@@ -11,7 +11,7 @@ const currentYear: number = new Date().getFullYear();
                         class="top-btn"
                         title="Retourner en haut de page"
                     >
-                        <span class="sr-only">Accueil</span>
+                        <span class="sr-only">Retourner en haut de page</span>
                     </NuxtLink>
                 </p>
             </div>
