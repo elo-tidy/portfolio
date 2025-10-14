@@ -18,7 +18,9 @@
 ## Stack
 
 - Nuxt 4
+- Typescript
 - Tailwind 4
+- CSS
 - Vercel
 - Supabase
 - Vitest
