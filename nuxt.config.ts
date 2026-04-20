@@ -12,9 +12,6 @@ export default defineNuxtConfig({
         inlineStyles: false,
     },
     ssr: true,
-    nitro: {
-        preset: "static",
-    },
     app: {
         head: {
             htmlAttrs: {
