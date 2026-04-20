@@ -67,6 +67,9 @@ export default defineNuxtConfig({
         "@nuxtjs/html-validator",
         "nuxt-swiper",
     ],
+    htmlValidator: {
+        failOnError: false,
+    },
     supabase: {
         redirect: false,
     },
