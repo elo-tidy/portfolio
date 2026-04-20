@@ -66,6 +66,11 @@ export default defineNuxtConfig({
     ],
     htmlValidator: {
         failOnError: false,
+        options: {
+            rules: {
+                "long-title": "off",
+            },
+        },
     },
     supabase: {
         redirect: false,
