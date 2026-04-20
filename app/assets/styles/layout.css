@@ -161,18 +161,18 @@
 
     .gm a {
         background-image: url(../images/icons/mail.svg);
-        background-size: 2.2rem auto;
-        height: 2.1rem;
+        background-size: 2.8rem auto;
+        height: 2.4rem;
     }
     .li a {
         background-image: url(../images/icons/linkedin.svg);
 
-        background-size: auto 2rem;
+        background-size: auto 2.5rem;
         height: 2.5rem;
     }
     .cv a {
         background-image: url(../images/icons/download-cv.svg);
-        background-size: auto 2.7rem;
+        background-size: auto 2.8rem;
         height: 3.1rem;
     }
 }
@@ -531,6 +531,10 @@
         }
         li.gm {
             margin: 0 0.5rem 0 1rem;
+            a {
+                background-size: 2.5rem auto !important;
+                background-position: center 2.2rem;
+            }
         }
         li a {
             height: 100% !important;

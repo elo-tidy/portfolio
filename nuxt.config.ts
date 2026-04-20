@@ -11,12 +11,16 @@ export default defineNuxtConfig({
     features: {
         inlineStyles: false,
     },
+    ssr: true,
+    nitro: {
+        preset: "static",
+    },
     app: {
         head: {
             htmlAttrs: {
                 lang: "fr",
             },
-            title: "Eloïse Lombard - Portfolio",
+            title: "Eloïse Lombard - Développeur frontend - Portfolio",
             meta: [
                 {
                     name: "viewport",
@@ -29,12 +33,24 @@ export default defineNuxtConfig({
                 {
                     name: "description",
                     content:
-                        "Éloïse Lombard – Développeuse front-end Vue/Nuxt, experte en intégration web certifiée Opquast. Interfaces accessibles et optimisées pour l’expérience utilisateur.",
+                        "Éloïse Lombard - Développeur frontend Vue/Nuxt, experte en intégration web certifiée Opquast. Interfaces accessibles et optimisées pour l’expérience utilisateur.",
                 },
             ],
             link: [
                 { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
                 { rel: "icon", type: "image/jpg", href: "/favicon.ico" },
+                {
+                    rel: "preload",
+                    as: "image",
+                    href: "/bgi.webp",
+                    fetchpriority: "high",
+                },
+                { rel: "preconnect", href: "https://fonts.googleapis.com" },
+                {
+                    rel: "preconnect",
+                    href: "https://fonts.gstatic.com",
+                    crossorigin: "",
+                },
             ],
         },
     },

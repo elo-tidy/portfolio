@@ -1,32 +1,45 @@
 <script lang="ts" setup>
 import { useActiveSection } from "~/composables/useActiveSection";
 
-const { setActiveSection } = useActiveSection();
+const { activeSection, setActiveSection } = useActiveSection();
 const observerOptions = {
     root: null,
-    rootMargin: "0px 0px -100% 0px",
+    rootMargin: "0px 0px -99% 0px",
     threshold: 0,
 };
-const imageReady = ref(false);
+// const imageReady = ref(false);
+const sections = ref<HTMLElement[]>([]);
+let observer: IntersectionObserver | null = null;
 
-onMounted(() => {
-    const img = new Image();
-    img.src = "/bgi.webp";
-    img.onload = () => {
-        imageReady.value = true;
-    };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const id: string | null = entry.target.getAttribute("id");
+const unobserveSections = () => {
+    if (!observer) return;
 
+    const currentDevice = getBreakpoints();
+
+    if (currentDevice !== "is-lg+") {
+        sections.value.forEach((el) => observer!.unobserve(el));
+    } else {
+        sections.value.forEach((el) => observer!.observe(el));
+    }
+};
+
+onMounted(async () => {
+    // const img = new Image();
+    // img.src = "/bgi.webp";
+    // img.onload = () => {
+    //     imageReady.value = true;
+    // };
+    sections.value = Array.from(document.querySelectorAll(".section"));
+
+    observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
             if (entry.isIntersecting) {
                 setActiveSection(entry.target.id);
             }
-        });
+        }
     }, observerOptions);
-    document.querySelectorAll(".section").forEach((section) => {
-        observer.observe(section);
-    });
+
+    sections.value.forEach((el) => observer?.observe(el));
 
     /*const getPrevNextEl = function () {
         // const degre: number = 0;
@@ -59,30 +72,9 @@ onMounted(() => {
         console.log("test");
     };*/
 
-    const unobserveSections = () => {
-        const currentDevice = getBreakpoints();
-
-        if (currentDevice !== "is-lg+") {
-            document.querySelectorAll(".section").forEach((section) => {
-                observer.unobserve(section);
-            });
-
-            const navElt = document.querySelectorAll("#header-nav li");
-            navElt.forEach((element) => {
-                if (element.classList.contains("active")) {
-                    element.classList.remove("active");
-                }
-            });
-        } else {
-            document.querySelectorAll(".section").forEach((section) => {
-                observer.observe(section);
-            });
-        }
-    };
     unobserveSections();
-    window.addEventListener("resize", () => {
-        unobserveSections();
-    });
+    window.addEventListener("resize", unobserveSections);
+
     const storedPrimary = localStorage.getItem("primary-init");
     const storedL = localStorage.getItem("primary-init-l");
     const storedC = localStorage.getItem("primary-init-c");
@@ -98,14 +90,33 @@ onMounted(() => {
         document.documentElement.style.setProperty("--primary-init-h", storedH);
     }
 });
+onUnmounted(() => {
+    window.removeEventListener("resize", unobserveSections);
+    observer?.disconnect();
+});
 </script>
 <template>
     <div class="container-bloc mx-auto">
-        <blockAbout />
-        <blockSkills />
-        <blockExperiences />
+        <blockAbout :class="{ active: activeSection === 'about' }" />
+        <blockSkills :class="{ active: activeSection === 'skills' }" />
+        <blockExperiences
+            :class="{ active: activeSection === 'experiences' }"
+        />
     </div>
-    <div v-if="imageReady" id="anim-img">
+    <div id="anim-img">
+        <NuxtImg
+            src="/bgi.webp"
+            width="1920"
+            height="1229"
+            alt=""
+            priority
+            fetchpriority="high"
+            loading="eager"
+            quality="55"
+            preload
+        />
+    </div>
+    <!-- <div v-if="imageReady" id="anim-img">
         <NuxtImg src="bgi.webp" width="1920" height="1229" alt="" />
-    </div>
+    </div> -->
 </template>
