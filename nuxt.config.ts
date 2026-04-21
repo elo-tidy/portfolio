@@ -61,17 +61,17 @@ export default defineNuxtConfig({
         "@nuxtjs/google-fonts",
         "@nuxt/image",
         "@nuxt/test-utils/module",
-        "@nuxtjs/html-validator",
+        // "@nuxtjs/html-validator",
         "nuxt-swiper",
     ],
-    htmlValidator: {
-        failOnError: false,
-        options: {
-            rules: {
-                "long-title": "off",
-            },
-        },
-    },
+    // htmlValidator: {
+    //     failOnError: false,
+    //     options: {
+    //         rules: {
+    //             "long-title": "off",
+    //         },
+    //     },
+    // },
     supabase: {
         redirect: false,
     },
