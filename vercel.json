@@ -1,0 +1,4 @@
+{
+  "framework": "nuxtjs",
+  "outputDirectory": ".output/public"
+}
