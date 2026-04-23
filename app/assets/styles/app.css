@@ -3,8 +3,11 @@
 @theme {
     --*: initial;
     --alternative: Arial, Verdana;
-    --regular: Open Sans;
-    --title: Salsa;
+    --font-default: "Open Sans";
+    --font-title: "Salsa";
+
+    --regular: var(--font-default), var(--alternative);
+    --title: var(--font-title), var(--alternative);
     --text-base: clamp(1.3em, 0.969rem + 0.517vw, 1.6em);
     --spacing: 1rem;
     --breakpoint-sm: 20rem;

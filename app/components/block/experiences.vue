@@ -260,6 +260,251 @@ onMounted(() => {
     </div>
 </template>
 <style lang="css" scoped>
-@reference "~/assets/styles/config/utilities.css";
-@import "~/assets/styles/experiences.css";
+    @reference "~/assets/styles/config/utilities.css";
+    /* @import "~/assets/styles/experiences.css"; */
+    #experiences {
+        #filters {
+            position: sticky;
+            top: 0;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            /* z-index: 2; */
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: 100vw;
+                transform: translateX(-50%);
+                height: 100%;
+
+                z-index: -1;
+                transition: 0.3s all ease;
+            }
+            &.sticky-active::before {
+                background-color: var(--dark-80);
+                backdrop-filter: blur(0.5rem);
+            }
+            ul,
+            li {
+                margin: 0;
+            }
+        }
+        #XpSwiper {
+            position: relative;
+            z-index: -1;
+            &.loading {
+                &::before,
+                .slide-item {
+                    opacity: 0.2;
+                }
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: 3.5rem;
+                left: clamp(0.7rem, -0.867rem + 1.531vw, 1rem);
+                width: 0.2rem;
+                height: calc(100% - 3.5rem);
+                background-color: var(--light);
+            }
+        }
+
+        .slide {
+            padding-left: clamp(5rem, -73.367rem + 76.531vw, 20rem);
+            /* overflow: hidden; */
+            font-size: inherit;
+            margin: 0;
+        }
+        .slide-item {
+            padding: 3rem 1rem;
+            position: relative;
+        }
+        .slide-item:not(.git-branch) {
+            &::before {
+                content: "";
+                position: absolute;
+                top: 9.8rem;
+                left: clamp(-18.9rem, 72.6rem + -75vw, -4.2rem);
+                width: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
+                height: clamp(1.5rem, -1.112rem + 2.551vw, 2rem);
+                background-color: var(--light);
+                border-radius: 50%;
+                transform: translateX(-50%);
+            }
+            &::after {
+                border-radius: 0 5.4rem 0 0;
+                border-top: 0.2rem solid var(--primary);
+                border-right: 0.2rem solid var(--primary);
+                content: "";
+                position: absolute;
+                top: clamp(10.4rem, 7.788rem + 2.551vw, 10.9rem);
+                left: clamp(-19rem, 72.5rem + -75vw, -4.3rem);
+                width: clamp(2.2rem, -14.518rem + 16.327vw, 5.4rem);
+                height: calc(100% - clamp(6.8rem, 4.188rem + 2.551vw, 7.3rem));
+                z-index: -1;
+            }
+        }
+
+        .slide-item:not(:first-child) {
+            background-image:
+                repeating-linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--primary) 0.4rem,
+                    transparent 0.4rem,
+                    transparent 0.8rem
+                ),
+                repeating-linear-gradient(
+                    180deg,
+                    var(--primary),
+                    var(--primary) 0.4rem,
+                    transparent 0.4rem,
+                    transparent 0.8rem
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--primary) 0.4rem,
+                    transparent 0.4rem,
+                    transparent 0.8rem
+                ),
+                repeating-linear-gradient(
+                    180deg,
+                    var(--primary),
+                    var(--primary) 0.4rem,
+                    transparent 0.4rem,
+                    transparent 0.8rem
+                );
+            background-position:
+                0.4rem 0,
+                right top,
+                left bottom,
+                left top;
+            background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+            background-size:
+                100% 0.1rem,
+                0,
+                0,
+                0;
+        }
+        .slide-item.odd {
+            background-color: var(--dark-30);
+        }
+
+        .slide-item:last-child::after {
+            height: calc(100% - 10rem);
+        }
+        .slide-item:last-child::after {
+            display: none;
+        }
+        .swiper-nav {
+            margin-left: clamp(5rem, -73.367rem + 76.531vw, 20rem);
+            margin-top: 3rem;
+        }
+        .swiper-pagination p {
+            margin: 0;
+        }
+    }
+
+    @keyframes move-dash-right {
+        to {
+            background-position:
+                12rem 0,
+                right top,
+                left bottom,
+                left top;
+        }
+    }
+    @-webkit-keyframes move-dash-right {
+        to {
+            background-position:
+                12rem 0,
+                right top,
+                left bottom,
+                left top;
+        }
+    }
+    @-moz-keyframes move-dash-right {
+        to {
+            background-position:
+                12rem 0,
+                right top,
+                left bottom,
+                left top;
+        }
+    }
+    @-o-keyframes move-dash-right {
+        to {
+            background-position:
+                12rem 0,
+                right top,
+                left bottom,
+                left top;
+        }
+    }
+
+    @keyframes move-dash-left {
+        to {
+            background-position:
+                -12rem 0,
+                right top,
+                left bottom,
+                left top;
+        }
+    }
+    @-webkit-keyframes move-dash-left {
+        to {
+            background-position:
+                -12rem 0,
+                right top,
+                left bottom,
+                left top;
+        }
+    }
+    @-moz-keyframes move-dash-left {
+        to {
+            background-position:
+                -12rem 0,
+                right top,
+                left bottom,
+                left top;
+        }
+    }
+    @-o-keyframes move-dash-left {
+        to {
+            background-position:
+                -12rem 0,
+                right top,
+                left bottom,
+                left top;
+        }
+    }
+
+    @supports (animation-range: entry 0% exit 100%) {
+        #experiences {
+            view-timeline-name: --slide-item-scroll;
+            view-timeline-axis: block;
+
+            .slide-item:not(.odd):not(:first-child) {
+                -webkit-animation: move-dash-right linear both;
+                -moz-animation: move-dash-right linear both;
+                -o-animation: move-dash-right linear both;
+                animation: move-dash-right linear both;
+                animation-timeline: view();
+                animation-range: entry 0% exit 100%;
+                animation-timeline: --slide-item-scroll;
+            }
+            .slide-item.odd:not(:first-child) {
+                -webkit-animation: move-dash-left linear both;
+                -moz-animation: move-dash-left linear both;
+                -o-animation: move-dash-left linear both;
+                animation: move-dash-left linear both;
+                animation-timeline: view();
+                animation-range: entry 0% exit 100%;
+                animation-timeline: --slide-item-scroll;
+            }
+        }
+    }
+
 </style>

@@ -12,6 +12,9 @@ export default defineNuxtConfig({
         inlineStyles: false,
     },
     ssr: true,
+    nitro: {
+        preset: "static",
+    },
     app: {
         head: {
             htmlAttrs: {
@@ -36,18 +39,6 @@ export default defineNuxtConfig({
             link: [
                 { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
                 { rel: "icon", type: "image/jpg", href: "/favicon.ico" },
-                {
-                    rel: "preload",
-                    as: "image",
-                    href: "/bgi.webp",
-                    fetchpriority: "high",
-                },
-                { rel: "preconnect", href: "https://fonts.googleapis.com" },
-                {
-                    rel: "preconnect",
-                    href: "https://fonts.gstatic.com",
-                    crossorigin: "",
-                },
             ],
         },
     },
@@ -58,20 +49,15 @@ export default defineNuxtConfig({
     modules: [
         "@nuxtjs/supabase",
         "@nuxtjs/color-mode",
-        "@nuxtjs/google-fonts",
+        '@nuxt/fonts',
         "@nuxt/image",
         "@nuxt/test-utils/module",
-        // "@nuxtjs/html-validator",
+        "@nuxtjs/html-validator",
         "nuxt-swiper",
     ],
-    // htmlValidator: {
-    //     failOnError: false,
-    //     options: {
-    //         rules: {
-    //             "long-title": "off",
-    //         },
-    //     },
-    // },
+    image: {
+        provider: 'ipx'
+    },
     supabase: {
         redirect: false,
     },
@@ -86,16 +72,5 @@ export default defineNuxtConfig({
         storage: "localStorage", // or 'sessionStorage' or 'cookie'
         storageKey: "nuxt-color-mode",
         // dataValue: 'theme'
-    },
-    googleFonts: {
-        families: {
-            "Open Sans": {
-                wght: [400, 600, 700],
-                ital: [400],
-            },
-            Salsa: {
-                wght: [400],
-            },
-        },
     },
 });
