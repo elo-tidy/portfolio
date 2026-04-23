@@ -20,7 +20,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 lang: "fr",
             },
-            title: "Eloïse Lombard - Développeur frontend - Portfolio",
+            title: "Éloïse Lombard – Développeur frontend Vue.js / Nuxt.js à Besançon (Doubs) | Portfolio",
             meta: [
                 {
                     name: "viewport",
@@ -32,8 +32,7 @@ export default defineNuxtConfig({
                 },
                 {
                     name: "description",
-                    content:
-                        "Éloïse Lombard - Développeur frontend Vue/Nuxt, experte en intégration web certifiée Opquast. Interfaces accessibles et optimisées pour l’expérience utilisateur.",
+                    content: "Éloïse Lombard, développeur frontend Vue.js / Nuxt.js à Besançon (Doubs). Création d’interfaces accessibles et optimisées pour l’expérience utilisateur. Certification Opquast.",                    
                 },
             ],
             link: [
