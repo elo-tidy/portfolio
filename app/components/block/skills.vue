@@ -25,7 +25,8 @@ const { data, error } = await useAsyncData<Skills>(
 
 const group_wording = (subtype: string) => {
     // return subtype === "outils et ressources" || "outils de prototyping"
-    return subtype === "outils et ressources" || subtype === "outils de prototyping"
+    return subtype === "Outils de développement et qualité web" ||
+        subtype === "Prototypage"
         ? subtype
         : `Liste des compétences en ${subtype}`;
 };
@@ -148,129 +149,128 @@ onMounted(() => {
     </div>
 </template>
 <style lang="css" scoped>
-    @reference "~/assets/styles/config/utilities.css";
-    /* @import "~/assets/styles/skills.css"; */
-    #skills {
-        &::after {
-            content: "";
-            position: absolute;
+@reference "~/assets/styles/config/utilities.css";
+/* @import "~/assets/styles/skills.css"; */
+#skills {
+    &::after {
+        content: "";
+        position: absolute;
 
-            background: linear-gradient(
-                0deg,
-                transparent,
-                var(--primary-30),
-                transparent
-            );
-            width: 2px;
-            height: 80%;
-            left: 50%;
-            transform: translateX(50%);
-            z-index: 2;
+        background: linear-gradient(
+            0deg,
+            transparent,
+            var(--primary-30),
+            transparent
+        );
+        width: 2px;
+        height: 80%;
+        left: 50%;
+        transform: translateX(50%);
+        z-index: 2;
+    }
+    #skills-content {
+        gap: 10rem;
+    }
+    .skills {
+        padding-top: clamp(2em, -1.31em + 5.172vw, 5em);
+        padding-bottom: clamp(2em, -1.31em + 5.172vw, 5em);
+        margin-bottom: 0;
+    }
+
+    #hard-skills {
+        li {
+            font-size: 1em;
         }
-        #skills-content {
-            gap: 10rem;
-        }
-        .skills {
-            padding-top: clamp(2em, -1.31em + 5.172vw, 5em);
-            padding-bottom: clamp(2em, -1.31em + 5.172vw, 5em);
+        ul {
             margin-bottom: 0;
         }
-
-        #hard-skills {
-            li {
-                font-size: 1em;
+        .skill-item {
+            margin: 0 0 1.5rem;
+            .skill-label {
+                @apply title-picto-small;
+                margin-top: 1rem;
+                min-height: 2.4rem;
+                max-width: 100%;
+                display: inline-flex;
+                justify-content: center;
             }
-            ul {
-                margin-bottom: 0;
-            }
-            .skill-item {
-                margin: 0 0 1.5rem;
-                .skill-label {
-                    @apply title-picto-small;
-                    margin-top: 1rem;
-                    min-height: 2.4rem;
-                    max-width: 100%;
-                    display: inline-flex;
-                    justify-content: center;
+            .skill-icon {
+                filter: drop-shadow(0 0 0.5rem transparent);
+                /* transition: all 1s ease; */
+                img {
+                    height: clamp(3rem, 1.897rem + 1.724vw, 4rem);
+                    max-width: 6rem;
+                    transition: all 1s ease;
+                    transform: scale(0.9);
                 }
-                .skill-icon {
-                    filter: drop-shadow(0 0 0.5rem transparent);
-                    /* transition: all 1s ease; */
-                    img {
-                        height: clamp(3rem, 1.897rem + 1.724vw, 4rem);
-                        max-width: 6rem;
-                        transition: all 1s ease;
-                        transform: scale(0.9);
-                    }
+            }
+            &.focus .skill-icon {
+                filter: drop-shadow(0 0 0.5rem var(--primary-50));
+                img {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+}
+.mode-light {
+    #skills {
+        & #hard-skills {
+            & .skill-item {
+                .skill-icon img,
+                .highlight-desc {
+                    filter: invert(0.95);
+                }
+                .highlight-desc span {
+                    filter: invert(1);
                 }
                 &.focus .skill-icon {
-                    filter: drop-shadow(0 0 0.5rem var(--primary-50));
-                    img {
-                        transform: scale(1);
-                    }
+                    filter: drop-shadow(0 0 0.5rem var(--primary-80));
                 }
             }
         }
     }
-    .mode-light {
-        #skills {
-            & #hard-skills {
-                & .skill-item {
-                    .skill-icon img,
-                    .highlight-desc {
-                        filter: invert(0.95);
-                    }
-                    .highlight-desc span {
-                        filter: invert(1);
-                    }
-                    &.focus .skill-icon {
-                        filter: drop-shadow(0 0 0.5rem var(--primary-80));
-                    }
+}
+
+/************************/
+/****** Responsive ******/
+/************************/
+@media only screen and (64rem <= width < 89.375rem) {
+    #skills {
+        &::after {
+            left: calc(
+                60% - var(--gap) * 4 / 5 * 3 + var(--gap) * 2.5 +
+                    (100% - var(--container)) / 2
+            );
+        }
+    }
+}
+
+@media only screen and (0 < width < 64rem) {
+    #skills {
+        &::after {
+            display: none;
+        }
+        #skills-content {
+            gap: 4rem;
+        }
+        #hard-skills {
+            .skill-item {
+                .skill-label {
+                    font-size: 1rem;
                 }
             }
         }
-    }
 
-    /************************/
-    /****** Responsive ******/
-    /************************/
-    @media only screen and (64rem <= width < 89.375rem) {
-        #skills {
-            &::after {
-                left: calc(
-                    60% - var(--gap) * 4 / 5 * 3 + var(--gap) * 2.5 +
-                        (100% - var(--container)) / 2
-                );
+        #soft-skills {
+            .skills {
+                margin-top: -2rem;
+                margin-bottom: -3rem;
+            }
+            li:first-child {
+                margin-top: 1rem;
             }
         }
     }
-
-    @media only screen and (0 < width < 64rem) {
-        #skills {
-            &::after {
-                display: none;
-            }
-            #skills-content {
-                gap: 4rem;
-            }
-            #hard-skills {
-                .skill-item {
-                    .skill-label {
-                        font-size: 1rem;
-                    }
-                }
-            }
-
-            #soft-skills {
-                .skills {
-                    margin-top: -2rem;
-                    margin-bottom: -3rem;
-                }
-                li:first-child {
-                    margin-top: 1rem;
-                }
-            }
-        }
-    }
-
+}
 </style>
