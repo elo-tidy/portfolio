@@ -59,9 +59,11 @@ const duration = computed(() =>
         <h3 class="xp-title">{{ slide.title }}{{ duration }}</h3>
         <p v-if="slide.location">{{ slide.location }}</p>
         <p v-if="slide.attendance">{{ slide.attendance }}</p>
-        <p v-if="slide.description" class="xp-desc">
-            {{ slide.description }}
-        </p>
+        <div
+            v-if="slide.description"
+            v-html="slide.description"
+            class="xp-desc"
+        />
     </div>
     <p class="xp-date order-first sm:col-span-1 md:col-span-2 lg:col-span-3">
         {{ slideDate }}

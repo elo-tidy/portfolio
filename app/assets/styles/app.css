@@ -9,6 +9,7 @@
     --regular: var(--font-default), var(--alternative);
     --title: var(--font-title), var(--alternative);
     --text-base: clamp(1.3em, 0.969rem + 0.517vw, 1.6em);
+    --text-small: clamp(1.2rem, 0.979rem + 0.345vw, 1.4rem);
     --spacing: 1rem;
     --breakpoint-sm: 20rem;
     --breakpoint-md: 40rem;
