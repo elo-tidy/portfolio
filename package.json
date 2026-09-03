@@ -3,7 +3,7 @@
     "private": true,
     "type": "module",
     "engines": {
-        "node": "20.x",
+        "node": "24.x",
         "pnpm": "10.16.1"
     },
     "packageManager": "pnpm@10.16.1",
@@ -16,7 +16,7 @@
         "postinstall": "nuxt prepare",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
-        "test:unit": "vitest"
+        "test:unit": "vitest run"
     },
     "dependencies": {
         "@jridgewell/sourcemap-codec": "^1.5.5",
