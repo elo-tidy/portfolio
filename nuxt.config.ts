@@ -32,7 +32,8 @@ export default defineNuxtConfig({
                 },
                 {
                     name: "description",
-                    content: "Éloïse Lombard, développeur frontend Vue.js / Nuxt.js à Besançon (Doubs). Création d’interfaces accessibles et optimisées pour l’expérience utilisateur. Certification Opquast.",                    
+                    content:
+                        "Éloïse Lombard, développeur frontend Vue.js / Nuxt.js à Besançon (Doubs). Création d’interfaces accessibles et optimisées pour l’expérience utilisateur. Certification Opquast.",
                 },
             ],
             link: [
@@ -48,14 +49,18 @@ export default defineNuxtConfig({
     modules: [
         "@nuxtjs/supabase",
         "@nuxtjs/color-mode",
-        '@nuxt/fonts',
+        "@nuxt/fonts",
         "@nuxt/image",
         "@nuxt/test-utils/module",
-        "@nuxtjs/html-validator",
         "nuxt-swiper",
     ],
+
+    $development: {
+        modules: ["@nuxtjs/html-validator"],
+    },
+
     image: {
-        provider: 'ipx'
+        provider: "ipx",
     },
     supabase: {
         redirect: false,
