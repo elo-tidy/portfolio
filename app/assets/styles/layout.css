@@ -166,7 +166,11 @@
     }
     .li a {
         background-image: url(../images/icons/linkedin.svg);
-
+        background-size: auto 2.5rem;
+        height: 2.5rem;
+    }
+    .gh a {
+        background-image: url(../images/icons/github.svg);
         background-size: auto 2.5rem;
         height: 2.5rem;
     }
@@ -514,12 +518,12 @@
         left: inherit;
         bottom: inherit;
         &::before {
-            height: clamp(0.2rem, 0.09rem + 0.172vw, 0.3rem);
-            width: clamp(5rem, 2.727rem + 11.364vw, 10rem);
+            height: clamp(0.1rem, 0.0545rem + 0.2273vw, 0.2rem);
+            width: clamp(2rem, -1.6364rem + 18.1818vw, 10rem);
             left: 0;
             bottom: inherit;
             top: 50%;
-            transform: translate(-100%, -50%);
+            transform: translate(-100%, 0);
             opacity: 1;
         }
         ul,

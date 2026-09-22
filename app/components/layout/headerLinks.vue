@@ -21,6 +21,14 @@ const { data } = useIntroData();
                     ><span>Mon profil LinkedIn</span></NuxtLink
                 >
             </li>
+            <li class="gh">
+                <NuxtLink
+                    to="https://github.com/elo-tidy"
+                    target="_blank"
+                    title="Mon profil Github (nouvelle fenêtre)"
+                    ><span>Mon profil Github</span></NuxtLink
+                >
+            </li>
             <genericCta
                 v-if="data.cvurl"
                 :newwindow="true"
